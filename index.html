@@ -1,34 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!-- Security Headers -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none';">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none';">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="X-Frame-Options" content="DENY">
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
     <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
-    
+
     <!-- Core Meta Tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="description" content="Sujampathi Rathnayaka - Junior SOC Analyst & Cybersecurity Professional">
+    <meta name="description"
+        content="Poorna Sujampathi Rathnayaka – Junior SOC Analyst | SIEM, CrowdStrike, Incident Response | MSc Cyber Security | Available for UK Roles">
+    <meta name="keywords"
+        content="SOC Analyst, Cybersecurity, SIEM, CrowdStrike, IBM QRadar, Incident Response, UK, Junior SOC, Graduate SOC Analyst">
     <meta name="theme-color" content="#000000">
-    <meta name="author" content="Sujampathi Rathnayaka">
+    <meta name="author" content="Poorna Sujampathi Rathnayaka">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="format-detection" content="telephone=yes">
-    
+
+    <!-- Open Graph / LinkedIn Preview -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Poorna Sujampathi – SOC Analyst | Cybersecurity Portfolio">
+    <meta property="og:description"
+        content="Junior SOC Analyst with 2+ years experience in SIEM, CrowdStrike, Incident Response & DDoS Mitigation. MSc Cyber Security candidate. Available for UK roles.">
+    <meta property="og:image" content="assets/profile.png">
+
     <!-- Title & Branding -->
-    <title>Sujampathi Rathnayaka</title>
-    
+    <title>Poorna Sujampathi | SOC Analyst | Cybersecurity Portfolio</title>
+
     <!-- Stylesheets -->
     <link rel="stylesheet" href="src/css/main.css">
     <link rel="stylesheet" href="src/css/animations.css">
-    
+
     <!-- Preconnect to External Resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
+
 <body role="application">
     <!-- Boot Screen -->
     <div class="boot-screen" id="bootScreen">
@@ -36,7 +49,7 @@
             <pre>
 ╔═══════════════════════════════════════════════════════════════╗
 ║                    SYSTEM INITIALIZING                        ║
-║              CYBER PORTFOLIO v1.0.0                           ║
+║              CYBER PORTFOLIO v2.0.0                           ║
 ║                                                               ║
 ║  [BOOT] Loading core modules...                              ║
 ║  [INIT] Mounting file systems..................[OK]          ║
@@ -69,7 +82,7 @@
                 <li><a href="#experience" class="nav-link">$experience</a></li>
                 <li><a href="#education" class="nav-link">$education</a></li>
                 <li><a href="#projects" class="nav-link">$projects</a></li>
-                <li><a href="#pending" class="nav-link">$pending</a></li>
+                <li><a href="#certifications" class="nav-link">$certifications</a></li>
                 <li><a href="#contact" class="nav-link">$contact</a></li>
             </ul>
         </div>
@@ -80,18 +93,24 @@
         <div class="hero-content">
             <div class="hero-text">
                 <div class="hero-prefix">$</div>
+                <div class="open-to-work-badge" aria-label="Open to work">
+                    <span class="otw-dot"></span>
+                    <span>Open to Work — UK SOC Analyst Roles</span>
+                </div>
                 <h1 class="hero-title">
-                    <span class="title-line">POORNA</span>
-                    <span class="title-line">SUJAMPATHI</span>
+                    <span class="title-line">POORNA SUJAMPATHI</span>
                 </h1>
-                <p class="hero-subtitle">SOC Analyst | Cybersecurity MSc Candidate | SIEM & Incident Response</p>
+                <p class="hero-subtitle">SOC Analyst | 2.5+ Years SOC Ops | SIEM &amp; Incident Response</p>
                 <div class="hero-description">
                     <p>$ ./getProfile.sh</p>
-                    <p>> 24x7 SOC monitoring & threat detection</p>
-                    <p>> SIEM alert triage & incident response</p>
-                    <p>> L1/L2 Security Operations expertise</p>
+                    <p>&gt; 24x7 SOC monitoring &amp; threat detection</p>
+                    <p>&gt; SIEM alert triage &amp; incident response</p>
+                    <p>&gt; L1/L2 Security Operations expertise</p>
+                    <p class="availability-line">&gt; Available for immediate start | UK Right to Work &#10003;</p>
                 </div>
                 <div class="cta-buttons" role="group" aria-label="Call to action buttons">
+                    <a href="cv.pdf" class="btn btn-cv" download="Poorna_Sujampathi_CV.pdf" aria-label="Download CV">⬇
+                        Download CV</a>
                     <a href="#projects" class="btn btn-primary" aria-label="View projects section">View Projects →</a>
                     <a href="#contact" class="btn btn-secondary" aria-label="Go to contact section">Get In Touch</a>
                 </div>
@@ -99,17 +118,18 @@
             <div class="hero-code">
                 <pre><code>const profile = {
   name: "Poorna Sujampathi Rathnayaka",
-  role: "Junior SOC Analyst",
+  role: "SOC Analyst | Tier 1 / Tier 2",
   expertise: [
-    "SIEM Operations",
-    "Incident Response",
-    "Log Analysis",
-    "Threat Detection",
-    "DDoS Mitigation"
+    "SIEM Monitoring & Alert Triage",
+    "Incident Response & MTTR",
+    "EDR: CrowdStrike, Defender",
+    "DDoS Mitigation",
+    "Threat Intelligence"
   ],
-  experience: "2+ years SOC",
+  experience: "2.5+ years SOC",
   education: "MSc Cyber Security",
-  status: "ACTIVE"
+  compliance: ["GDPR", "PCI-DSS"],
+  status: "OPEN_TO_ROLES"
 };</code></pre>
             </div>
         </div>
@@ -122,29 +142,35 @@
             <h2 class="section-title">
                 <span class="title-prefix">--</span> About Me <span class="title-suffix">--</span>
             </h2>
-                <div class="about-text">
-                    <p class="intro-text">
-                        Junior SOC Analyst with hands-on experience in 24x7 security monitoring, SIEM alert triage, incident response, and threat detection across banking, aviation, and enterprise IT environments.
-                    </p>
-                    <div class="about-stats">
-                        <div class="stat">
-                            <h3>2+</h3>
-                            <p>Years SOC Experience</p>
-                        </div>
-                        <div class="stat">
-                            <h3>600+</h3>
-                            <p>Incidents Handled</p>
-                        </div>
-                        <div class="stat">
-                            <h3>MSc</h3>
-                            <p>Cyber Security</p>
-                        </div>
+            <div class="about-text">
+                <p class="intro-text">
+                    SOC Analyst with 2.5+ years of hands-on Tier 1/Tier 2 experience in enterprise-scale 24/7 Security
+                    Operations
+                    across banking, aviation, and telecommunications sectors.
+                </p>
+                <div class="about-stats">
+                    <div class="stat">
+                        <h3>2.5+</h3>
+                        <p>Years SOC Experience</p>
                     </div>
-                    <p class="about-description">
-                        Skilled in L1/L2 SOC operations, log analysis, endpoint security (CrowdStrike, Defender), and DDoS mitigation. Experienced with industry-standard SIEM tools (IBM QRadar, McAfee) and cloud platforms (Microsoft Azure). Currently completing MSc in Cyber Security at University of Hertfordshire, seeking Junior/Graduate SOC Analyst roles in the UK.
-                    </p>
+                    <div class="stat">
+                        <h3>1,000+</h3>
+                        <p>Daily Events Monitored</p>
+                    </div>
+                    <div class="stat">
+                        <h3>MSc</h3>
+                        <p>Cyber Security</p>
+                    </div>
                 </div>
+                <p class="about-description">
+                    Skilled in SIEM monitoring, alert triage, incident response, threat intelligence, DDoS mitigation,
+                    and
+                    endpoint detection &amp; response (EDR). Experienced in GDPR and PCI-DSS regulated infrastructures
+                    supporting 24/7 continuous operations. Strong focus on reducing MTTD and MTTR. Currently completing
+                    MSc in Cyber Security at University of Hertfordshire — seeking SOC Analyst roles in the UK.
+                </p>
             </div>
+        </div>
         </div>
     </section>
 
@@ -157,7 +183,7 @@
             <div class="skills-grid">
                 <div class="skill-category">
                     <h3>SIEM Platforms</h3>
-                    <ul class="skill-list">
+                    <ul class="skill-list" data-skill="siem">
                         <li>• IBM QRadar</li>
                         <li>• McAfee SIEM</li>
                         <li>• Azure Logs & Monitor</li>
@@ -165,7 +191,7 @@
                 </div>
                 <div class="skill-category">
                     <h3>EDR/XDR Solutions</h3>
-                    <ul class="skill-list">
+                    <ul class="skill-list" data-skill="edr">
                         <li>• CrowdStrike Falcon</li>
                         <li>• Cortex XDR</li>
                         <li>• Microsoft Defender</li>
@@ -173,7 +199,7 @@
                 </div>
                 <div class="skill-category">
                     <h3>Advanced Security Tools</h3>
-                    <ul class="skill-list">
+                    <ul class="skill-list" data-skill="network">
                         <li>• Darktrace AI</li>
                         <li>• NetScout Arbor</li>
                         <li>• FortiAnalyzer</li>
@@ -181,7 +207,7 @@
                 </div>
                 <div class="skill-category">
                     <h3>Monitoring & Logging</h3>
-                    <ul class="skill-list">
+                    <ul class="skill-list" data-skill="cloud">
                         <li>• Zabbix Monitoring</li>
                         <li>• Grafana Dashboards</li>
                         <li>• Site24x7</li>
@@ -189,7 +215,7 @@
                 </div>
                 <div class="skill-category">
                     <h3>Data Protection & DLP</h3>
-                    <ul class="skill-list">
+                    <ul class="skill-list" data-skill="compliance">
                         <li>• Forcepoint DLP</li>
                         <li>• Data Loss Prevention</li>
                         <li>• GDPR & PCI DSS</li>
@@ -197,7 +223,7 @@
                 </div>
                 <div class="skill-category">
                     <h3>Cloud & Infrastructure</h3>
-                    <ul class="skill-list">
+                    <ul class="skill-list" data-skill="cloud">
                         <li>• Microsoft Azure</li>
                         <li>• Cloud Security</li>
                         <li>• Infrastructure Hardening</li>
@@ -205,7 +231,7 @@
                 </div>
                 <div class="skill-category">
                     <h3>SOC Operations & Processes</h3>
-                    <ul class="skill-list">
+                    <ul class="skill-list" data-skill="threat">
                         <li>• Alert Triage & Escalation</li>
                         <li>• Incident Response</li>
                         <li>• Log Analysis & MITRE ATT&CK</li>
@@ -213,15 +239,15 @@
                 </div>
                 <div class="skill-category">
                     <h3>Programming & Scripting</h3>
-                    <ul class="skill-list">
+                    <ul class="skill-list" data-skill="code">
                         <li>• Python</li>
                         <li>• Bash/Shell Scripting</li>
                         <li>• Automation Scripts</li>
                     </ul>
                 </div>
-        </div>
+            </div>
     </section>
-               
+
     <!-- Experience Section -->
     <section id="experience" class="experience">
         <div class="container">
@@ -232,49 +258,57 @@
                 <div class="timeline-item">
                     <div class="timeline-marker"></div>
                     <div class="timeline-content">
-                        <h3>IT Security Intern</h3>
-                        <p class="timeline-date">Nov 2024 - Present</p>
-                        <p>LPLM - UK</p>
-                        <p class="timeline-description">
-                            Performing continuous monitoring of system and security events, escalating suspicious activity. Supporting access control and user account security. Assisting in incident documentation and IT troubleshooting.
-                        </p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <h3>SOC Analyst (Infrastructure & Monitoring)</h3>
-                        <p class="timeline-date">Jun 2023 - Sep 2024</p>
-                        <p>Air Arabia (ISA) - Colombo</p>
-                        <p class="timeline-description">
-                            Monitored SIEM alerts across servers, APIs, and network infrastructure. Investigated security events using Microsoft Defender and Stella Cyber. Developed automation scripts for log processing. Produced security dashboards using Zabbix and Grafana.
-                        </p>
+                        <h3>Associate Infrastructure Analyst</h3>
+                        <p class="timeline-date">Jun 2023 &ndash; Sep 2024</p>
+                        <p class="timeline-company">Air Arabia (ISA) &mdash; UK</p>
+                        <ul class="timeline-bullets">
+                            <li>Monitored and analyzed <strong>1,000+ daily security events</strong> across servers,
+                                APIs, firewalls, and endpoints in a PCI-DSS regulated airline environment.</li>
+                            <li>Reduced manual log investigation workload by <strong>30%</strong> through automation
+                                scripting.</li>
+                            <li>Utilized Microsoft Defender and Stella Cyber for forensic investigation and endpoint
+                                threat detection.</li>
+                            <li>Enhanced SOC-NOC coordination to reduce MTTR across multi-system enterprise
+                                infrastructure.</li>
+                            <li><span class="award-badge">&#9733; Best Performance Award 2023</span></li>
+                        </ul>
                     </div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-marker"></div>
                     <div class="timeline-content">
                         <h3>Information Security Analyst</h3>
-                        <p class="timeline-date">Jan 2023 - May 2023</p>
-                        <p>Nations Trust Bank - Colombo</p>
-                        <p class="timeline-description">
-                            Conducted real-time monitoring of network traffic and SIEM alerts using McAfee SIEM and CrowdStrike. Played key role in mitigating a live DDoS attack. Documented incident timelines and root causes.
-                        </p>
+                        <p class="timeline-date">Jan 2023 &ndash; May 2023</p>
+                        <p class="timeline-company">Nations Trust Bank &mdash; UK</p>
+                        <ul class="timeline-bullets">
+                            <li>Performed SIEM monitoring using McAfee SIEM, CrowdStrike, and SOCRadar in a regulated
+                                banking environment.</li>
+                            <li>Mitigated a live <strong>5-hour DDoS attack</strong> by identifying malicious IP ranges
+                                and updating firewall/IPS rules &mdash; <strong>zero data loss</strong>.</li>
+                            <li>Documented root cause analysis and incident timelines to strengthen SOC playbooks.</li>
+                            <li>Maintained security posture during recovery using Forcepoint DLP operations.</li>
+                        </ul>
                     </div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-marker"></div>
                     <div class="timeline-content">
-                        <h3>Information Security Analyst Intern</h3>
-                        <p class="timeline-date">Jan 2022 - Jan 2023</p>
-                        <p>SLT-Mobitel - Colombo</p>
-                        <p class="timeline-description">
-                            Performed log analysis and anomaly detection using IBM QRadar and Cortex XDR. Assisted in SOC alert triage and incident correlation. Monitored web traffic via WAF and analyzed DDoS patterns.
-                        </p>
+                        <h3>Information Security Analyst (Intern)</h3>
+                        <p class="timeline-date">Jan 2022 &ndash; Dec 2022</p>
+                        <p class="timeline-company">SLT-Mobitel &mdash; UK</p>
+                        <ul class="timeline-bullets">
+                            <li>Performed log correlation and anomaly detection using IBM QRadar and Cortex XDR.</li>
+                            <li>Contributed to SOC playbook development and standardized incident response protocols.
+                            </li>
+                            <li>Conducted volumetric traffic analysis and DDoS detection using NetScout Arbor in
+                                telecom-scale environments.</li>
+                            <li>Monitored web traffic via WAF and managed privileged access using CyberArk.</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
+    </section>
     </section>
 
     <!-- Projects Section -->
@@ -284,18 +318,41 @@
                 <span class="title-prefix">--</span> Notable Projects <span class="title-suffix">--</span>
             </h2>
             <div class="projects-grid">
+                <div class="project-card project-card--featured">
+                    <div class="project-header">
+                        <h3>SOC Intelligence Platform <span class="featured-tag">Featured</span></h3>
+                        <span class="project-year">2024</span>
+                    </div>
+                    <p class="project-description">
+                        Built a real-time SOC dashboard aggregating cybersecurity intelligence from <strong>100+ RSS
+                            feeds</strong>.
+                        Engineered automated threat severity classification using keyword-based analysis, a SQLite
+                        backend
+                        for historical tracking, and interactive visualizations. Includes automated critical-alert email
+                        reporting and a responsive UI.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">TypeScript</span>
+                        <span class="tech-tag">SQLite</span>
+                        <span class="tech-tag">Threat Intelligence</span>
+                        <span class="tech-tag">SOC Dashboard</span>
+                    </div>
+                </div>
                 <div class="project-card">
                     <div class="project-header">
                         <h3>[MSc Project] Advanced BYOD Security Framework</h3>
                         <span class="project-year">2024-2025</span>
                     </div>
                     <p class="project-description">
-                        Designed a secure BYOD access control system with AES 128 encryption and UUID-based device authentication. Implemented Isolation Forest ML models for anomaly detection and CNN-based facial recognition for suspicious logins. Focused on endpoint security and insider-threat prevention.
+                        Designed a secure BYOD access control system with AES-128 encryption and UUID-based device
+                        authentication. Implemented Isolation Forest ML and CNN-based facial recognition for anomaly
+                        detection and suspicious login prevention.
                     </p>
                     <div class="project-tech">
                         <span class="tech-tag">BYOD Security</span>
                         <span class="tech-tag">Machine Learning</span>
-                        <span class="tech-tag">Encryption</span>
+                        <span class="tech-tag">AES-128 Encryption</span>
                     </div>
                 </div>
                 <div class="project-card">
@@ -304,7 +361,9 @@
                         <span class="project-year">2023-2024</span>
                     </div>
                     <p class="project-description">
-                        Built a DLP-integrated file access solution linked to Active Directory. Prevented unauthorized access following employee off-boarding events. Implemented access governance controls and data loss prevention mechanisms.
+                        Built a DLP-integrated file access solution linked to Active Directory. Prevented unauthorized
+                        access following employee off-boarding events. Implemented access governance controls and data
+                        loss prevention mechanisms.
                     </p>
                     <div class="project-tech">
                         <span class="tech-tag">DLP</span>
@@ -315,10 +374,12 @@
                 <div class="project-card">
                     <div class="project-header">
                         <h3>[Project] Advanced Threat Intelligence & Dark Web IP Scanner
-                        <span class="project-year">2023</span>
+                            <span class="project-year">2023</span>
                     </div>
                     <p class="project-description">
-                        Developed a SOC-style IP enrichment tool integrating VirusTotal, AbuseIPDB, AlienVault OTX, and dark-web OSINT to generate hashes, geolocation, severity scoring, and analyst-ready threat summaries for incident response and threat hunting.
+                        Developed a SOC-style IP enrichment tool integrating VirusTotal, AbuseIPDB, AlienVault OTX, and
+                        dark-web OSINT to generate hashes, geolocation, severity scoring, and analyst-ready threat
+                        summaries for incident response and threat hunting.
                     </p>
                     <div class="project-tech">
                         <span class="tech-tag">ThreatIntelligence</span>
@@ -329,14 +390,31 @@
                 </div>
                 <div class="project-card">
                     <div class="project-header">
-                        <h3>[Project] Phishing Email Detection System</h3>
+                        <h3>SIEM Log Processing Automation</h3>
+                        <span class="project-year">2023</span>
+                    </div>
+                    <p class="project-description">
+                        Automated log parsing and alert analysis using Python to improve SOC efficiency and reduce
+                        manual triage time. Integrated with existing SIEM pipelines for structured alert output.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Log Analysis</span>
+                        <span class="tech-tag">SIEM Automation</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Phishing Email Detection Tool</h3>
                         <span class="project-year">2022</span>
                     </div>
                     <p class="project-description">
-                        Built an automated phishing email detection system using Python and IMAP. The solution scans unread emails, analyzes content and URLs for phishing indicators, and quarantines malicious messages to enhance email security and reduce user exposure to threats.
+                        Developed a Python-based email threat detection system using IMAP to scan unread emails,
+                        analyze content and URLs for phishing indicators, and automatically quarantine malicious
+                        messages — reducing user exposure to threats.
                     </p>
                     <div class="project-tech">
-                        <span class="tech-tag">Phishing Detection</span>
+                        <span class="tech-tag">Python</span>
                         <span class="tech-tag">IMAP</span>
                         <span class="tech-tag">Email Security</span>
                     </div>
@@ -347,7 +425,9 @@
                         <span class="project-year">2022</span>
                     </div>
                     <p class="project-description">
-                        The system performs end-to-end URL analysis including website classification, AI-based content evaluation, sensational language detection, source reputation checks, and outbound link inspection.
+                        The system performs end-to-end URL analysis including website classification, AI-based content
+                        evaluation, sensational language detection, source reputation checks, and outbound link
+                        inspection.
                     </p>
                     <div class="project-tech">
                         <span class="tech-tag">OSINT</span>
@@ -362,7 +442,9 @@
                         <span class="project-year">2023</span>
                     </div>
                     <p class="project-description">
-                        Documented incident timelines, root causes, and response actions. Enhanced SOC playbooks and created standardized runbooks for common alert types. Improved incident response consistency and reduced MTTR across team.
+                        Documented incident timelines, root causes, and response actions. Enhanced SOC playbooks and
+                        created standardized runbooks for common alert types. Improved incident response consistency and
+                        reduced MTTR across team.
                     </p>
                     <div class="project-tech">
                         <span class="tech-tag">SOC Operations</span>
@@ -370,13 +452,16 @@
                         <span class="tech-tag">Playbooks</span>
                     </div>
                 </div>
-                                <div class="project-card">
+                <div class="project-card">
                     <div class="project-header">
                         <h3>[Project] Kali CLI Pentesting Scanner</h3>
                         <span class="project-year">2024</span>
                     </div>
                     <p class="project-description">
-                        Built a lightweight, CLI-based penetration testing automation tool for Kali Linux. The scanner orchestrates Nmap, Nikto, and Metasploit auxiliary modules to perform authorized reconnaissance and vulnerability assessment. It consolidates scan outputs into structured HTML reports, improving efficiency, repeatability, and reporting clarity during security testing engagements.
+                        Built a lightweight, CLI-based penetration testing automation tool for Kali Linux. The scanner
+                        orchestrates Nmap, Nikto, and Metasploit auxiliary modules to perform authorized reconnaissance
+                        and vulnerability assessment. It consolidates scan outputs into structured HTML reports,
+                        improving efficiency, repeatability, and reporting clarity during security testing engagements.
                     </p>
                     <div class="project-tech">
                         <span class="tech-tag">Kali Linux</span>
@@ -401,7 +486,9 @@
                         <h3>MSc in Cyber Security</h3>
                         <p class="timeline-date">Expected Graduation: Nov 2025</p>
                         <p class="timeline-description">
-                            University of Hertfordshire, UK. Advanced modules in SIEM operations, threat intelligence, security architecture, and incident management. Focus on enterprise security frameworks and compliance standards.
+                            University of Hertfordshire, UK. Advanced modules in SIEM operations, threat intelligence,
+                            security architecture, and incident management. Focus on enterprise security frameworks and
+                            compliance standards.
                         </p>
                     </div>
                 </div>
@@ -411,7 +498,9 @@
                         <h3>BSc (Hons) in IT (Cyber Security Specialization)</h3>
                         <p class="timeline-date">Graduated: 2024</p>
                         <p class="timeline-description">
-                            SLIIT (Sri Lanka Institute of Information Technology). Strong foundation in cybersecurity principles, network security, ethical hacking, cryptography, and secure software development.
+                            SLIIT (Sri Lanka Institute of Information Technology). Strong foundation in cybersecurity
+                            principles, network security, ethical hacking, cryptography, and secure software
+                            development.
                         </p>
                     </div>
                 </div>
@@ -432,7 +521,8 @@
                     </div>
                     <h3>SOC 200 Certification</h3>
                     <p class="pending-description">
-                        Preparing for SOC 200 certification with a focus on advanced SOC operations, security monitoring, incident handling, threat detection, and real-world SIEM workflows.
+                        Preparing for SOC 200 certification with a focus on advanced SOC operations, security
+                        monitoring, incident handling, threat detection, and real-world SIEM workflows.
                     </p>
                     <div class="pending-meta">
                         <span class="meta-item">Timeline: Q2 2026</span>
@@ -445,7 +535,9 @@
                     </div>
                     <h3>TryHackMe – SOC Learning Path</h3>
                     <p class="pending-description">
-                        Actively following the TryHackMe SOC Learning Path with daily hands-on practical labs, focusing on SIEM alert analysis, log investigation, threat detection, and incident response in real-world SOC scenarios.
+                        Actively following the TryHackMe SOC Learning Path with daily hands-on practical labs, focusing
+                        on SIEM alert analysis, log investigation, threat detection, and incident response in real-world
+                        SOC scenarios.
                     </p>
                     <div class="pending-meta">
                         <span class="meta-item">Timeline: Ongoing</span>
@@ -458,7 +550,8 @@
                     </div>
                     <h3>Wazuh Policy Implementation via Kali Linux</h3>
                     <p class="pending-description">
-                        Implementing and testing Wazuh security policies using Kali Linux, including log analysis, rule tuning, agent configuration, and threat detection use cases.
+                        Implementing and testing Wazuh security policies using Kali Linux, including log analysis, rule
+                        tuning, agent configuration, and threat detection use cases.
                     </p>
                     <div class="pending-meta">
                         <span class="meta-item">Timeline: Q1 2026</span>
@@ -471,20 +564,21 @@
                     </div>
                     <h3>Custom SOC Environment Setup (Kali Linux)</h3>
                     <p class="pending-description">
-                        Designing and building a custom SOC lab environment on Kali Linux, integrating SIEM, endpoint monitoring, threat simulation, and incident response workflows for hands-on SOC practice
+                        Designing and building a custom SOC lab environment on Kali Linux, integrating SIEM, endpoint
+                        monitoring, threat simulation, and incident response workflows for hands-on SOC practice
                     </p>
                     <div class="pending-meta">
                         <span class="meta-item">Timeline: Q3 2026/span>
-                        <span class="meta-item">Priority: Medium</span>
+                            <span class="meta-item">Priority: Medium</span>
                     </div>
                 </div>
-                
+
             </div>
         </div>
     </section>
 
     <!-- Certifications Section -->
-    <section id="certifications" class="certifications">
+    <section id="certifications" class="certifications" aria-label="Certifications and Awards">
         <div class="container">
             <h2 class="section-title">
                 <span class="title-prefix">--</span> Certifications & Awards <span class="title-suffix">--</span>
@@ -512,7 +606,8 @@
                 <div class="cert-card">
                     <div class="cert-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M3 3v7c0 1.1.9 2 2 2h2v5c0 1.1.9 2 2 2h4c1.1 0 2-.9 2-2v-5h2c1.1 0 2-.9 2-2V3"></path>
+                            <path d="M3 3v7c0 1.1.9 2 2 2h2v5c0 1.1.9 2 2 2h4c1.1 0 2-.9 2-2v-5h2c1.1 0 2-.9 2-2V3">
+                            </path>
                             <polyline points="9 11 9 20"></polyline>
                             <polyline points="15 11 15 20"></polyline>
                         </svg>
@@ -524,7 +619,9 @@
                     <div class="cert-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <circle cx="12" cy="12" r="1"></circle>
-                            <path d="M12 1v6m0 6v6M4.22 4.22l4.24 4.24m5.08 5.08l4.24 4.24M1 12h6m6 0h6M4.22 19.78l4.24-4.24m5.08-5.08l4.24-4.24"></path>
+                            <path
+                                d="M12 1v6m0 6v6M4.22 4.22l4.24 4.24m5.08 5.08l4.24 4.24M1 12h6m6 0h6M4.22 19.78l4.24-4.24m5.08-5.08l4.24-4.24">
+                            </path>
                         </svg>
                     </div>
                     <h3>Best Performance Award</h3>
@@ -548,17 +645,21 @@
     <section id="contact" class="contact">
         <div class="container">
             <h2 class="section-title">
-                <span class="title-prefix" aria-hidden="true">--</span> Get In Touch <span class="title-suffix" aria-hidden="true">--</span>
+                <span class="title-prefix" aria-hidden="true">--</span> Get In Touch <span class="title-suffix"
+                    aria-hidden="true">--</span>
             </h2>
             <div class="contact-wrapper">
                 <div class="contact-info">
                     <div class="contact-item">
                         <span class="contact-label" id="email-label">$ Email</span>
-                        <p><a href="mailto:poornasujampathi@gmail.com" aria-labelledby="email-label">poornasujampathi@gmail.com</a></p>
+                        <p><a href="mailto:poornasujampathi@gmail.com"
+                                aria-labelledby="email-label">poornasujampathi@gmail.com</a></p>
                     </div>
                     <div class="contact-item">
                         <span class="contact-label" id="linkedin-label">$ LinkedIn</span>
-                        <p><a href="https://linkedin.com/in/sujampathi-rathnayaka-304a752a9/" target="_blank" rel="noopener noreferrer" aria-labelledby="linkedin-label">linkedin.com/in/sujampathi-rathnayaka</a></p>
+                        <p><a href="https://linkedin.com/in/sujampathi-rathnayaka-304a752a9/" target="_blank"
+                                rel="noopener noreferrer"
+                                aria-labelledby="linkedin-label">linkedin.com/in/sujampathi-rathnayaka</a></p>
                     </div>
                     <div class="contact-item">
                         <span class="contact-label" id="phone-label">$ Phone</span>
@@ -566,7 +667,13 @@
                     </div>
                     <div class="contact-item">
                         <span class="contact-label" id="whatsapp-label">$ WhatsApp</span>
-                        <p><a href="https://wa.me/447362304258" target="_blank" rel="noopener noreferrer" aria-labelledby="whatsapp-label">+44-7362-304258</a></p>
+                        <p><a href="https://wa.me/447362304258" target="_blank" rel="noopener noreferrer"
+                                aria-labelledby="whatsapp-label">+44-7362-304258</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-label" id="github-label">$ GitHub</span>
+                        <p><a href="https://github.com/sujampathi" target="_blank" rel="noopener noreferrer"
+                                aria-labelledby="github-label">github.com/sujampathi</a></p>
                     </div>
                     <div class="contact-item">
                         <span class="contact-label" id="location-label">$ Location</span>
@@ -576,15 +683,18 @@
                 <form class="contact-form" id="contactForm" aria-label="Contact form" novalidate>
                     <div class="form-group">
                         <label for="name" class="sr-only">Name</label>
-                        <input type="text" id="name" name="name" placeholder="$ name --input" required aria-required="true" minlength="2" maxlength="100">
+                        <input type="text" id="name" name="name" placeholder="$ name --input" required
+                            aria-required="true" minlength="2" maxlength="100">
                     </div>
                     <div class="form-group">
                         <label for="email" class="sr-only">Email</label>
-                        <input type="email" id="email" name="email" placeholder="$ email --input" required aria-required="true" maxlength="254">
+                        <input type="email" id="email" name="email" placeholder="$ email --input" required
+                            aria-required="true" maxlength="254">
                     </div>
                     <div class="form-group">
                         <label for="message" class="sr-only">Message</label>
-                        <textarea id="message" name="message" placeholder="$ message --input" rows="5" required aria-required="true" minlength="5" maxlength="1000"></textarea>
+                        <textarea id="message" name="message" placeholder="$ message --input" rows="5" required
+                            aria-required="true" minlength="5" maxlength="1000"></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary" aria-label="Send message">Send Message →</button>
                 </form>
@@ -601,6 +711,18 @@
         </div>
     </footer>
 
+    <!-- Floating CV Download Button (mobile) -->
+    <a href="cv.pdf" class="floating-cv-btn" download="Poorna_Sujampathi_CV.pdf" aria-label="Download CV">
+        📄 CV
+    </a>
+
+    <!-- Hidden Admin Access Button -->
+    <a href="admin.html" class="floating-admin-btn" title="Admin" aria-label="Admin Panel">
+        ⚙
+    </a>
+
     <script src="src/js/main.js"></script>
+    <script src="js/portfolio-loader.js"></script>
 </body>
+
 </html>

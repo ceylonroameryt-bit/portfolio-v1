@@ -1,0 +1,1332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio Admin Panel</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+        :root {
+            --bg: #050505;
+            --surface: #0e0e0e;
+            --surface2: #171717;
+            --border: #252525;
+            --green: #00c96e;
+            --green-dim: rgba(0, 201, 110, 0.12);
+            --green-glow: 0 0 20px rgba(0, 201, 110, 0.2);
+            --red: #ff4d6a;
+            --text: #f0f0f0;
+            --muted: #666;
+            --mono: 'IBM Plex Mono', monospace;
+            --sans: 'Inter', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--sans);
+            min-height: 100vh;
+        }
+
+        /* ── LOGIN ── */
+        #login-screen {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .login-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 48px 40px;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .login-logo {
+            font-family: var(--mono);
+            font-size: 28px;
+            color: var(--green);
+            margin-bottom: 8px;
+        }
+
+        .login-sub {
+            color: var(--muted);
+            font-size: 13px;
+            margin-bottom: 36px;
+        }
+
+        .login-card input[type="password"] {
+            width: 100%;
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            color: var(--text);
+            font-family: var(--mono);
+            font-size: 14px;
+            padding: 12px 16px;
+            outline: none;
+            margin-bottom: 12px;
+            transition: border-color 0.2s;
+        }
+
+        .login-card input:focus {
+            border-color: var(--green);
+        }
+
+        .login-error {
+            color: var(--red);
+            font-size: 12px;
+            margin-bottom: 12px;
+            min-height: 16px;
+        }
+
+        .btn-login {
+            width: 100%;
+            background: var(--green);
+            color: #000;
+            border: none;
+            border-radius: 6px;
+            padding: 12px;
+            font-family: var(--sans);
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+            letter-spacing: 0.5px;
+            transition: opacity 0.2s;
+        }
+
+        .btn-login:hover {
+            opacity: 0.88;
+        }
+
+        /* ── ADMIN LAYOUT ── */
+        #admin-panel {
+            display: none;
+            min-height: 100vh;
+        }
+
+        .admin-header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(5, 5, 5, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+            height: 56px;
+        }
+
+        .admin-brand {
+            font-family: var(--mono);
+            font-size: 14px;
+            color: var(--green);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .admin-brand span {
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .btn-save-all {
+            background: var(--green);
+            color: #000;
+            border: none;
+            border-radius: 6px;
+            padding: 8px 20px;
+            font-family: var(--sans);
+            font-weight: 700;
+            font-size: 13px;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .btn-save-all:hover {
+            opacity: 0.85;
+        }
+
+        .btn-export {
+            background: transparent;
+            color: var(--green);
+            border: 1px solid rgba(0, 201, 110, 0.5);
+            border-radius: 6px;
+            padding: 7px 16px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-export:hover {
+            background: rgba(0, 201, 110, 0.1);
+            border-color: var(--green);
+        }
+
+        .btn-preview {
+            background: transparent;
+            color: var(--muted);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 7px 16px;
+            font-size: 13px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: color 0.2s, border-color 0.2s;
+        }
+
+        .btn-preview:hover {
+            color: var(--text);
+            border-color: var(--text);
+        }
+
+        .btn-logout {
+            background: transparent;
+            color: var(--muted);
+            border: none;
+            font-size: 12px;
+            cursor: pointer;
+            padding: 4px 8px;
+            transition: color 0.2s;
+        }
+
+        .btn-logout:hover {
+            color: var(--red);
+        }
+
+        /* ── TABS ── */
+        .admin-nav {
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            padding: 0 24px;
+            gap: 2px;
+            overflow-x: auto;
+        }
+
+        .tab-btn {
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid transparent;
+            color: var(--muted);
+            font-family: var(--mono);
+            font-size: 12px;
+            padding: 14px 18px;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: color 0.2s, border-color 0.2s;
+            letter-spacing: 1px;
+        }
+
+        .tab-btn:hover {
+            color: var(--text);
+        }
+
+        .tab-btn.active {
+            color: var(--green);
+            border-bottom-color: var(--green);
+        }
+
+        /* ── CONTENT ── */
+        .admin-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 32px 24px;
+        }
+
+        .tab-panel {
+            display: none;
+        }
+
+        .tab-panel.active {
+            display: block;
+        }
+
+        /* ── CARD ── */
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 24px;
+            margin-bottom: 20px;
+        }
+
+        .card-title {
+            font-family: var(--mono);
+            font-size: 11px;
+            color: var(--green);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* ── FORM ── */
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .form-grid.full {
+            grid-template-columns: 1fr;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .form-group.col-2 {
+            grid-column: span 2;
+        }
+
+        label {
+            font-size: 11px;
+            color: var(--muted);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="url"],
+        textarea,
+        select {
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            color: var(--text);
+            font-family: var(--sans);
+            font-size: 13px;
+            padding: 10px 14px;
+            outline: none;
+            transition: border-color 0.2s;
+            width: 100%;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            border-color: var(--green);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 80px;
+            line-height: 1.6;
+        }
+
+        .toggle-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .toggle {
+            position: relative;
+            width: 40px;
+            height: 22px;
+            flex-shrink: 0;
+        }
+
+        .toggle input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .toggle-slider {
+            position: absolute;
+            inset: 0;
+            background: var(--border);
+            border-radius: 22px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .toggle-slider::before {
+            content: '';
+            position: absolute;
+            left: 3px;
+            top: 3px;
+            width: 16px;
+            height: 16px;
+            background: #fff;
+            border-radius: 50%;
+            transition: transform 0.2s;
+        }
+
+        .toggle input:checked+.toggle-slider {
+            background: var(--green);
+        }
+
+        .toggle input:checked+.toggle-slider::before {
+            transform: translateX(18px);
+        }
+
+        .toggle-label {
+            font-size: 13px;
+            color: var(--text);
+        }
+
+        /* ── DYNAMIC ITEMS ── */
+        .item-block {
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 14px;
+            position: relative;
+        }
+
+        .item-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 16px;
+        }
+
+        .item-number {
+            font-family: var(--mono);
+            font-size: 11px;
+            color: var(--green);
+            background: var(--green-dim);
+            padding: 3px 10px;
+            border-radius: 20px;
+        }
+
+        .btn-remove {
+            background: transparent;
+            border: 1px solid rgba(255, 77, 106, 0.3);
+            color: rgba(255, 77, 106, 0.7);
+            border-radius: 5px;
+            padding: 4px 12px;
+            font-size: 11px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-remove:hover {
+            background: rgba(255, 77, 106, 0.1);
+            color: var(--red);
+            border-color: var(--red);
+        }
+
+        .btn-add {
+            background: var(--green-dim);
+            border: 1px dashed rgba(0, 201, 110, 0.4);
+            color: var(--green);
+            border-radius: 8px;
+            padding: 12px;
+            width: 100%;
+            font-family: var(--mono);
+            font-size: 12px;
+            cursor: pointer;
+            letter-spacing: 1px;
+            transition: all 0.2s;
+            margin-top: 4px;
+        }
+
+        .btn-add:hover {
+            background: rgba(0, 201, 110, 0.18);
+            border-style: solid;
+        }
+
+        /* bullet sub-items */
+        .bullet-list {
+            margin-top: 12px;
+        }
+
+        .bullet-row {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 8px;
+            align-items: center;
+        }
+
+        .bullet-row input {
+            flex: 1;
+            padding: 8px 12px;
+            font-size: 12px;
+        }
+
+        .btn-rm-bullet {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--muted);
+            border-radius: 5px;
+            padding: 6px 10px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+            flex-shrink: 0;
+        }
+
+        .btn-rm-bullet:hover {
+            border-color: var(--red);
+            color: var(--red);
+        }
+
+        .btn-add-bullet {
+            background: transparent;
+            border: 1px dashed var(--border);
+            color: var(--muted);
+            border-radius: 5px;
+            padding: 6px 14px;
+            font-size: 11px;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-top: 4px;
+        }
+
+        .btn-add-bullet:hover {
+            border-color: var(--green);
+            color: var(--green);
+        }
+
+        /* skill tags input */
+        .tags-hint {
+            font-size: 11px;
+            color: var(--muted);
+            margin-top: 4px;
+        }
+
+        /* ── TOAST ── */
+        #toast {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: var(--surface);
+            border: 1px solid var(--green);
+            border-radius: 8px;
+            padding: 14px 20px;
+            font-size: 13px;
+            color: var(--green);
+            font-family: var(--mono);
+            box-shadow: var(--green-glow);
+            transform: translateY(80px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 9999;
+        }
+
+        #toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 600px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-group.col-2 {
+                grid-column: span 1;
+            }
+
+            .admin-content {
+                padding: 20px 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- LOGIN -->
+    <div id="login-screen">
+        <div class="login-card">
+            <div class="login-logo">// ADMIN</div>
+            <p class="login-sub">Portfolio Control Panel</p>
+            <input type="password" id="password-input" placeholder="Enter admin password" />
+            <p class="login-error" id="login-error"></p>
+            <button class="btn-login" onclick="doLogin()">Access Panel →</button>
+        </div>
+    </div>
+
+    <!-- ADMIN PANEL -->
+    <div id="admin-panel">
+        <header class="admin-header">
+            <div class="admin-brand">
+                ⬡ ADMIN <span>// Portfolio Editor</span>
+            </div>
+            <div class="header-actions">
+                <a href="index.html" target="_blank" class="btn-preview">↗ Preview Site</a>
+                <button class="btn-export" onclick="exportHTML()"
+                    title="Download a fully baked index.html with your changes embedded">⬇ Export HTML</button>
+                <button class="btn-save-all" onclick="saveAll()">💾 Save All</button>
+                <button class="btn-logout" onclick="doLogout()">Logout</button>
+            </div>
+        </header>
+
+        <nav class="admin-nav">
+            <button class="tab-btn active" onclick="showTab('hero')">$hero</button>
+            <button class="tab-btn" onclick="showTab('about')">$about</button>
+            <button class="tab-btn" onclick="showTab('experience')">$experience</button>
+            <button class="tab-btn" onclick="showTab('projects')">$projects</button>
+            <button class="tab-btn" onclick="showTab('skills')">$skills</button>
+            <button class="tab-btn" onclick="showTab('contact')">$contact</button>
+        </nav>
+
+        <main class="admin-content">
+
+            <!-- HERO TAB -->
+            <div class="tab-panel active" id="tab-hero">
+                <div class="card">
+                    <div class="card-title">Hero Section</div>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>First Name</label>
+                            <input type="text" id="hero-firstName" />
+                        </div>
+                        <div class="form-group">
+                            <label>Last Name</label>
+                            <input type="text" id="hero-lastName" />
+                        </div>
+                        <div class="form-group col-2">
+                            <label>Role / Subtitle</label>
+                            <input type="text" id="hero-subtitle" />
+                        </div>
+                        <div class="form-group col-2">
+                            <label>Open To Work Badge Text</label>
+                            <input type="text" id="hero-otwText" />
+                        </div>
+                        <div class="form-group col-2">
+                            <label>Availability Line</label>
+                            <input type="text" id="hero-availability" />
+                        </div>
+                        <div class="form-group col-2">
+                            <div class="toggle-row">
+                                <label class="toggle">
+                                    <input type="checkbox" id="hero-openToWork" />
+                                    <span class="toggle-slider"></span>
+                                </label>
+                                <span class="toggle-label">Show "Open to Work" badge</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Hero Terminal Lines</div>
+                    <div class="form-grid full">
+                        <div class="form-group">
+                            <label>Line 1</label>
+                            <input type="text" id="hero-line1" />
+                        </div>
+                        <div class="form-group">
+                            <label>Line 2</label>
+                            <input type="text" id="hero-line2" />
+                        </div>
+                        <div class="form-group">
+                            <label>Line 3</label>
+                            <input type="text" id="hero-line3" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ABOUT TAB -->
+            <div class="tab-panel" id="tab-about">
+                <div class="card">
+                    <div class="card-title">About Section</div>
+                    <div class="form-grid full">
+                        <div class="form-group">
+                            <label>Intro Text</label>
+                            <textarea id="about-intro" rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Description Paragraph</label>
+                            <textarea id="about-desc" rows="4"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Stats Bar</div>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Stat 1 Value</label>
+                            <input type="text" id="stat1-val" />
+                        </div>
+                        <div class="form-group">
+                            <label>Stat 1 Label</label>
+                            <input type="text" id="stat1-label" />
+                        </div>
+                        <div class="form-group">
+                            <label>Stat 2 Value</label>
+                            <input type="text" id="stat2-val" />
+                        </div>
+                        <div class="form-group">
+                            <label>Stat 2 Label</label>
+                            <input type="text" id="stat2-label" />
+                        </div>
+                        <div class="form-group">
+                            <label>Stat 3 Value</label>
+                            <input type="text" id="stat3-val" />
+                        </div>
+                        <div class="form-group">
+                            <label>Stat 3 Label</label>
+                            <input type="text" id="stat3-label" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- EXPERIENCE TAB -->
+            <div class="tab-panel" id="tab-experience">
+                <div id="experience-list"></div>
+                <button class="btn-add" onclick="addExperience()">+ Add Experience Entry</button>
+            </div>
+
+            <!-- PROJECTS TAB -->
+            <div class="tab-panel" id="tab-projects">
+                <div id="projects-list"></div>
+                <button class="btn-add" onclick="addProject()">+ Add Project</button>
+            </div>
+
+            <!-- SKILLS TAB -->
+            <div class="tab-panel" id="tab-skills">
+                <div class="card">
+                    <div class="card-title">Skills — enter comma-separated values per category</div>
+                    <div class="form-grid full">
+                        <div class="form-group">
+                            <label>SIEM & Log Analysis</label>
+                            <textarea id="skills-siem" rows="2"></textarea>
+                            <span class="tags-hint">e.g. IBM QRadar, McAfee SIEM, Splunk</span>
+                        </div>
+                        <div class="form-group">
+                            <label>Endpoint & EDR</label>
+                            <textarea id="skills-edr" rows="2"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Network Security</label>
+                            <textarea id="skills-network" rows="2"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Threat Intelligence</label>
+                            <textarea id="skills-threat" rows="2"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Cloud & Infrastructure</label>
+                            <textarea id="skills-cloud" rows="2"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Programming & Scripting</label>
+                            <textarea id="skills-code" rows="2"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Compliance & Governance</label>
+                            <textarea id="skills-compliance" rows="2"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONTACT TAB -->
+            <div class="tab-panel" id="tab-contact">
+                <div class="card">
+                    <div class="card-title">Contact Details</div>
+                    <div class="form-grid full">
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" id="contact-email" />
+                        </div>
+                        <div class="form-group">
+                            <label>LinkedIn URL</label>
+                            <input type="url" id="contact-linkedin" />
+                        </div>
+                        <div class="form-group">
+                            <label>GitHub URL</label>
+                            <input type="url" id="contact-github" />
+                        </div>
+                        <div class="form-group">
+                            <label>Location</label>
+                            <input type="text" id="contact-location" />
+                        </div>
+                        <div class="form-group">
+                            <label>Phone (optional)</label>
+                            <input type="text" id="contact-phone" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- TOAST -->
+    <div id="toast">✓ Changes saved to portfolio</div>
+
+    <script>
+        // ═══════════════════════════════════════════════
+        //  CONFIGURATION
+        // ═══════════════════════════════════════════════
+        const ADMIN_PASSWORD = 'CyberAdmin2025';
+        const STORAGE_KEY = 'portfolioData';
+
+        // ─── DEFAULT DATA (matches current portfolio) ───
+        const DEFAULT_DATA = {
+            hero: {
+                firstName: 'POORNA',
+                lastName: 'SUJAMPATHI',
+                subtitle: 'SOC Analyst | Cybersecurity MSc Candidate | SIEM & Incident Response',
+                otwText: 'Open to Work — UK SOC Analyst Roles',
+                openToWork: true,
+                availability: 'Available for immediate start | UK Right to Work ✓',
+                line1: '24x7 SOC monitoring & threat detection',
+                line2: 'SIEM alert triage & incident response',
+                line3: 'L1/L2 Security Operations expertise',
+            },
+            about: {
+                intro: 'SOC Analyst with 2.5+ years of hands-on Tier 1/Tier 2 experience in enterprise-scale 24/7 Security Operations across banking, aviation, and telecommunications sectors.',
+                desc: 'Skilled in SIEM monitoring, alert triage, incident response, threat intelligence, DDoS mitigation, and endpoint detection & response (EDR). Experienced in GDPR and PCI-DSS regulated infrastructures supporting 24/7 continuous operations. Strong focus on reducing MTTD and MTTR. Currently completing MSc in Cyber Security at University of Hertfordshire — seeking SOC Analyst roles in the UK.',
+                stats: [
+                    { val: '2.5+', label: 'Years SOC Experience' },
+                    { val: '1,000+', label: 'Daily Events Monitored' },
+                    { val: 'MSc', label: 'Cyber Security' },
+                ]
+            },
+            experience: [
+                {
+                    title: 'Associate Infrastructure Analyst',
+                    company: 'Air Arabia (ISA)',
+                    location: 'UK',
+                    dateFrom: 'Jun 2023',
+                    dateTo: 'Sep 2024',
+                    award: 'Best Performance Award 2023',
+                    bullets: [
+                        'Monitored and analyzed 1,000+ daily security events across servers, APIs, firewalls, and endpoints in a PCI-DSS regulated airline environment.',
+                        'Reduced manual log investigation workload by 30% through automation scripting.',
+                        'Utilized Microsoft Defender and Stella Cyber for forensic investigation and endpoint threat detection.',
+                        'Enhanced SOC-NOC coordination to reduce MTTR across multi-system enterprise infrastructure.',
+                    ]
+                },
+                {
+                    title: 'Information Security Analyst',
+                    company: 'Nations Trust Bank',
+                    location: 'UK',
+                    dateFrom: 'Jan 2023',
+                    dateTo: 'May 2023',
+                    award: '',
+                    bullets: [
+                        'Performed SIEM monitoring using McAfee SIEM, CrowdStrike, and SOCRadar in a regulated banking environment.',
+                        'Mitigated a live 5-hour DDoS attack by identifying malicious IP ranges and updating firewall/IPS rules — zero data loss.',
+                        'Documented root cause analysis and incident timelines to strengthen SOC playbooks.',
+                        'Maintained security posture during recovery using Forcepoint DLP operations.',
+                    ]
+                },
+                {
+                    title: 'Information Security Analyst (Intern)',
+                    company: 'SLT-Mobitel',
+                    location: 'UK',
+                    dateFrom: 'Jan 2022',
+                    dateTo: 'Dec 2022',
+                    award: '',
+                    bullets: [
+                        'Performed log correlation and anomaly detection using IBM QRadar and Cortex XDR.',
+                        'Contributed to SOC playbook development and standardized incident response protocols.',
+                        'Conducted volumetric traffic analysis and DDoS detection using NetScout Arbor in telecom-scale environments.',
+                        'Monitored web traffic via WAF and managed privileged access using CyberArk.',
+                    ]
+                }
+            ],
+            projects: [
+                {
+                    title: 'SOC Intelligence Platform',
+                    year: '2024',
+                    description: 'Built a real-time SOC dashboard aggregating cybersecurity intelligence from 100+ RSS feeds. Engineered automated threat severity classification using keyword-based analysis, a SQLite backend for historical tracking, and interactive visualizations. Includes automated critical-alert email reporting and a responsive UI.',
+                    tags: 'React, TypeScript, SQLite, Threat Intelligence, SOC Dashboard',
+                    featured: true
+                },
+                {
+                    title: 'Advanced BYOD Security Framework',
+                    year: '2024-2025',
+                    description: 'Designed a secure BYOD access control system with AES-128 encryption and UUID-based device authentication. Implemented Isolation Forest ML and CNN-based facial recognition for anomaly detection and suspicious login prevention.',
+                    tags: 'BYOD Security, Machine Learning, AES-128 Encryption',
+                    featured: false
+                },
+                {
+                    title: 'SIEM Log Processing Automation',
+                    year: '2023',
+                    description: 'Automated log parsing and alert analysis using Python to improve SOC efficiency and reduce manual triage time. Integrated with existing SIEM pipelines for structured alert output.',
+                    tags: 'Python, Log Analysis, SIEM Automation',
+                    featured: false
+                },
+                {
+                    title: 'Phishing Email Detection Tool',
+                    year: '2022',
+                    description: 'Developed a Python-based email threat detection system using IMAP to scan unread emails, analyze content and URLs for phishing indicators, and automatically quarantine malicious messages.',
+                    tags: 'Python, IMAP, Email Security',
+                    featured: false
+                }
+            ],
+            skills: {
+                siem: 'IBM QRadar, McAfee SIEM, Stella Cyber, SOCRadar',
+                edr: 'CrowdStrike Falcon, Microsoft Defender, Cortex XDR',
+                network: 'Wireshark, NetScout Arbor, Forcepoint DLP, WAF, IPS/IDS',
+                threat: 'MITRE ATT&CK, Threat Intelligence, IOC Analysis, Incident Response',
+                cloud: 'Microsoft Azure, Zabbix, Grafana, CyberArk',
+                code: 'Python, Bash Scripting, PowerShell, SQL',
+                compliance: 'GDPR, PCI-DSS, ISO 27001, SOC 2 Awareness',
+            },
+            contact: {
+                email: 'poorna.sujampathi@example.com',
+                linkedin: 'https://linkedin.com/in/sujampathi',
+                github: 'https://github.com/sujampathi',
+                location: 'United Kingdom',
+                phone: '',
+            }
+        };
+
+        // ═══════════════════════════════════════════════
+        //  AUTH
+        // ═══════════════════════════════════════════════
+        function doLogin() {
+            const pw = document.getElementById('password-input').value;
+            if (pw === ADMIN_PASSWORD) {
+                document.getElementById('login-screen').style.display = 'none';
+                document.getElementById('admin-panel').style.display = 'block';
+                loadAll();
+            } else {
+                document.getElementById('login-error').textContent = 'Incorrect password. Try again.';
+                document.getElementById('password-input').value = '';
+            }
+        }
+
+        document.getElementById('password-input').addEventListener('keydown', e => {
+            if (e.key === 'Enter') doLogin();
+        });
+
+        function doLogout() {
+            document.getElementById('admin-panel').style.display = 'none';
+            document.getElementById('login-screen').style.display = 'flex';
+            document.getElementById('password-input').value = '';
+            document.getElementById('login-error').textContent = '';
+        }
+
+        // ═══════════════════════════════════════════════
+        //  TABS
+        // ═══════════════════════════════════════════════
+        function showTab(name) {
+            document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById('tab-' + name).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+
+        // ═══════════════════════════════════════════════
+        //  DATA HELPERS
+        // ═══════════════════════════════════════════════
+        function getData() {
+            try {
+                return JSON.parse(localStorage.getItem(STORAGE_KEY)) || JSON.parse(JSON.stringify(DEFAULT_DATA));
+            } catch { return JSON.parse(JSON.stringify(DEFAULT_DATA)); }
+        }
+
+        function setData(d) { localStorage.setItem(STORAGE_KEY, JSON.stringify(d)); }
+
+        // ═══════════════════════════════════════════════
+        //  LOAD ALL INTO FORM
+        // ═══════════════════════════════════════════════
+        function loadAll() {
+            const d = getData();
+
+            // HERO
+            fv('hero-firstName', d.hero.firstName);
+            fv('hero-lastName', d.hero.lastName);
+            fv('hero-subtitle', d.hero.subtitle);
+            fv('hero-otwText', d.hero.otwText);
+            document.getElementById('hero-openToWork').checked = d.hero.openToWork;
+            fv('hero-availability', d.hero.availability);
+            fv('hero-line1', d.hero.line1);
+            fv('hero-line2', d.hero.line2);
+            fv('hero-line3', d.hero.line3);
+
+            // ABOUT
+            fv('about-intro', d.about.intro);
+            fv('about-desc', d.about.desc);
+            const stats = d.about.stats;
+            if (stats[0]) { fv('stat1-val', stats[0].val); fv('stat1-label', stats[0].label); }
+            if (stats[1]) { fv('stat2-val', stats[1].val); fv('stat2-label', stats[1].label); }
+            if (stats[2]) { fv('stat3-val', stats[2].val); fv('stat3-label', stats[2].label); }
+
+            // EXPERIENCE
+            renderExperience(d.experience);
+
+            // PROJECTS
+            renderProjects(d.projects);
+
+            // SKILLS
+            fv('skills-siem', d.skills.siem);
+            fv('skills-edr', d.skills.edr);
+            fv('skills-network', d.skills.network);
+            fv('skills-threat', d.skills.threat);
+            fv('skills-cloud', d.skills.cloud);
+            fv('skills-code', d.skills.code);
+            fv('skills-compliance', d.skills.compliance);
+
+            // CONTACT
+            fv('contact-email', d.contact.email);
+            fv('contact-linkedin', d.contact.linkedin);
+            fv('contact-github', d.contact.github);
+            fv('contact-location', d.contact.location);
+            fv('contact-phone', d.contact.phone || '');
+        }
+
+        function fv(id, val) {
+            const el = document.getElementById(id);
+            if (el) el.value = val || '';
+        }
+
+        // ═══════════════════════════════════════════════
+        //  SAVE ALL
+        // ═══════════════════════════════════════════════
+        function saveAll() {
+            const d = getData();
+
+            d.hero.firstName = gv('hero-firstName');
+            d.hero.lastName = gv('hero-lastName');
+            d.hero.subtitle = gv('hero-subtitle');
+            d.hero.otwText = gv('hero-otwText');
+            d.hero.openToWork = document.getElementById('hero-openToWork').checked;
+            d.hero.availability = gv('hero-availability');
+            d.hero.line1 = gv('hero-line1');
+            d.hero.line2 = gv('hero-line2');
+            d.hero.line3 = gv('hero-line3');
+
+            d.about.intro = gv('about-intro');
+            d.about.desc = gv('about-desc');
+            d.about.stats = [
+                { val: gv('stat1-val'), label: gv('stat1-label') },
+                { val: gv('stat2-val'), label: gv('stat2-label') },
+                { val: gv('stat3-val'), label: gv('stat3-label') },
+            ];
+
+            d.experience = readExperience();
+            d.projects = readProjects();
+
+            d.skills.siem = gv('skills-siem');
+            d.skills.edr = gv('skills-edr');
+            d.skills.network = gv('skills-network');
+            d.skills.threat = gv('skills-threat');
+            d.skills.cloud = gv('skills-cloud');
+            d.skills.code = gv('skills-code');
+            d.skills.compliance = gv('skills-compliance');
+
+            d.contact.email = gv('contact-email');
+            d.contact.linkedin = gv('contact-linkedin');
+            d.contact.github = gv('contact-github');
+            d.contact.location = gv('contact-location');
+            d.contact.phone = gv('contact-phone');
+
+            setData(d);
+            showToast();
+        }
+
+        function gv(id) {
+            const el = document.getElementById(id);
+            return el ? el.value.trim() : '';
+        }
+
+        // ═══════════════════════════════════════════════
+        //  EXPERIENCE
+        // ═══════════════════════════════════════════════
+        let expData = [];
+
+        function renderExperience(list) {
+            expData = list ? JSON.parse(JSON.stringify(list)) : [];
+            const container = document.getElementById('experience-list');
+            container.innerHTML = '';
+            expData.forEach((_, i) => container.appendChild(buildExpBlock(i)));
+        }
+
+        function buildExpBlock(i) {
+            const e = expData[i];
+            const div = document.createElement('div');
+            div.className = 'card';
+            div.id = 'exp-' + i;
+
+            div.innerHTML = `
+    <div class="card-title">
+      <span>Experience #${i + 1}</span>
+      <button class="btn-remove" onclick="removeExperience(${i})">✕ Remove</button>
+    </div>
+    <div class="form-grid">
+      <div class="form-group col-2">
+        <label>Job Title</label>
+        <input type="text" id="exp-title-${i}" value="${esc(e.title)}" />
+      </div>
+      <div class="form-group">
+        <label>Company</label>
+        <input type="text" id="exp-company-${i}" value="${esc(e.company)}" />
+      </div>
+      <div class="form-group">
+        <label>Location</label>
+        <input type="text" id="exp-location-${i}" value="${esc(e.location)}" />
+      </div>
+      <div class="form-group">
+        <label>From (e.g. Jan 2022)</label>
+        <input type="text" id="exp-from-${i}" value="${esc(e.dateFrom)}" />
+      </div>
+      <div class="form-group">
+        <label>To (e.g. Dec 2022 or Present)</label>
+        <input type="text" id="exp-to-${i}" value="${esc(e.dateTo)}" />
+      </div>
+      <div class="form-group col-2">
+        <label>Award / Badge (leave blank if none)</label>
+        <input type="text" id="exp-award-${i}" value="${esc(e.award)}" />
+      </div>
+    </div>
+    <div class="bullet-list" id="exp-bullets-${i}"></div>
+    <button class="btn-add-bullet" onclick="addBullet('exp', ${i})">+ Add bullet point</button>
+  `;
+
+            const container = div.querySelector(`#exp-bullets-${i}`);
+            (e.bullets || []).forEach((b, bi) => container.appendChild(buildBulletRow('exp', i, bi, b)));
+
+            return div;
+        }
+
+        function addExperience() {
+            expData.push({ title: '', company: '', location: 'UK', dateFrom: '', dateTo: '', award: '', bullets: [''] });
+            const i = expData.length - 1;
+            document.getElementById('experience-list').appendChild(buildExpBlock(i));
+        }
+
+        function removeExperience(i) {
+            document.getElementById('exp-' + i)?.remove();
+        }
+
+        function readExperience() {
+            const result = [];
+            document.querySelectorAll('[id^="exp-title-"]').forEach(el => {
+                const i = el.id.split('-')[2];
+                if (!document.getElementById('exp-' + i)) return; // removed
+                const bullets = [];
+                document.querySelectorAll(`[id^="exp-bullet-${i}-"]`).forEach(b => {
+                    if (b.value.trim()) bullets.push(b.value.trim());
+                });
+                result.push({
+                    title: gv(`exp-title-${i}`),
+                    company: gv(`exp-company-${i}`),
+                    location: gv(`exp-location-${i}`),
+                    dateFrom: gv(`exp-from-${i}`),
+                    dateTo: gv(`exp-to-${i}`),
+                    award: gv(`exp-award-${i}`),
+                    bullets
+                });
+            });
+            return result;
+        }
+
+        // ═══════════════════════════════════════════════
+        //  PROJECTS
+        // ═══════════════════════════════════════════════
+        let projData = [];
+
+        function renderProjects(list) {
+            projData = list ? JSON.parse(JSON.stringify(list)) : [];
+            const container = document.getElementById('projects-list');
+            container.innerHTML = '';
+            projData.forEach((_, i) => container.appendChild(buildProjBlock(i)));
+        }
+
+        function buildProjBlock(i) {
+            const p = projData[i];
+            const div = document.createElement('div');
+            div.className = 'card';
+            div.id = 'proj-' + i;
+
+            div.innerHTML = `
+    <div class="card-title">
+      <span>Project #${i + 1}</span>
+      <button class="btn-remove" onclick="removeProject(${i})">✕ Remove</button>
+    </div>
+    <div class="form-grid">
+      <div class="form-group">
+        <label>Project Title</label>
+        <input type="text" id="proj-title-${i}" value="${esc(p.title)}" />
+      </div>
+      <div class="form-group">
+        <label>Year</label>
+        <input type="text" id="proj-year-${i}" value="${esc(p.year)}" />
+      </div>
+      <div class="form-group col-2">
+        <label>Description</label>
+        <textarea id="proj-desc-${i}" rows="3">${esc(p.description)}</textarea>
+      </div>
+      <div class="form-group col-2">
+        <label>Tech Tags (comma-separated)</label>
+        <input type="text" id="proj-tags-${i}" value="${esc(p.tags)}" />
+        <span class="tags-hint">e.g. Python, React, SIEM</span>
+      </div>
+      <div class="form-group col-2">
+        <div class="toggle-row">
+          <label class="toggle">
+            <input type="checkbox" id="proj-featured-${i}" ${p.featured ? 'checked' : ''} />
+            <span class="toggle-slider"></span>
+          </label>
+          <span class="toggle-label">Mark as Featured project</span>
+        </div>
+      </div>
+    </div>
+  `;
+            return div;
+        }
+
+        function addProject() {
+            projData.push({ title: '', year: new Date().getFullYear().toString(), description: '', tags: '', featured: false });
+            const i = projData.length - 1;
+            document.getElementById('projects-list').appendChild(buildProjBlock(i));
+        }
+
+        function removeProject(i) {
+            document.getElementById('proj-' + i)?.remove();
+        }
+
+        function readProjects() {
+            const result = [];
+            document.querySelectorAll('[id^="proj-title-"]').forEach(el => {
+                const i = el.id.split('-')[2];
+                if (!document.getElementById('proj-' + i)) return;
+                result.push({
+                    title: gv(`proj-title-${i}`),
+                    year: gv(`proj-year-${i}`),
+                    description: gv(`proj-desc-${i}`),
+                    tags: gv(`proj-tags-${i}`),
+                    featured: document.getElementById(`proj-featured-${i}`)?.checked || false
+                });
+            });
+            return result;
+        }
+
+        // ═══════════════════════════════════════════════
+        //  BULLET POINTS
+        // ═══════════════════════════════════════════════
+        function buildBulletRow(type, parentIdx, bulletIdx, value) {
+            const div = document.createElement('div');
+            div.className = 'bullet-row';
+            div.id = `${type}-bullet-row-${parentIdx}-${bulletIdx}`;
+            div.innerHTML = `
+    <input type="text" id="${type}-bullet-${parentIdx}-${bulletIdx}" value="${esc(value)}" placeholder="Bullet point..." />
+    <button class="btn-rm-bullet" onclick="removeBullet('${type}', ${parentIdx}, ${bulletIdx})">✕</button>
+  `;
+            return div;
+        }
+
+        let _bulletCounters = {};
+        function addBullet(type, parentIdx) {
+            const key = `${type}-${parentIdx}`;
+            if (!_bulletCounters[key]) {
+                _bulletCounters[key] = document.querySelectorAll(`[id^="${type}-bullet-row-${parentIdx}-"]`).length;
+            }
+            const bi = _bulletCounters[key]++;
+            const container = document.getElementById(`${type}-bullets-${parentIdx}`);
+            container.appendChild(buildBulletRow(type, parentIdx, bi, ''));
+        }
+
+        function removeBullet(type, parentIdx, bulletIdx) {
+            document.getElementById(`${type}-bullet-row-${parentIdx}-${bulletIdx}`)?.remove();
+        }
+
+        // ═══════════════════════════════════════════════
+        //  TOAST
+        // ═══════════════════════════════════════════════
+        function showToast() {
+            const t = document.getElementById('toast');
+            t.classList.add('show');
+            setTimeout(() => t.classList.remove('show'), 3000);
+        }
+
+        // ═══════════════════════════════════════════════
+        //  HELPERS
+        // ═══════════════════════════════════════════════
+        function esc(str) {
+            if (!str) return '';
+            return String(str).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        }
+
+        // ═══════════════════════════════════════════════
+        //  EXPORT HTML
+        // ═══════════════════════════════════════════════
+        async function exportHTML() {
+            // First save the latest form values
+            saveAll();
+
+            const data = getData();
+            if (!data) { alert('No data to export. Save first.'); return; }
+
+            let html;
+            try {
+                const resp = await fetch('index.html');
+                html = await resp.text();
+            } catch (e) {
+                alert('Could not read index.html. Make sure you are running via a local server (localhost).');
+                return;
+            }
+
+            // Inject data as a self-contained script that runs before portfolio-loader.js
+            const injectScript = `
+<script id="admin-exported-data">
+// Auto-generated by Admin Panel — do not edit manually
+(function(){
+  localStorage.setItem('portfolioData', ${JSON.stringify(JSON.stringify(data))});
+})();
+<\/script>`;
+
+            // Insert just before portfolio-loader.js script tag
+            const loaderTag = '<script src="js/portfolio-loader.js">';
+            if (html.includes(loaderTag)) {
+                html = html.replace(loaderTag, injectScript + '\n    ' + loaderTag);
+            } else {
+                // Fallback: inject before </body>
+                html = html.replace('</body>', injectScript + '\n</body>');
+            }
+
+            // Trigger download
+            const blob = new Blob([html], { type: 'text/html' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'index.html';
+            a.click();
+            URL.revokeObjectURL(url);
+
+            // Show toast with special message
+            const t = document.getElementById('toast');
+            t.textContent = '⬇ index.html downloaded — deploy it!';
+            t.classList.add('show');
+            setTimeout(() => { t.classList.remove('show'); t.textContent = '✓ Changes saved to portfolio'; }, 4000);
+        }
+    </script>
+</body>
+
+</html>
