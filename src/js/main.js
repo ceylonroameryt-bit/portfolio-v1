@@ -221,3 +221,14 @@
 document.addEventListener('visibilitychange', () => {
     document.body.style.animationPlayState = document.hidden ? 'paused' : 'running';
 });
+
+// ── 10. GLOBAL SCROLL HELPER FOR TELEMETRY WIDGET ───
+window.scrollToSection = function(id) {
+    const target = document.getElementById(id);
+    if (!target) return;
+    const NAV_H = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) || 74;
+    window.scrollTo({
+        top: target.getBoundingClientRect().top + window.scrollY - NAV_H - 10,
+        behavior: 'smooth'
+    });
+};
