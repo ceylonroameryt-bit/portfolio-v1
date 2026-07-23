@@ -1,0 +1,7 @@
+Contact: mailto:poornasujampathi@gmail.com
+Contact: https://linkedin.com/in/sujampathi-rathnayaka-304a752a9/
+Expires: 2026-12-31T23:59:59.000Z
+Preferred-Languages: en
+Canonical: https://sujampathirathnayaka.com/.well-known/security.txt
+Policy: https://sujampathirathnayaka.com/security-policy
+Acknowledgments: https://sujampathirathnayaka.com/security-acknowledgments
