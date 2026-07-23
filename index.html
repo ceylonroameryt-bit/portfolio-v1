@@ -453,22 +453,16 @@
             <h2 class="section-title">Notable projects<br>with real-world impact.</h2>
             <div class="projects-grid">
 
-                <div class="project-card project-card--featured">
-
+                <div class="project-card project-card--featured" onclick="openProjectModal('soc-platform')">
                     <div class="project-header">
                         <h3>SOC Intelligence Platform</h3>
                         <span class="project-year">2024</span>
                     </div>
                     <div class="project-details">
-                        <p><strong>Scenario:</strong> Security analysts spend excessive time manually parsing threat
-                            intelligence from varied sources.</p>
-                        <p><strong>Goal:</strong> Centralize 100+ RSS feeds to provide real-time, triaged threat
-                            intelligence.</p>
-                        <p><strong>Actions:</strong> Engineered a React/TypeScript dashboard with a SQLite backend.
-                            Built automated threat severity classification using keyword-based analysis and automated
-                            critical-alert email reporting.</p>
-                        <p><strong>Outcome:</strong> Delivered a centralized intelligence platform with interactive
-                            visualizations, reducing manual monitoring efforts.</p>
+                        <p><strong>Scenario:</strong> Security analysts spend excessive time manually parsing threat intelligence from varied sources.</p>
+                        <p><strong>Goal:</strong> Centralize 100+ RSS feeds to provide real-time, triaged threat intelligence.</p>
+                        <p><strong>Actions:</strong> Engineered a React/TypeScript dashboard with a SQLite backend. Built automated threat severity classification using keyword-based analysis and automated critical-alert email reporting.</p>
+                        <p><strong>Outcome:</strong> Delivered a centralized intelligence platform with interactive visualizations, reducing manual monitoring efforts.</p>
                     </div>
                     <div class="project-tech">
                         <span class="tech-tag">React</span>
@@ -476,52 +470,40 @@
                         <span class="tech-tag">SQLite</span>
                     </div>
                     <div class="project-links">
-                        <a href="#" class="btn btn-primary" style="padding: 10px 16px; font-size: 13px;">View
-                            Project</a>
+                        <button type="button" class="btn btn-primary" onclick="event.stopPropagation(); openProjectModal('soc-platform')" style="padding: 10px 16px; font-size: 13px;">View Case Study →</button>
                     </div>
                 </div>
 
-                <div class="project-card">
-
+                <div class="project-card" onclick="openProjectModal('byod')">
                     <div class="project-header">
                         <h3>Advanced BYOD Security Framework</h3>
                         <span class="project-year">2024–25</span>
                     </div>
                     <div class="project-details">
-                        <p><strong>Scenario:</strong> Unmanaged personal devices in corporate environments introduce
-                            severe access risks.</p>
-                        <p><strong>Goal:</strong> Design an access control system to securely authenticate and isolate
-                            BYOD endpoints.</p>
-                        <p><strong>Actions:</strong> Developed a framework using AES-128 encryption and UUID-based
-                            authentication. Integrated ML and CNN-based facial recognition to detect anomalies.</p>
-                        <p><strong>Outcome:</strong> Created a zero-trust model prototype that prevents unauthorized
-                            network access from compromised personal devices.</p>
+                        <p><strong>Scenario:</strong> Unmanaged personal devices in corporate environments introduce severe access risks.</p>
+                        <p><strong>Goal:</strong> Design an access control system to securely authenticate and isolate BYOD endpoints.</p>
+                        <p><strong>Actions:</strong> Developed a framework using AES-128 encryption and UUID-based authentication. Integrated ML and CNN-based facial recognition to detect anomalies.</p>
+                        <p><strong>Outcome:</strong> Created a zero-trust model prototype that prevents unauthorized network access from compromised personal devices.</p>
                     </div>
                     <div class="project-tech">
                         <span class="tech-tag">BYOD Security</span>
                         <span class="tech-tag">Machine Learning</span>
                     </div>
                     <div class="project-links">
-                        <a href="#" class="btn btn-primary" style="padding: 10px 16px; font-size: 13px;">View
-                            Project</a>
+                        <button type="button" class="btn btn-primary" onclick="event.stopPropagation(); openProjectModal('byod')" style="padding: 10px 16px; font-size: 13px;">View Case Study →</button>
                     </div>
                 </div>
 
-                <div class="project-card">
-
+                <div class="project-card" onclick="openProjectModal('ip-scanner')">
                     <div class="project-header">
                         <h3>Advanced Threat Intelligence &amp; Dark Web IP Scanner</h3>
                         <span class="project-year">2023</span>
                     </div>
                     <div class="project-details">
-                        <p><strong>Scenario:</strong> Threat hunting requires checking numerous external IP reputation
-                            lists, consuming valuable triage time.</p>
-                        <p><strong>Goal:</strong> Automate IP enrichment to quickly determine the severity of a
-                            suspicious IP.</p>
-                        <p><strong>Actions:</strong> Developed a Python script integrating APIs (VirusTotal, AbuseIPDB,
-                            AlienVault OTX) and dark-web OSINT.</p>
-                        <p><strong>Outcome:</strong> Automatically generated hashes, geolocation, and severity scoring
-                            into an analyst-ready threat summary.</p>
+                        <p><strong>Scenario:</strong> Threat hunting requires checking numerous external IP reputation lists, consuming valuable triage time.</p>
+                        <p><strong>Goal:</strong> Automate IP enrichment to quickly determine the severity of a suspicious IP.</p>
+                        <p><strong>Actions:</strong> Developed a Python script integrating APIs (VirusTotal, AbuseIPDB, AlienVault OTX) and dark-web OSINT.</p>
+                        <p><strong>Outcome:</strong> Automatically generated hashes, geolocation, and severity scoring into an analyst-ready threat summary.</p>
                     </div>
                     <div class="project-tech">
                         <span class="tech-tag">Python</span>
@@ -529,52 +511,41 @@
                         <span class="tech-tag">Threat Intel</span>
                     </div>
                     <div class="project-links">
-                        <a href="#" class="btn btn-primary" style="padding: 10px 16px; font-size: 13px;">View
-                            Project</a>
+                        <button type="button" class="btn btn-primary" onclick="event.stopPropagation(); openProjectModal('ip-scanner')" style="padding: 10px 16px; font-size: 13px;">View Case Study →</button>
                     </div>
                 </div>
 
-                <div class="project-card">
-                    <!-- Project image placeholder if user decides to add project 4 image later -->
-                    <!-- <img class="project-image" src="src/assets/images/project4.png" alt="SIEM Log Processing Automation"> -->
+                <div class="project-card" onclick="openProjectModal('siem-automation')">
                     <div class="project-header">
                         <h3>SIEM Log Processing Automation</h3>
                         <span class="project-year">2023</span>
                     </div>
                     <div class="project-details">
-                        <p><strong>Scenario:</strong> Manual triage of noisy, unparsed SIEM alerts leads to alert
-                            fatigue and high MTTR.</p>
-                        <p><strong>Goal:</strong> Automate log parsing to extract actionable indicators from raw logs.
-                        </p>
-                        <p><strong>Actions:</strong> Wrote Python scripts to parse log formats and highlight critical
-                            fields.</p>
-                        <p><strong>Outcome:</strong> Integrated the pipeline with the SIEM, reducing manual triage time
-                            and improving SOC efficiency.</p>
+                        <p><strong>Scenario:</strong> Manual triage of noisy, unparsed SIEM alerts leads to alert fatigue and high MTTR.</p>
+                        <p><strong>Goal:</strong> Automate log parsing to extract actionable indicators from raw logs.</p>
+                        <p><strong>Actions:</strong> Wrote Python scripts to parse log formats and highlight critical fields.</p>
+                        <p><strong>Outcome:</strong> Integrated the pipeline with the SIEM, reducing manual triage time and improving SOC efficiency.</p>
                     </div>
                     <div class="project-tech">
                         <span class="tech-tag">Python</span>
                         <span class="tech-tag">Log Analysis</span>
                         <span class="tech-tag">SIEM Automation</span>
                     </div>
+                    <div class="project-links">
+                        <button type="button" class="btn btn-primary" onclick="event.stopPropagation(); openProjectModal('siem-automation')" style="padding: 10px 16px; font-size: 13px;">View Case Study →</button>
+                    </div>
                 </div>
 
-                <div class="project-card">
+                <div class="project-card" onclick="openProjectModal('phishing-ai')">
                     <div class="project-header">
-                        <h3>AI-Augmented Phishing Detection & CTI Engine</h3>
+                        <h3>AI-Augmented Phishing Detection &amp; CTI Engine</h3>
                         <span class="project-year">2022</span>
                     </div>
                     <div class="project-details">
-                        <p><strong>Scenario:</strong> Standard email security filters often miss sophisticated, targeted
-                            phishing attacks and zero-day malicious URLs, leaving inboxes vulnerable.</p>
-                        <p><strong>Goal:</strong> Develop an automated email analysis engine to proactively detect,
-                            score, and quarantine complex phishing attempts.</p>
-                        <p><strong>Actions:</strong> Built a Python application that fetches real-time emails via IMAP
-                            and performs deep header forensics (SPF/DKIM/DMARC checks). It cross-references extracted
-                            URLs and IPs against 100+ global Cyber Threat Intelligence (CTI) feeds and leverages the
-                            Gemini AI API for deep, contextual analysis of borderline suspicious emails.</p>
-                        <p><strong>Outcome:</strong> Created a robust pipeline that automatically scores incoming
-                            emails, accurately flags advanced tactics like display name spoofing and lookalike domains,
-                            and automatically quarantines malicious messages with high accuracy.</p>
+                        <p><strong>Scenario:</strong> Standard email security filters often miss sophisticated, targeted phishing attacks and zero-day malicious URLs, leaving inboxes vulnerable.</p>
+                        <p><strong>Goal:</strong> Develop an automated email analysis engine to proactively detect, score, and quarantine complex phishing attempts.</p>
+                        <p><strong>Actions:</strong> Built a Python application that fetches real-time emails via IMAP and performs deep header forensics (SPF/DKIM/DMARC checks). It cross-references extracted URLs and IPs against 100+ global Cyber Threat Intelligence (CTI) feeds and leverages the Gemini AI API for deep, contextual analysis of borderline suspicious emails.</p>
+                        <p><strong>Outcome:</strong> Created a robust pipeline that automatically scores incoming emails, accurately flags advanced tactics like display name spoofing and lookalike domains, and automatically quarantines malicious messages with high accuracy.</p>
                     </div>
                     <div class="project-tech">
                         <span class="tech-tag">Python</span>
@@ -582,27 +553,29 @@
                         <span class="tech-tag">Threat Intel</span>
                         <span class="tech-tag">AI Analysis</span>
                     </div>
+                    <div class="project-links">
+                        <button type="button" class="btn btn-primary" onclick="event.stopPropagation(); openProjectModal('phishing-ai')" style="padding: 10px 16px; font-size: 13px;">View Case Study →</button>
+                    </div>
                 </div>
 
-                <div class="project-card">
+                <div class="project-card" onclick="openProjectModal('kali-scanner')">
                     <div class="project-header">
                         <h3>Kali Linux CLI Pentesting Scanner</h3>
                         <span class="project-year">2024</span>
                     </div>
                     <div class="project-details">
-                        <p><strong>Scenario:</strong> Routine vulnerability assessments involve running fragmented tools
-                            manually, causing reporting delays.</p>
-                        <p><strong>Goal:</strong> Create a lightweight, unified scanning tool to streamline basic
-                            reconnaissance.</p>
-                        <p><strong>Actions:</strong> Built a Bash CLI tool on Kali Linux orchestrating Nmap, Nikto, and
-                            Metasploit auxiliary modules.</p>
-                        <p><strong>Outcome:</strong> Consolidated scan outputs into structured HTML reports, improving
-                            assessment speed and repeatability.</p>
+                        <p><strong>Scenario:</strong> Routine vulnerability assessments involve running fragmented tools manually, causing reporting delays.</p>
+                        <p><strong>Goal:</strong> Create a lightweight, unified scanning tool to streamline basic reconnaissance.</p>
+                        <p><strong>Actions:</strong> Built a Bash CLI tool on Kali Linux orchestrating Nmap, Nikto, and Metasploit auxiliary modules.</p>
+                        <p><strong>Outcome:</strong> Consolidated scan outputs into structured HTML reports, improving assessment speed and repeatability.</p>
                     </div>
                     <div class="project-tech">
                         <span class="tech-tag">Kali Linux</span>
                         <span class="tech-tag">Bash</span>
                         <span class="tech-tag">Automation</span>
+                    </div>
+                    <div class="project-links">
+                        <button type="button" class="btn btn-primary" onclick="event.stopPropagation(); openProjectModal('kali-scanner')" style="padding: 10px 16px; font-size: 13px;">View Case Study →</button>
                     </div>
                 </div>
 
@@ -898,6 +871,14 @@
             </ul>
         </div>
     </footer>
+
+    <!-- Behance Case Study Modal -->
+    <div id="projectModal" class="project-modal-overlay" onclick="closeProjectModal(event)">
+        <div class="project-modal-card" onclick="event.stopPropagation()">
+            <button class="modal-close-btn" onclick="closeProjectModal()" aria-label="Close modal">✕</button>
+            <div class="modal-body" id="modalBody"></div>
+        </div>
+    </div>
 
     <script src="src/js/main.js"></script>
 </body>

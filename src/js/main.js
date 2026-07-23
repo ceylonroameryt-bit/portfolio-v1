@@ -245,3 +245,128 @@ window.runConsoleCommand = function(cmd) {
     const targetId = sectionMap[cmd] || 'mitre-matrix';
     window.scrollToSection(targetId);
 };
+
+// ── 11. BEHANCE CASE STUDY MODAL LIGHTBOX ───
+const CASE_STUDIES = {
+    'soc-platform': {
+        title: 'Advanced SOC Dashboard & Threat Intelligence Platform',
+        year: '2025',
+        category: 'Threat Intelligence / React & Python',
+        badge: 'Featured Project',
+        scenario: 'Security operations analysts spend excessive manual hours aggregating, parsing, and triaging threat intelligence feeds across disparate OSINT and CTI platforms.',
+        goal: 'Centralize 100+ live threat intelligence feeds into a single unified dashboard, automating threat severity classification and reducing manual aggregation effort by 50%.',
+        actions: 'Engineered a real-time web platform using React and TypeScript backed by SQLite. Built an automated threat severity scoring engine using keyword analysis, mapped indicators to the MITRE ATT&CK lifecycle, and implemented an automated critical-alert email reporting system.',
+        outcome: 'Delivered an interactive, centralized CTI operations center that reduced manual data gathering time by 50% and enabled rapid prioritization of high-risk threats.',
+        tech: ['React', 'TypeScript', 'Python', 'SQLite', 'Threat Intelligence', 'MITRE ATT&CK']
+    },
+    'byod': {
+        title: 'Advanced BYOD Security Framework',
+        year: '2024-2025',
+        category: 'Zero-Trust Security / Machine Learning',
+        badge: 'Research Project',
+        scenario: 'Unmanaged personal devices accessing enterprise corporate networks introduce critical malware lateral movement and unauthorized data access risks.',
+        goal: 'Design a zero-trust access control framework that securely authenticates personal devices and isolates anomalous connection attempts in real-time.',
+        actions: 'Implemented AES-128 encryption with UUID-based device authorization. Trained Isolation Forest machine learning models and CNN-based facial recognition for biometric anomaly detection and suspicious login prevention.',
+        outcome: 'Built a working zero-trust prototype that effectively blocks unauthorized network entry from compromised or untrusted endpoints.',
+        tech: ['BYOD Security', 'AES-128 Encryption', 'Machine Learning', 'Python', 'Zero-Trust']
+    },
+    'ip-scanner': {
+        title: 'Advanced Threat Intelligence & Dark Web IP Scanner',
+        year: '2023',
+        category: 'OSINT / Threat Hunting',
+        badge: 'Security Tool',
+        scenario: 'Threat hunting requires cross-referencing hundreds of suspicious IP addresses across multiple reputation engines, causing significant investigation latency.',
+        goal: 'Automate IP enrichment and dark-web OSINT checks to produce immediate, analyst-ready threat intelligence summaries.',
+        actions: 'Developed a Python automation script integrating REST APIs from VirusTotal, AbuseIPDB, AlienVault OTX, and dark-web OSINT feeds. Formatted threat hashes, geolocation, and risk scoring into structured reports.',
+        outcome: 'Cut IP lookup time from minutes to seconds, providing SOC analysts with instant contextual risk summaries.',
+        tech: ['Python', 'Dark Web OSINT', 'VirusTotal API', 'AbuseIPDB', 'Threat Intelligence']
+    },
+    'siem-automation': {
+        title: 'SIEM Log Processing Automation Engine',
+        year: '2023',
+        category: 'SIEM Automation / Security Ops',
+        badge: 'Automation Script',
+        scenario: 'High volumes of unparsed raw logs flood SIEM consoles, creating alert fatigue and increasing Mean Time to Investigate (MTTI).',
+        goal: 'Automate raw log parsing to extract actionable indicators and identify credential stuffing and brute-force patterns.',
+        actions: 'Wrote custom Python log parsers using regex pattern matching to extract IP, user, and payload fields from raw system logs. Integrated structured output pipelines into SIEM workflows.',
+        outcome: 'Reduced manual alert triage time by 30% and enabled automated detection of brute-force authentication attacks.',
+        tech: ['Python', 'Log Parsing', 'SIEM Automation', 'Security Operations']
+    },
+    'phishing-ai': {
+        title: 'AI-Augmented Phishing Detection & CTI Engine',
+        year: '2022',
+        category: 'Email Security / AI Analysis',
+        badge: 'AI Security Tool',
+        scenario: 'Standard email security gateways frequently fail to detect zero-day malicious URLs, display name spoofing, and lookalike domains.',
+        goal: 'Build an automated email security analyzer that evaluates incoming emails against CTI feeds and AI models to quarantine phishing threats.',
+        actions: 'Built a Python application using IMAP to scan incoming mail. Implemented SPF/DKIM/DMARC header validation, URL threat feeds checking, and Gemini AI API contextual analysis for borderline suspicious messages.',
+        outcome: 'Accurately detected advanced email spoofing and automatically quarantined malicious phishing emails.',
+        tech: ['Python', 'IMAP', 'AI Analysis', 'Phishing Detection', 'CTI Feeds']
+    },
+    'kali-scanner': {
+        title: 'Kali Linux CLI Pentesting Scanner',
+        year: '2024',
+        category: 'Pentesting / Automation',
+        badge: 'CLI Tool',
+        scenario: 'Manual vulnerability assessments require executing fragmented scanning tools individually, delaying report delivery.',
+        goal: 'Develop a unified Bash CLI scanner to automate network reconnaissance and vulnerability probing.',
+        actions: 'Wrote a Bash script on Kali Linux orchestrating Nmap port scans, Nikto web server probes, and Metasploit auxiliary modules into a single execution command.',
+        outcome: 'Generated clean, aggregated HTML assessment reports, doubling reconnaissance assessment speed.',
+        tech: ['Kali Linux', 'Bash Scripting', 'Nmap', 'Nikto', 'Metasploit']
+    }
+};
+
+window.openProjectModal = function(id) {
+    const data = CASE_STUDIES[id];
+    if (!data) return;
+
+    const modal = document.getElementById('projectModal');
+    const modalBody = document.getElementById('modalBody');
+    if (!modal || !modalBody) return;
+
+    const techHtml = data.tech.map(t => `<span class="modal-tech-tag">${t}</span>`).join('');
+
+    modalBody.innerHTML = `
+        <div class="modal-header-banner">
+            <span class="modal-badge">${data.badge} &middot; ${data.year}</span>
+            <h2 class="modal-title">${data.title}</h2>
+            <p class="modal-category">${data.category}</p>
+        </div>
+        <div class="modal-grid">
+            <div class="modal-block">
+                <h4>📌 Scenario &amp; Problem Statement</h4>
+                <p>${data.scenario}</p>
+            </div>
+            <div class="modal-block">
+                <h4>🎯 Project Goal</h4>
+                <p>${data.goal}</p>
+            </div>
+            <div class="modal-block full">
+                <h4>⚙️ Technical Solution &amp; Actions</h4>
+                <p>${data.actions}</p>
+            </div>
+            <div class="modal-block full">
+                <h4>🏆 Measured Impact &amp; Outcome</h4>
+                <p>${data.outcome}</p>
+            </div>
+        </div>
+        <div class="modal-tech-footer">
+            <span class="modal-tech-label">Technologies Used:</span>
+            <div class="modal-tech-list">${techHtml}</div>
+        </div>
+    `;
+
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+};
+
+window.closeProjectModal = function(e) {
+    const modal = document.getElementById('projectModal');
+    if (!modal) return;
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+};
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') window.closeProjectModal();
+});
