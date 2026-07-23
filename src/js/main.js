@@ -232,3 +232,16 @@ window.scrollToSection = function(id) {
         behavior: 'smooth'
     });
 };
+
+window.runConsoleCommand = function(cmd) {
+    const sectionMap = {
+        'mitre': 'mitre-matrix',
+        'skills': 'skills',
+        'experience': 'experience',
+        'triage': 'experience',
+        'rules': 'skills',
+        'incident': 'experience'
+    };
+    const targetId = sectionMap[cmd] || 'mitre-matrix';
+    window.scrollToSection(targetId);
+};

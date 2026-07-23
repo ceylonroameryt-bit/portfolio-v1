@@ -86,6 +86,7 @@
                 <li><a href="#home" class="nav-link">Home</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#mitre-matrix" class="nav-link">MITRE Matrix</a></li>
                 <li><a href="#experience" class="nav-link">Experience</a></li>
                 <li><a href="#projects" class="nav-link">Projects</a></li>
                 <li><a href="#certifications" class="nav-link">Certifications</a></li>
@@ -284,6 +285,90 @@
                         <li>Python for Security Automation</li>
                         <li>SOAR Playbook Development</li>
                     </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MITRE ATT&CK Matrix & SOC Command Center -->
+    <section id="mitre-matrix" class="mitre-matrix">
+        <div class="container">
+            <span class="section-label">SOC Operations Matrix</span>
+            <h2 class="section-title">MITRE ATT&CK® Coverage<br><em>&amp; Defense Playbooks.</em></h2>
+            <p class="mitre-intro">
+                Interactive mapping of hands-on threat mitigation experience, active SIEM rule tuning, and incident response playbooks executed across <strong>Banking, Aviation, and Telecommunications</strong> environments.
+            </p>
+
+            <div class="mitre-grid">
+                <div class="mitre-card" onclick="runConsoleCommand('mitre')">
+                    <div class="mitre-header-row">
+                        <span class="mitre-badge">T1498 / T1499</span>
+                        <span class="mitre-status status-success">Executed ✓</span>
+                    </div>
+                    <div class="mitre-card-body">
+                        <div class="mitre-icon">🛡️</div>
+                        <h3>Impact: Live DDoS Mitigation</h3>
+                        <p class="mitre-desc">Led real-time mitigation of a 5-hour DDoS attack on core banking infrastructure, protecting financial assets for <strong>1M+ customers</strong> with zero data loss.</p>
+                        <div class="mitre-tags">
+                            <span class="mitre-tag">McAfee SIEM</span>
+                            <span class="mitre-tag">CrowdStrike</span>
+                            <span class="mitre-tag">NetScout Arbor</span>
+                            <span class="mitre-tag">WAF Rules</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mitre-card" onclick="runConsoleCommand('mitre')">
+                    <div class="mitre-header-row">
+                        <span class="mitre-badge">T1021 / T1055</span>
+                        <span class="mitre-status status-success">Neutralized ✓</span>
+                    </div>
+                    <div class="mitre-card-body">
+                        <div class="mitre-icon">🎯</div>
+                        <h3>Lateral Movement Neutralization</h3>
+                        <p class="mitre-desc">Spearheaded threat detection using Microsoft Defender to identify and block stealthy lateral movement attempts within airline PCI-DSS network.</p>
+                        <div class="mitre-tags">
+                            <span class="mitre-tag">Microsoft Defender</span>
+                            <span class="mitre-tag">Azure Sentinel</span>
+                            <span class="mitre-tag">Cortex XDR</span>
+                            <span class="mitre-tag">EDR Triage</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mitre-card" onclick="runConsoleCommand('triage')">
+                    <div class="mitre-header-row">
+                        <span class="mitre-badge">T1078 / T1110</span>
+                        <span class="mitre-status status-cyan">30% MTTI Reduction</span>
+                    </div>
+                    <div class="mitre-card-body">
+                        <div class="mitre-icon">⚡</div>
+                        <h3>Automated Alert Triage Engine</h3>
+                        <p class="mitre-desc">Engineered custom Python scripts to enrich log context and automate raw log analysis for credential stuffing and brute-force detection.</p>
+                        <div class="mitre-tags">
+                            <span class="mitre-tag">Python Automation</span>
+                            <span class="mitre-tag">SIEM Parsing</span>
+                            <span class="mitre-tag">SOAR Playbooks</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mitre-card" onclick="runConsoleCommand('rules')">
+                    <div class="mitre-header-row">
+                        <span class="mitre-badge">T1566 / T1190</span>
+                        <span class="mitre-status status-purple">30% Noise Reduction</span>
+                    </div>
+                    <div class="mitre-card-body">
+                        <div class="mitre-icon">📡</div>
+                        <h3>Correlation Rule Optimization</h3>
+                        <p class="mitre-desc">Configured 15+ custom correlation rules in IBM QRadar, eliminating 30% false-positive alert noise in telecom-scale security operations.</p>
+                        <div class="mitre-tags">
+                            <span class="mitre-tag">IBM QRadar</span>
+                            <span class="mitre-tag">CyberArk PAM</span>
+                            <span class="mitre-tag">WAF Traffic</span>
+                            <span class="mitre-tag">Forcepoint DLP</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

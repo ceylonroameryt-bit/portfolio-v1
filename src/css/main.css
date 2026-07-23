@@ -915,22 +915,6 @@ section {
     width: 4px;
     height: 4px;
     border-radius: 50%;
-    background: var(--border-dark);
-    flex-shrink: 0;
-    transition: background var(--t);
-}
-
-.skill-list li:hover {
-    background: var(--bg-subtle);
-    color: var(--ink);
-    padding-left: 12px;
-}
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-    gap: 20px;
-}
-
 .project-card {
     background: var(--bg);
     border: 1px solid var(--border);
