@@ -2524,17 +2524,29 @@ section {
     margin-bottom: 20px;
 }
 
-.edu-icon {
-    width: 44px;
-    height: 44px;
+.edu-logo-wrap {
+    height: 52px;
+    width: auto;
+    min-width: 52px;
+    max-width: 140px;
     border-radius: 12px;
-    background: rgba(30, 58, 138, 0.08);
-    border: 1px solid rgba(30, 58, 138, 0.18);
-    color: var(--accent);
+    background: #FFFFFF;
+    border: 1px solid rgba(226, 232, 240, 0.9);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+    padding: 6px 12px;
+    box-shadow: 0 2px 8px rgba(30, 58, 138, 0.06);
+    overflow: hidden;
+}
+
+.edu-logo-img {
+    max-height: 40px;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
 }
 
 .edu-header-info {
