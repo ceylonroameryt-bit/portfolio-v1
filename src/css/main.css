@@ -244,26 +244,30 @@ section {
    HERO SECTION
    ============================================ */
 .hero {
-    min-height: 100vh;
+    min-height: 85vh;
     margin-top: var(--nav-h);
     display: flex;
     align-items: center;
-    background: var(--bg);
+    justify-content: center;
+    background: radial-gradient(circle at 50% 30%, #F0F5FF 0%, #F8FAFC 50%, #FFFFFF 100%);
     position: relative;
     overflow: hidden;
 }
 
-/* Diagonal blue gradient panel on right */
+/* Subtle background grid pattern & ambient radial light */
 .hero::before {
     content: '';
     position: absolute;
     top: 0;
-    right: 0;
-    width: 52%;
+    left: 0;
+    width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, #F8FAFC 0%, #EFF6FF 50%, #DBEAFE 100%);
+    background-image: 
+        radial-gradient(rgba(30, 58, 138, 0.05) 1px, transparent 1px),
+        radial-gradient(circle at 50% 0%, rgba(59, 130, 246, 0.08) 0%, transparent 60%);
+    background-size: 32px 32px, 100% 100%;
     z-index: 0;
-    clip-path: polygon(10% 0, 100% 0, 100% 100%, 0 100%);
+    pointer-events: none;
 }
 
 .hero::after {
@@ -273,18 +277,15 @@ section {
     left: 0;
     width: 100%;
     height: 1px;
-    background: var(--border);
+    background: linear-gradient(90deg, transparent 0%, var(--border) 50%, transparent 100%);
     z-index: 0;
 }
 
-
-
 .hero-content {
-    display: grid;
-    grid-template-columns: 1fr 420px;
-    gap: 80px;
+    display: flex;
+    justify-content: center;
     align-items: center;
-    padding: 80px 40px;
+    padding: 90px 40px;
     position: relative;
     z-index: 1;
     width: 100%;
@@ -293,11 +294,86 @@ section {
     box-sizing: border-box;
 }
 
-/* Single column hero (no stats panel) */
-.hero-content--single {
-    grid-template-columns: 1fr;
-    max-width: 760px;
+.hero-content--centered {
+    max-width: 860px;
 }
+
+.hero-text--centered {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+
+.hero-text--centered .hero-name {
+    text-align: center;
+    font-size: clamp(48px, 6vw, 84px);
+    margin-bottom: 12px;
+}
+
+.hero-text--centered .hero-role {
+    text-align: center;
+    font-size: 17px;
+    color: var(--accent);
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    margin-bottom: 24px;
+}
+
+.hero-text--centered .hero-divider {
+    margin: 0 auto 28px auto;
+    width: 56px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent-light) 100%);
+    border-radius: 2px;
+}
+
+.hero-text--centered .hero-bio {
+    max-width: 640px;
+    margin: 0 auto 36px auto;
+    text-align: center;
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--ink-light);
+}
+
+.hero-text--centered .hero-cta {
+    justify-content: center;
+    margin-bottom: 36px;
+}
+
+/* Centered tech stack strip */
+.hero-tech-strip {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    padding-top: 24px;
+    border-top: 1px dashed var(--border-dark);
+    max-width: 680px;
+    width: 100%;
+}
+
+.hero-tech-tag {
+    font-size: 11.5px;
+    font-weight: 600;
+    color: var(--accent);
+    background: rgba(30, 58, 138, 0.05);
+    border: 1px solid rgba(30, 58, 138, 0.15);
+    padding: 5px 13px;
+    border-radius: 100px;
+    letter-spacing: 0.2px;
+    transition: all var(--t);
+}
+
+.hero-tech-tag:hover {
+    background: var(--accent);
+    color: #FFFFFF;
+    border-color: var(--accent);
+    transform: translateY(-1px);
+}
+
 
 /* ============================================
    STATS STRIP — between hero & about
