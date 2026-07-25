@@ -1,6 +1,6 @@
 /* ============================================
    POORNA SUJAMPATHI — PORTFOLIO
-   Design: Bold Gradient — Warm Cream to Periwinkle
+   Design: Clean & Modern Editorial (White/Navy)
    ============================================ */
 
 *,
@@ -12,40 +12,40 @@
 }
 
 :root {
-    /* Warm Gradient Palette */
-    --ink: #1A1A2E;
-    --ink-light: #2D2D44;
-    --ink-muted: #5C5C7A;
-    --ink-subtle: #9494A8;
-    --bg: #FEFCF8;
-    --bg-light: #F7F3EC;
-    --bg-subtle: #EEE9DF;
-    --border: #E5DFD5;
-    --border-dark: #C8BFB0;
-    --accent: #3D52A0;
-    --accent-light: #6B7FCC;
-    --accent-soft: rgba(61, 82, 160, 0.07);
-    --accent-border: rgba(61, 82, 160, 0.22);
-    --success: #0D7A55;
-    --warm: #C2612A;
-    --warm-soft: rgba(194, 97, 42, 0.08);
+    /* Clean Editorial Palette */
+    --ink: #0F172A;
+    --ink-light: #334155;
+    --ink-muted: #64748B;
+    --ink-subtle: #94A3B8;
+    --bg: #FFFFFF;
+    --bg-light: #F8FAFC;
+    --bg-subtle: #F1F5F9;
+    --border: #E2E8F0;
+    --border-dark: #CBD5E1;
+    --accent: #1E3A8A;
+    --accent-light: #3B82F6;
+    --accent-soft: rgba(30, 58, 138, 0.06);
+    --accent-border: rgba(30, 58, 138, 0.2);
+    --success: #059669;
+    --warm: #1E3A8A;
+    --warm-soft: rgba(30, 58, 138, 0.06);
 
     /* Hero Gradient */
-    --hero-start: #FDF6EC;
-    --hero-mid: #EEF0FF;
-    --hero-end: #DDE4FF;
+    --hero-start: #FFFFFF;
+    --hero-mid: #EFF6FF;
+    --hero-end: #DBEAFE;
 
     /* Shadows */
-    --shadow-sm: 0 1px 4px rgba(26,26,46,0.07), 0 1px 2px rgba(26,26,46,0.04);
-    --shadow-md: 0 4px 20px rgba(26,26,46,0.1), 0 2px 6px rgba(26,26,46,0.05);
-    --shadow-lg: 0 12px 36px rgba(26,26,46,0.12), 0 4px 10px rgba(26,26,46,0.06);
-    --shadow-xl: 0 24px 56px rgba(26,26,46,0.14), 0 8px 18px rgba(26,26,46,0.07);
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+    --shadow-md: 0 4px 16px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.04);
+    --shadow-lg: 0 12px 32px rgba(0,0,0,0.1), 0 4px 8px rgba(0,0,0,0.06);
+    --shadow-xl: 0 24px 48px rgba(0,0,0,0.12), 0 8px 16px rgba(0,0,0,0.06);
 
     /* Layout */
     --max-w: 1140px;
     --nav-h: 72px;
-    --radius: 14px;
-    --radius-lg: 22px;
+    --radius: 12px;
+    --radius-lg: 20px;
 
     /* Transition */
     --ease: cubic-bezier(0.16, 1, 0.3, 1);
@@ -248,44 +248,36 @@ section {
     margin-top: var(--nav-h);
     display: flex;
     align-items: center;
-    background: linear-gradient(135deg, var(--hero-start) 0%, #F5F0FF 40%, var(--hero-end) 100%);
+    background: var(--bg);
     position: relative;
     overflow: hidden;
 }
 
-/* Warm blob top-left */
+/* Diagonal blue gradient panel on right */
 .hero::before {
     content: '';
     position: absolute;
-    top: -10%;
-    left: -8%;
-    width: 520px;
-    height: 520px;
-    background: radial-gradient(circle, rgba(255, 220, 170, 0.45) 0%, transparent 70%);
-    border-radius: 50%;
+    top: 0;
+    right: 0;
+    width: 52%;
+    height: 100%;
+    background: linear-gradient(135deg, #F8FAFC 0%, #EFF6FF 50%, #DBEAFE 100%);
     z-index: 0;
-    animation: blobFloat 12s ease-in-out infinite;
+    clip-path: polygon(10% 0, 100% 0, 100% 100%, 0 100%);
 }
 
-/* Cool blob bottom-right */
 .hero::after {
     content: '';
     position: absolute;
-    bottom: -10%;
-    right: -5%;
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(180, 200, 255, 0.4) 0%, transparent 65%);
-    border-radius: 50%;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--border);
     z-index: 0;
-    animation: blobFloat 16s ease-in-out infinite reverse;
 }
 
-@keyframes blobFloat {
-    0%, 100% { transform: translate(0, 0) scale(1); }
-    33% { transform: translate(20px, -20px) scale(1.05); }
-    66% { transform: translate(-10px, 15px) scale(0.97); }
-}
+
 
 .hero-content {
     display: grid;
@@ -316,16 +308,26 @@ section {
 
 /* Stats Panel — right column */
 .hero-stats-panel {
-    background: rgba(255, 253, 249, 0.85);
-    border: 1px solid rgba(255, 255, 255, 0.95);
+    background: #FFFFFF;
+    border: 1px solid var(--border);
     border-radius: 24px;
     padding: 32px;
-    box-shadow: var(--shadow-xl), 0 0 0 1px rgba(61, 82, 160, 0.1);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    box-shadow: var(--shadow-xl);
     display: flex;
     flex-direction: column;
     gap: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-stats-panel::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent-light) 100%);
 }
 
 .stat-block {
@@ -747,8 +749,7 @@ section {
 
 .hero-stat:hover {
     border-color: var(--accent-border);
-    background: rgba(255, 255, 255, 0.95);
-    transform: scale(1.03);
+    background: var(--accent-soft);
 }
 
 .hero-stat .num {
@@ -843,16 +844,16 @@ section {
 }
 
 .btn-accent {
-    background: linear-gradient(135deg, var(--warm) 0%, var(--accent) 100%);
+    background: var(--accent);
     color: #fff;
-    box-shadow: 0 4px 18px rgba(61, 82, 160, 0.35);
+    box-shadow: 0 4px 14px rgba(30, 58, 138, 0.3);
     font-weight: 700;
 }
 
 .btn-accent:hover {
+    background: #1E40AF;
     transform: translateY(-2px);
-    box-shadow: 0 8px 28px rgba(61, 82, 160, 0.45);
-    filter: brightness(1.08);
+    box-shadow: 0 8px 24px rgba(30, 58, 138, 0.4);
 }
 
 /* ============================================
@@ -862,20 +863,6 @@ section {
     background: var(--bg-light);
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
-    position: relative;
-    overflow: hidden;
-}
-
-.about::before {
-    content: '';
-    position: absolute;
-    top: -100px;
-    right: -100px;
-    width: 400px;
-    height: 400px;
-    background: radial-gradient(circle, rgba(180, 200, 255, 0.2) 0%, transparent 70%);
-    border-radius: 50%;
-    pointer-events: none;
 }
 
 .about-grid {
@@ -1407,7 +1394,7 @@ section {
    CERTIFICATIONS
    ============================================ */
 .certifications {
-    background: linear-gradient(160deg, var(--bg-light) 0%, #EEF0FF 100%);
+    background: var(--bg-light);
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
 }
@@ -1604,7 +1591,7 @@ section {
    CONTACT SECTION
    ============================================ */
 .contact {
-    background: linear-gradient(160deg, var(--bg-light) 0%, #F0F4FF 100%);
+    background: var(--bg-light);
     border-top: 1px solid var(--border);
 }
 
