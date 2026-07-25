@@ -2108,8 +2108,63 @@ section {
 }
 
 /* ============================================
+   PROJECT CARDS & PREVIEW BOXES
+   ============================================ */
+.project-preview-box {
+    background: #0B1120;
+    border: 1px solid #1E293B;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 16px;
+    font-family: 'JetBrains Mono', Consolas, monospace;
+}
+
+.preview-header {
+    background: #0F172A;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    border-bottom: 1px solid #1E293B;
+}
+
+.preview-title {
+    font-size: 10px;
+    font-weight: 700;
+    color: #94A3B8;
+    margin-left: 6px;
+    letter-spacing: 0.5px;
+}
+
+.preview-body {
+    padding: 12px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 11px;
+    line-height: 1.4;
+    color: #E2E8F0;
+}
+
+.p-cmd {
+    color: #94A3B8;
+}
+
+.p-tag {
+    font-size: 9.5px;
+    font-weight: 700;
+    padding: 1px 5px;
+    border-radius: 3px;
+}
+
+.p-green { background: rgba(5, 150, 105, 0.2); color: #10B981; border: 1px solid rgba(16, 185, 129, 0.3); }
+.p-red   { background: rgba(225, 29, 72, 0.2); color: #F43F5E; border: 1px solid rgba(244, 63, 94, 0.3); }
+.p-blue  { background: rgba(59, 130, 246, 0.2); color: #60A5FA; border: 1px solid rgba(96, 165, 250, 0.3); }
+
+/* ============================================
    BEHANCE CASE STUDY MODAL LIGHTBOX
    ============================================ */
+
 .project-modal-overlay {
     position: fixed;
     top: 0;
