@@ -244,7 +244,7 @@ section {
    HERO SECTION
    ============================================ */
 .hero {
-    min-height: 88vh;
+    min-height: 85vh;
     margin-top: var(--nav-h);
     display: flex;
     align-items: center;
@@ -252,39 +252,6 @@ section {
     background: radial-gradient(circle at 50% 30%, #F0F5FF 0%, #F8FAFC 50%, #FFFFFF 100%);
     position: relative;
     overflow: hidden;
-}
-
-/* Floating ambient light orbs */
-.hero-bg-glow {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(80px);
-    pointer-events: none;
-    z-index: 0;
-    opacity: 0.65;
-}
-
-.hero-bg-glow--1 {
-    top: -10%;
-    left: 15%;
-    width: 480px;
-    height: 480px;
-    background: radial-gradient(circle, rgba(59, 130, 246, 0.18) 0%, rgba(30, 58, 138, 0.05) 70%, transparent 100%);
-    animation: orbPulse 10s ease-in-out infinite alternate;
-}
-
-.hero-bg-glow--2 {
-    bottom: -10%;
-    right: 15%;
-    width: 520px;
-    height: 520px;
-    background: radial-gradient(circle, rgba(14, 165, 233, 0.15) 0%, rgba(30, 58, 138, 0.04) 70%, transparent 100%);
-    animation: orbPulse 14s ease-in-out infinite alternate-reverse;
-}
-
-@keyframes orbPulse {
-    0% { transform: scale(1) translate(0, 0); }
-    100% { transform: scale(1.15) translate(20px, -15px); }
 }
 
 /* Subtle background grid pattern */
@@ -295,8 +262,8 @@ section {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: radial-gradient(rgba(30, 58, 138, 0.06) 1px, transparent 1px);
-    background-size: 28px 28px;
+    background-image: radial-gradient(rgba(30, 58, 138, 0.05) 1px, transparent 1px);
+    background-size: 32px 32px;
     z-index: 0;
     pointer-events: none;
 }
@@ -316,7 +283,7 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 60px 24px;
+    padding: 80px 40px;
     position: relative;
     z-index: 1;
     width: 100%;
@@ -326,201 +293,85 @@ section {
 }
 
 .hero-content--centered {
-    max-width: 880px;
+    max-width: 860px;
 }
 
-/* Frosted Glass Hero Card */
-.hero-glass-card {
-    background: rgba(255, 255, 255, 0.78);
-    border: 1px solid rgba(226, 232, 240, 0.9);
-    border-radius: 28px;
-    padding: 56px 48px;
-    box-shadow: 
-        0 20px 60px -15px rgba(30, 58, 138, 0.08),
-        0 0 0 1px rgba(255, 255, 255, 0.9) inset;
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+.hero-text--centered {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     width: 100%;
-    box-sizing: border-box;
-    transition: all var(--t);
 }
 
-.hero-glass-card:hover {
-    border-color: rgba(30, 58, 138, 0.25);
-    box-shadow: 
-        0 28px 70px -15px rgba(30, 58, 138, 0.12),
-        0 0 0 1px rgba(255, 255, 255, 1) inset;
-}
-
-/* Availability Chip with dual badge */
-.availability-chip {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(5, 150, 105, 0.06);
-    border: 1px solid rgba(5, 150, 105, 0.22);
-    border-radius: 100px;
-    padding: 6px 16px;
-    margin-bottom: 24px;
-}
-
-.chip-text {
-    font-size: 12.5px;
-    font-weight: 600;
-    color: var(--success);
-}
-
-.chip-badge {
-    font-size: 10.5px;
-    font-weight: 700;
-    background: var(--success);
-    color: #FFFFFF;
-    padding: 2px 8px;
-    border-radius: 100px;
-    letter-spacing: 0.2px;
-}
-
-/* High-Impact Hero Typography */
-.hero-name {
+.hero-text--centered .hero-name {
     text-align: center;
-    font-family: var(--font-display);
-    font-size: clamp(46px, 6.5vw, 84px);
-    font-weight: 800;
-    line-height: 1.02;
-    color: var(--ink);
-    letter-spacing: -2.5px;
-    margin-bottom: 16px;
+    font-size: clamp(48px, 6vw, 84px);
+    margin-bottom: 12px;
 }
 
-.hero-name-gradient {
-    background: linear-gradient(135deg, #1E3A8A 0%, #2563EB 50%, #0284C7 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-style: italic;
-    font-weight: 700;
-}
-
-.hero-role-badges {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
+.hero-text--centered .hero-role {
+    text-align: center;
+    font-size: 17px;
+    color: var(--accent);
+    font-weight: 600;
+    letter-spacing: 0.2px;
     margin-bottom: 24px;
 }
 
-.role-pill {
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--accent);
-    letter-spacing: 0.1px;
-}
-
-.role-dot {
-    color: var(--ink-subtle);
-    font-weight: 700;
-}
-
-.hero-divider {
+.hero-text--centered .hero-divider {
     margin: 0 auto 28px auto;
-    width: 60px;
+    width: 56px;
     height: 4px;
     background: linear-gradient(90deg, var(--accent) 0%, var(--accent-light) 100%);
     border-radius: 2px;
 }
 
-.hero-bio {
-    max-width: 620px;
+.hero-text--centered .hero-bio {
+    max-width: 640px;
     margin: 0 auto 36px auto;
     text-align: center;
-    font-size: 15.5px;
-    line-height: 1.7;
+    font-size: 16px;
+    line-height: 1.75;
     color: var(--ink-light);
 }
 
-.hero-bio strong {
-    color: var(--ink);
-    font-weight: 700;
-}
-
-.hero-cta {
-    display: flex;
-    flex-wrap: wrap;
+.hero-text--centered .hero-cta {
     justify-content: center;
-    gap: 12px;
     margin-bottom: 36px;
-    width: 100%;
 }
 
-.hero-cta .btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 13px 24px;
-    font-size: 14px;
-    border-radius: 10px;
-    font-weight: 600;
-    transition: all var(--t);
-}
-
-.hero-cta .btn svg {
-    transition: transform var(--t);
-}
-
-.hero-cta .btn:hover svg {
-    transform: translateY(1px);
-}
-
-/* Tech Stack Pills Strip */
+/* Centered tech stack strip */
 .hero-tech-strip {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 8px;
-    padding-top: 28px;
-    border-top: 1px dashed rgba(203, 213, 225, 0.8);
-    max-width: 720px;
+    padding-top: 24px;
+    border-top: 1px dashed var(--border-dark);
+    max-width: 680px;
     width: 100%;
 }
 
 .hero-tech-tag {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
     font-size: 11.5px;
     font-weight: 600;
     color: var(--accent);
     background: rgba(30, 58, 138, 0.05);
     border: 1px solid rgba(30, 58, 138, 0.15);
-    padding: 6px 14px;
+    padding: 5px 13px;
     border-radius: 100px;
-    letter-spacing: 0.1px;
+    letter-spacing: 0.2px;
     transition: all var(--t);
-}
-
-.tag-dot {
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    background: var(--accent-light);
-    flex-shrink: 0;
 }
 
 .hero-tech-tag:hover {
     background: var(--accent);
     color: #FFFFFF;
     border-color: var(--accent);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(30, 58, 138, 0.2);
+    transform: translateY(-1px);
 }
 
-.hero-tech-tag:hover .tag-dot {
-    background: #FFFFFF;
-}
 
 
 
