@@ -235,14 +235,13 @@ window.scrollToSection = function(id) {
 
 window.runConsoleCommand = function(cmd) {
     const sectionMap = {
-        'mitre': 'mitre-matrix',
         'skills': 'skills',
         'experience': 'experience',
         'triage': 'experience',
         'rules': 'skills',
         'incident': 'experience'
     };
-    const targetId = sectionMap[cmd] || 'mitre-matrix';
+    const targetId = sectionMap[cmd] || 'experience';
     window.scrollToSection(targetId);
 };
 
