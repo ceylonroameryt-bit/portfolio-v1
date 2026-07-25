@@ -98,7 +98,9 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-    <div class="hero-content">
+        <div class="hero-content">
+
+            <!-- Left: Text Block -->
             <div class="hero-text">
                 <div class="availability-chip" aria-label="Open to work">
                     <span class="chip-dot"></span>
@@ -107,12 +109,7 @@
                 <h1 class="hero-name">Poorna<br><em>Sujampathi</em></h1>
                 <p class="hero-role">Cyber Security Analyst &middot; Threat Intelligence &middot; SOC Analyst</p>
                 <div class="hero-divider"></div>
-                <ul class="hero-bullets">
-                    <li>24×7 SOC monitoring &amp; real-time threat triage</li>
-                    <li>SIEM log automation &amp; incident response</li>
-                    <li>Tier 1 &amp; Tier 2 Security Operations expertise</li>
-                    <li class="highlight">Eligible for full-time UK employment (Graduate Route Visa) ✓</li>
-                </ul>
+                <p class="hero-bio">Performance-driven SOC Analyst with <strong>2.5+ years</strong> across Tier 1 &amp; Tier 2 operations in Banking, Aviation &amp; Telecom. NCSC Certified MSc · Hatfield, UK · Graduate Route Visa ✓</p>
                 <div class="hero-cta">
                     <a href="Poorna Sujampathi CV 26.pdf" class="btn btn-accent"
                         download="Poorna_Sujampathi_CV.pdf" aria-label="Download CV">
@@ -121,72 +118,48 @@
                     <a href="#projects" class="btn btn-primary" aria-label="View projects">View Projects →</a>
                     <a href="#contact" class="btn btn-secondary" aria-label="Contact me">Get In Touch</a>
                 </div>
-
-                <!-- Live SOC Telemetry Console Widget -->
-                <div class="soc-console-widget">
-                    <div class="console-header">
-                        <div class="console-dots">
-                            <span class="dot dot-red"></span>
-                            <span class="dot dot-yellow"></span>
-                            <span class="dot dot-green"></span>
-                        </div>
-                        <span class="console-title">SOC_OPERATIONS_CENTER // TELEMETRY</span>
-                        <span class="console-status"><span class="pulse-dot"></span> LIVE MONITORING</span>
-                    </div>
-                    <div class="console-body">
-                        <div class="console-log">
-                            <span class="prompt">sujampathi@soc-defense:~$</span> <span class="cmd-text">sys_check --active-defense</span>
-                        </div>
-                        <div class="console-output">
-                            <div class="log-line"><span class="tag-badge tag-success">ONLINE</span> Microsoft Sentinel &amp; IBM QRadar &middot; <span class="highlight-val">1,000+ Daily Alerts Triaged</span></div>
-                            <div class="log-line"><span class="tag-badge tag-cyan">ACTIVE</span> DDoS Mitigation Shield &middot; <span class="highlight-val">1M+ Financial &amp; Aviation Assets Guarded</span></div>
-                            <div class="log-line"><span class="tag-badge tag-purple">AUTOMATED</span> Python MTTI Engine &middot; <span class="highlight-val">30% Workload Efficiency Optimization</span></div>
-                        </div>
-                        <div class="console-actions">
-                            <button class="console-action-btn" onclick="scrollToSection('skills')">📡 SIEM &amp; EDR Stack</button>
-                            <button class="console-action-btn" onclick="scrollToSection('experience')">⚡ Incident Playbooks</button>
-                            <button class="console-action-btn" onclick="scrollToSection('contact')">📩 Contact Analyst</button>
-                        </div>
-                    </div>
-                </div>
             </div>
 
-            <!-- Profile Card -->
-            <div class="hero-card" aria-label="Profile summary">
-                <div class="hero-photo-wrap">
-                    <img src="assets/profile.png" alt="Poorna Sujampathi Rathnayaka" class="hero-photo"
-                        onerror="this.style.display='none'">
+            <!-- Right: Stats Panel -->
+            <div class="hero-stats-panel" aria-label="Key metrics">
+                <div class="stat-block">
+                    <span class="stat-num">2.5<span class="stat-sup">+</span></span>
+                    <span class="stat-label">Years SOC Experience</span>
+                    <span class="stat-sub">Tier 1 &amp; Tier 2</span>
                 </div>
-                <h3>Poorna Sujampathi Rathnayaka</h3>
-                <p class="hero-card-role">Cyber Security Analyst · Threat Intelligence</p>
-                <div class="hero-stats">
-                    <div class="hero-stat">
-                        <span class="num">2.5+</span>
-                        <span class="lbl">Yrs. Experience</span>
-                    </div>
-                    <div class="hero-stat">
-                        <span class="num">1K+</span>
-                        <span class="lbl">Daily Alerts</span>
-                    </div>
-                    <div class="hero-stat">
-                        <span class="num">MSc</span>
-                        <span class="lbl">Cyber Sec.</span>
-                    </div>
-                    <div class="hero-stat">
-                        <span class="num">3</span>
-                        <span class="lbl">Sectors</span>
-                    </div>
+                <div class="stat-block">
+                    <span class="stat-num">1K<span class="stat-sup">+</span></span>
+                    <span class="stat-label">Daily Alerts Triaged</span>
+                    <span class="stat-sub">100% SLA Maintained</span>
                 </div>
-                <div class="hero-card-badges">
-                    <span class="skill-chip">Microsoft Sentinel</span>
-                    <span class="skill-chip">CrowdStrike</span>
-                    <span class="skill-chip">IBM QRadar</span>
-                    <span class="skill-chip">Threat Intelligence</span>
-                    <span class="skill-chip">DDoS Mitigation</span>
+                <div class="stat-block">
+                    <span class="stat-num">30<span class="stat-sup">%</span></span>
+                    <span class="stat-label">Efficiency Gain</span>
+                    <span class="stat-sub">Python Automation</span>
+                </div>
+                <div class="stat-block">
+                    <span class="stat-num">3</span>
+                    <span class="stat-label">Industry Sectors</span>
+                    <span class="stat-sub">Banking · Aviation · Telecom</span>
+                </div>
+                <!-- Tech stack chips -->
+                <div class="hero-tech-row">
+                    <span class="hero-tech-chip">Microsoft Sentinel</span>
+                    <span class="hero-tech-chip">CrowdStrike Falcon</span>
+                    <span class="hero-tech-chip">IBM QRadar</span>
+                    <span class="hero-tech-chip">DDoS Mitigation</span>
+                    <span class="hero-tech-chip">Splunk</span>
+                    <span class="hero-tech-chip">Python</span>
+                </div>
+                <!-- Live status row -->
+                <div class="hero-status-row">
+                    <span class="status-dot-live"></span>
+                    <span class="status-text">Live SOC Operations · 24×7 Monitoring Active</span>
                 </div>
             </div>
         </div>
     </section>
+
 
     <!-- About Section -->
     <section id="about" class="about">
