@@ -328,23 +328,15 @@ section {
     color: var(--accent);
     font-weight: 600;
     letter-spacing: 0.2px;
-    margin-bottom: 24px;
-}
-
-.hero-text--centered .hero-divider {
-    margin: 0 auto 28px auto;
-    width: 56px;
-    height: 4px;
-    background: linear-gradient(90deg, var(--accent) 0%, var(--accent-light) 100%);
-    border-radius: 2px;
+    margin-bottom: 20px;
 }
 
 .hero-text--centered .hero-bio {
     max-width: 640px;
-    margin: 0 auto 36px auto;
+    margin: 0 auto 32px auto;
     text-align: center;
-    font-size: 16px;
-    line-height: 1.75;
+    font-size: 15.5px;
+    line-height: 1.7;
     color: var(--ink-light);
 }
 
