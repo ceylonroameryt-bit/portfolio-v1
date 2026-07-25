@@ -293,6 +293,190 @@ section {
     box-sizing: border-box;
 }
 
+/* Single column hero (no stats panel) */
+.hero-content--single {
+    grid-template-columns: 1fr;
+    max-width: 760px;
+}
+
+/* ============================================
+   STATS STRIP — between hero & about
+   ============================================ */
+.stats-strip {
+    background: var(--ink);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.stats-strip-inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    align-items: stretch;
+}
+
+.strip-stat {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 32px 24px;
+    transition: background var(--t);
+}
+
+.strip-stat:hover {
+    background: rgba(255,255,255,0.04);
+}
+
+.strip-divider {
+    width: 1px;
+    background: rgba(255,255,255,0.1);
+    flex-shrink: 0;
+    margin: 24px 0;
+}
+
+.strip-num {
+    font-family: var(--font-display);
+    font-size: 36px;
+    font-weight: 800;
+    color: #FFFFFF;
+    line-height: 1;
+    letter-spacing: -1.5px;
+    display: flex;
+    align-items: flex-start;
+    gap: 2px;
+    margin-bottom: 6px;
+}
+
+.strip-sup {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--accent-light);
+    margin-top: 5px;
+}
+
+.strip-label {
+    font-size: 12.5px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.8);
+    letter-spacing: -0.1px;
+    margin-bottom: 2px;
+}
+
+.strip-sub {
+    font-size: 11px;
+    color: rgba(255,255,255,0.4);
+    font-weight: 500;
+}
+
+/* ============================================
+   CSS ICON REPLACEMENTS (no emojis)
+   ============================================ */
+.metric-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    flex-shrink: 0;
+    position: relative;
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.metric-icon::after {
+    content: '';
+    display: block;
+}
+
+.metric-icon--exp::after {
+    width: 16px;
+    height: 18px;
+    border: 2px solid var(--accent);
+    border-radius: 3px;
+    box-shadow: 3px 3px 0 var(--accent-border);
+}
+
+.metric-icon--alert::after {
+    width: 14px;
+    height: 14px;
+    border: 2px solid var(--accent);
+    transform: rotate(45deg);
+}
+
+.metric-icon--edu::after {
+    width: 16px;
+    height: 10px;
+    border: 2px solid var(--accent);
+    border-radius: 0 0 8px 8px;
+    border-top: none;
+    position: relative;
+}
+
+.metric-icon--loc::after {
+    width: 10px;
+    height: 14px;
+    border: 2px solid var(--accent);
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+}
+
+.cat-icon {
+    width: 26px;
+    height: 26px;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-border);
+    position: relative;
+}
+
+.cat-icon--siem::after, .cat-icon--threat::after,
+.cat-icon--compliance::after, .cat-icon--infra::after {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 2px solid var(--accent);
+}
+
+.cat-icon--siem::after { border-radius: 2px; }
+.cat-icon--threat::after { border-radius: 50% 50% 50% 0; transform: rotate(-45deg); }
+.cat-icon--compliance::after { border-radius: 2px; height: 2px; background: var(--accent); border: none; box-shadow: 0 3px 0 var(--accent), 0 6px 0 var(--accent); }
+.cat-icon--infra::after { border-radius: 2px; width: 2px; height: 10px; background: var(--accent); border: none; box-shadow: 4px 0 0 var(--accent), -4px 0 0 var(--accent); }
+
+.mitre-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-border);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mitre-icon::after {
+    content: '';
+    display: block;
+    width: 14px;
+    height: 14px;
+    border: 2px solid var(--accent);
+    border-radius: 3px;
+}
+
+.mitre-icon--shield::after { border-radius: 50% 50% 40% 40%; height: 16px; }
+.mitre-icon--target::after { border-radius: 50%; }
+.mitre-icon--auto::after { border-radius: 2px; height: 2px; background: var(--accent); border: none; width: 14px; box-shadow: 0 -4px 0 var(--accent), 0 4px 0 var(--accent); }
+.mitre-icon--rule::after { border-radius: 50%; width: 6px; height: 6px; background: var(--accent); border: none; box-shadow: 8px 0 0 var(--accent); }
+
+
+
 .hero-bio {
     font-size: 15.5px;
     color: var(--ink-light);
