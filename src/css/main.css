@@ -2609,3 +2609,19 @@ section {
     color: var(--accent);
     font-weight: 700;
 }
+
+/* ============================================
+   CONTACT ITEM ICON STYLES
+   ============================================ */
+.contact-item-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    background: rgba(30, 58, 138, 0.06);
+    border: 1px solid rgba(30, 58, 138, 0.15);
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
