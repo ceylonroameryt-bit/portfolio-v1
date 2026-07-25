@@ -2525,10 +2525,10 @@ section {
 }
 
 .edu-logo-wrap {
-    height: 52px;
+    height: 54px;
     width: auto;
-    min-width: 52px;
-    max-width: 140px;
+    min-width: 54px;
+    max-width: 160px;
     border-radius: 12px;
     background: #FFFFFF;
     border: 1px solid rgba(226, 232, 240, 0.9);
@@ -2537,12 +2537,12 @@ section {
     justify-content: center;
     flex-shrink: 0;
     padding: 6px 12px;
-    box-shadow: 0 2px 8px rgba(30, 58, 138, 0.06);
+    box-shadow: 0 2px 10px rgba(30, 58, 138, 0.07);
     overflow: hidden;
 }
 
 .edu-logo-img {
-    max-height: 40px;
+    max-height: 42px;
     max-width: 100%;
     width: auto;
     height: auto;
