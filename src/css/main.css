@@ -306,12 +306,12 @@ section {
 
 .hero-name {
     font-family: var(--font-display);
-    font-size: clamp(52px, 7.5vw, 92px);
+    font-size: clamp(68px, 10vw, 120px);
     font-weight: 800;
-    line-height: 0.96;
+    line-height: 0.92;
     color: var(--ink);
-    letter-spacing: -2.5px;
-    margin-bottom: 18px;
+    letter-spacing: -3.5px;
+    margin-bottom: 22px;
     text-align: center;
 }
 
@@ -735,12 +735,12 @@ section {
 
 .hero-name {
     font-family: var(--font-display);
-    font-size: clamp(52px, 6vw, 92px);
+    font-size: clamp(68px, 10vw, 120px);
     font-weight: 800;
-    line-height: 0.96;
+    line-height: 0.92;
     color: var(--ink);
     letter-spacing: -3.5px;
-    margin-bottom: 18px;
+    margin-bottom: 22px;
 }
 
 .hero-name em {
@@ -2036,11 +2036,28 @@ section {
 /* ============================================
    RESPONSIVE DESIGN
    ============================================ */
+
+/* ── Tablet landscape (≤1024px) ── */
 @media (max-width: 1024px) {
-    .container, .nav-container { padding-left: 32px; padding-right: 32px; }
+    .container,
+    .nav-container,
+    .stats-strip-inner,
+    .footer-inner {
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+
     .hero-content { grid-template-columns: 1fr 340px; gap: 40px; }
+
+    .about-grid { gap: 48px; }
+    .contact-wrapper { gap: 48px; }
+
+    /* Education grid: 2 cols */
+    .education-grid { grid-template-columns: repeat(2, 1fr); }
+    .projects-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
+/* ── Tablet portrait (≤992px) — hamburger nav ── */
 @media (max-width: 992px) {
     .mobile-menu-toggle { display: flex; }
 
@@ -2049,12 +2066,13 @@ section {
         top: var(--nav-h);
         left: 0;
         right: 0;
-        background: rgba(255,255,255,0.98);
+        background: rgba(255, 255, 255, 0.98);
         backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
         flex-direction: column;
         align-items: stretch;
         gap: 0;
-        padding: 8px 16px 16px;
+        padding: 8px 16px 20px;
         border-bottom: 1px solid var(--border);
         box-shadow: var(--shadow-md);
         transform: translateY(-8px);
@@ -2062,6 +2080,8 @@ section {
         pointer-events: none;
         transition: all 0.3s var(--ease);
         z-index: 900;
+        max-height: calc(100vh - var(--nav-h));
+        overflow-y: auto;
     }
 
     .nav-menu.active {
@@ -2070,45 +2090,308 @@ section {
         pointer-events: all;
     }
 
-    .nav-link { padding: 13px 10px; font-size: 15px; }
+    .nav-link {
+        padding: 13px 10px;
+        font-size: 15px;
+        border-radius: 10px;
+    }
 
+    /* Hero */
     .hero::before { display: none; }
-    .hero { background: linear-gradient(135deg, #F8FAFC 0%, #EFF6FF 100%); }
-
-    .hero-content { grid-template-columns: 1fr; gap: 40px; padding-top: 60px; }
+    .hero {
+        background: linear-gradient(135deg, #F8FAFC 0%, #EFF6FF 100%);
+        min-height: auto;
+        padding: 40px 0 60px;
+    }
+    .hero-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding-top: 48px;
+        padding-bottom: 48px;
+    }
     .hero-card { max-width: 500px; margin: 0 auto; }
-    .about-grid, .contact-wrapper { grid-template-columns: 1fr; gap: 48px; }
+
+    /* Hero centered layout */
+    .hero-content--centered { max-width: 100%; }
+    .hero-text--centered { align-items: center; }
+
+    /* About */
+    .about-grid { grid-template-columns: 1fr; gap: 36px; }
+
+    /* Contact */
+    .contact-wrapper { grid-template-columns: 1fr; gap: 40px; }
     .contact-intro { max-width: 100%; }
 
-    .timeline::before { left: 0; }
-    .timeline-item { grid-template-columns: 1fr; gap: 0; padding-bottom: 40px; }
-    .tl-date { text-align: left; padding-right: 0; padding-bottom: 12px; display: flex; align-items: center; gap: 12px; }
+    /* Timeline */
+    .timeline::before { display: none; }
+    .timeline-item {
+        grid-template-columns: 1fr;
+        gap: 0;
+        padding-bottom: 40px;
+        border-bottom: 1px solid var(--border);
+    }
+    .timeline-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .tl-date {
+        text-align: left;
+        padding-right: 0;
+        padding-bottom: 12px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
     .tl-spine { display: none; }
-    .tl-content { padding-left: 0; }
+    .tl-content { padding-left: 0; padding-top: 4px; }
+
+    /* Skills */
     .skills-grid { grid-template-columns: repeat(2, 1fr); }
+
+    /* Certifications */
+    .certifications-grid { grid-template-columns: repeat(3, 1fr); }
+
+    /* Stats strip */
+    .stats-strip-inner {
+        flex-wrap: wrap;
+        padding: 8px 24px;
+    }
+    .strip-stat {
+        flex: 1 1 180px;
+        padding: 18px 10px;
+        text-align: center;
+        align-items: center;
+    }
+    .strip-divider { display: none; }
+
+    /* Project cards */
+    .projects-grid { grid-template-columns: 1fr; }
+
+    /* Education */
+    .education-grid { grid-template-columns: 1fr; }
+
+    /* Footer */
+    .footer-inner { flex-wrap: wrap; gap: 12px; }
 }
 
+/* ── Mobile (≤768px) ── */
 @media (max-width: 768px) {
     :root { --nav-h: 64px; }
-    section { padding: 64px 0; }
-    .container, .hero-content, .nav-container { padding-left: 18px; padding-right: 18px; }
-    .hero-name { font-size: 40px; letter-spacing: -1px; }
-    .section-title { font-size: 28px; margin-bottom: 32px; }
-    .skills-grid, .certifications-grid, .projects-grid { grid-template-columns: 1fr; }
+
+    section { padding: 56px 0; }
+
+    .container,
+    .nav-container,
+    .stats-strip-inner,
+    .footer-inner,
+    .hero-content {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    /* Typography */
+    .hero-name { font-size: 52px; letter-spacing: -2px; }
+    .section-title { font-size: 28px; margin-bottom: 28px; letter-spacing: -0.8px; }
+    .section-title br { display: none; }
+
+    /* Hero */
+    .hero { padding: 20px 0 48px; }
+    .hero-content { padding: 40px 20px; }
+    .hero-content--centered { max-width: 100%; }
+    .hero-text--centered .hero-bio { font-size: 14.5px; max-width: 100%; }
+    .hero-text--centered .hero-role { font-size: 15px; }
+    .hero-tech-strip { gap: 6px; padding-top: 18px; }
+    .hero-tech-tag { font-size: 11px; padding: 4px 10px; }
+    .availability-chip { font-size: 11.5px; padding: 5px 14px; margin-bottom: 24px; }
+
+    /* Stats strip */
+    .stats-strip-inner { padding: 4px 20px; }
+    .strip-stat { flex: 1 1 140px; padding: 14px 8px; }
+    .strip-num { font-size: 28px; }
+    .strip-label { font-size: 11px; }
+
+    /* Skills grid → 1 col */
+    .skills-grid { grid-template-columns: 1fr; }
+
+    /* Certifications → 2 cols */
+    .certifications-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+
+    /* Projects → 1 col */
+    .projects-grid { grid-template-columns: 1fr; }
+
+    /* Education → 1 col */
+    .education-grid { grid-template-columns: 1fr; }
+
+    /* About metrics */
+    .about-metrics { gap: 10px; }
+    .metric-card { padding: 14px 16px; gap: 12px; }
+    .metric-value { font-size: 13.5px; }
+
+    /* Timeline */
+    .tl-content h3 { font-size: 17px; }
+    .tl-bullets li { font-size: 13px; }
+    .tl-award {
+        font-size: 11px;
+        display: inline-block;
+        margin-bottom: 10px;
+    }
+
+    /* Project cards */
+    .project-card {
+        padding: 0;
+        border-radius: var(--radius);
+    }
+    .project-header { padding: 18px 18px 10px 18px; }
+    .project-preview-box { margin: 0 0 0 0; border-radius: 0; border-left: none; border-right: none; }
+    .project-details { padding: 0 18px 10px 18px; }
+    .project-tech { padding: 0 18px; }
+    .project-links { padding: 14px 18px 18px 18px; gap: 8px; }
+    .project-links .btn { font-size: 12px; padding: 8px 14px; }
+
+    /* Hero stats */
     .hero-stats { grid-template-columns: repeat(2, 1fr); }
-    .footer-inner { flex-direction: column; align-items: center; text-align: center; }
-    .footer-links { justify-content: center; flex-wrap: wrap; }
+
+    /* Contact form */
+    .contact-form { gap: 12px; }
+
+    /* Footer */
+    .footer-inner {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 12px;
+    }
+    .footer-links { justify-content: center; flex-wrap: wrap; gap: 16px; }
+
+    /* Modal */
+    .project-modal-overlay { padding: 10px; }
+    .project-modal-card {
+        padding: 24px 16px;
+        max-height: 96vh;
+        border-radius: var(--radius);
+    }
+    .modal-grid { grid-template-columns: 1fr; gap: 10px; }
+    .modal-close-btn { top: 10px; right: 10px; }
+    .modal-header-banner { margin-bottom: 16px; padding-bottom: 12px; }
+    .modal-title { font-size: 22px; }
+
+    /* Education card header */
+    .edu-card-header { flex-wrap: wrap; }
+    .edu-badge { align-self: center; }
+
+    /* Preview box overflow protection */
+    .preview-body { font-size: 10.5px; }
+    .preview-title { font-size: 9px; }
+    .p-cmd { font-size: 10px; white-space: normal; word-break: break-all; }
 }
 
+/* ── Small mobile (≤600px) ── */
+@media (max-width: 600px) {
+    /* Certifications → 1 col */
+    .certifications-grid { grid-template-columns: 1fr; gap: 12px; }
+
+    /* Stats strip → 2 across */
+    .strip-stat { flex: 1 1 120px; padding: 12px 6px; }
+    .strip-num { font-size: 24px; }
+
+    /* Section label */
+    .section-label { font-size: 10px; }
+
+    /* Edu card header stacks */
+    .edu-card-header { flex-direction: column; align-items: flex-start; }
+    .edu-logo-wrap { height: 46px; }
+    .edu-badge { margin-left: 0; align-self: flex-start; }
+    .edu-header-info h3 { font-size: 17px; }
+
+    /* About metrics */
+    .metric-card { flex-direction: column; align-items: flex-start; gap: 10px; }
+
+    /* Project card featured badge */
+    .project-card--featured::after {
+        font-size: 9px;
+        top: 14px;
+        right: 14px;
+        padding: 2px 7px;
+    }
+}
+
+/* ── Extra small (≤480px) ── */
 @media (max-width: 480px) {
     :root { --nav-h: 60px; }
-    .hero-name { font-size: 34px; }
+
+    section { padding: 48px 0; }
+
+    .container,
+    .nav-container,
+    .stats-strip-inner,
+    .footer-inner,
+    .hero-content {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    /* Hero */
+    .hero-name { font-size: 44px; letter-spacing: -1.5px; }
+    .hero-text--centered .hero-bio { font-size: 14px; }
     .hero-cta { flex-direction: column; width: 100%; }
-    .hero-cta .btn { width: 100%; justify-content: center; }
+    .hero-cta .btn { width: 100%; justify-content: center; padding: 13px 18px; }
+    .availability-chip { font-size: 11px; }
+
+    /* Hero card (if used) */
     .hero-card { max-width: 100%; }
-    .certifications-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+
+    /* Certifications */
     .cert-card { padding: 20px 14px; }
-    .project-card { padding: 20px; }
+    .cert-icon { width: 44px; height: 44px; border-radius: 12px; }
+    .cert-card h3 { font-size: 13px; }
+
+    /* Projects */
+    .project-card { border-radius: 10px; }
+    .project-preview-box { border-radius: 0; }
+    .project-header h3 { font-size: 15px; }
+    .project-details p { font-size: 13px; }
+
+    /* Education */
+    .edu-card { padding: 18px 16px; }
+    .edu-header-info h3 { font-size: 15px; }
+
+    /* Skills */
+    .skill-category { padding: 18px 16px; }
+    .skill-category h3 { font-size: 11px; }
+    .skill-list li { font-size: 13px; }
+
+    /* About */
+    .about-copy p { font-size: 14.5px; }
+
+    /* Timeline */
+    .tl-content h3 { font-size: 16px; }
+    .tl-bullets li { font-size: 12.5px; }
+    .timeline-item { padding-bottom: 32px; }
+
+    /* Buttons */
+    .btn { font-size: 13px; padding: 10px 18px; }
+
+    /* Contact */
+    .contact-item { padding: 12px 14px; gap: 12px; }
+    .contact-item-icon { width: 36px; height: 36px; border-radius: 8px; }
+    .contact-item-label { font-size: 10px; }
+
+    /* Footer */
+    .footer-links { gap: 12px; }
+    .footer-links a { font-size: 12px; }
+
+    /* Stats strip condensed */
+    .stats-strip-inner { padding: 4px 16px; }
+    .strip-stat { flex: 1 1 100px; padding: 10px 4px; }
+    .strip-num { font-size: 22px; }
+    .strip-label { font-size: 10px; }
+    .strip-sub { font-size: 9.5px; }
+
+    /* Section title */
+    .section-title { font-size: 26px; margin-bottom: 24px; }
+
+    /* Modal */
+    .project-modal-card { padding: 20px 14px; }
+    .modal-title { font-size: 20px; }
+    .modal-block { padding: 14px; }
+    .modal-block p { font-size: 13px; }
 }
 
 /* ============================================
@@ -2152,6 +2435,9 @@ section {
 
 .p-cmd {
     color: #94A3B8;
+    white-space: pre-wrap;
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 .p-tag {
@@ -2636,4 +2922,79 @@ section {
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+}
+
+/* ============================================
+   MISSING BASE STYLES
+   (classes used in HTML but missing from CSS)
+   ============================================ */
+
+/* Timeline date labels */
+.date-range {
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--accent);
+    display: block;
+    line-height: 1.2;
+}
+
+.date-company {
+    font-size: 12.5px;
+    color: var(--ink-muted);
+    font-weight: 600;
+    display: block;
+    margin-top: 2px;
+}
+
+/* Best performance award badge in timeline */
+.tl-award {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 11.5px;
+    font-weight: 700;
+    color: #B45309;
+    background: rgba(251, 191, 36, 0.12);
+    border: 1px solid rgba(251, 191, 36, 0.35);
+    border-radius: 100px;
+    padding: 3px 11px;
+    margin-bottom: 12px;
+    letter-spacing: 0.1px;
+}
+
+/* ============================================
+   MOBILE OVERRIDES
+   (must come LAST to override late-declared rules)
+   ============================================ */
+
+/* Project card inner padding override for mobile
+   — these override the "alignment fixes" section above */
+@media (max-width: 768px) {
+    .project-header  { padding: 18px 18px 10px 18px; }
+    .project-details { padding: 0 18px 10px 18px; }
+    .project-tech    { padding: 0 18px 12px 18px; }
+    .project-links   {
+        padding: 12px 18px 18px 18px;
+        gap: 8px;
+    }
+    .project-links .btn {
+        font-size: 12px !important;
+        padding: 8px 14px !important;
+    }
+    /* Project preview box flush to card edges */
+    .project-preview-box {
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .project-header  { padding: 16px 16px 8px 16px; }
+    .project-details { padding: 0 16px 8px 16px; }
+    .project-tech    { padding: 0 16px 10px 16px; }
+    .project-links   { padding: 10px 16px 16px 16px; gap: 6px; }
+    .project-header h3 { font-size: 15px; }
 }
