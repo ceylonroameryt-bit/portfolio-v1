@@ -2177,7 +2177,7 @@ section {
 @media (max-width: 768px) {
     :root { --nav-h: 64px; }
 
-    section { padding: 56px 0; }
+    section { padding: 36px 0; }
 
     .container,
     .nav-container,
@@ -2335,7 +2335,7 @@ section {
 @media (max-width: 480px) {
     :root { --nav-h: 60px; }
 
-    section { padding: 48px 0; }
+    section { padding: 28px 0; }
 
     .container,
     .nav-container,
