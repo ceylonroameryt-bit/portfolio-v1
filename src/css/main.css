@@ -3019,3 +3019,177 @@ section {
     .project-links   { padding: 10px 16px 16px 16px; gap: 6px; }
     .project-header h3 { font-size: 15px; }
 }
+
+/* ============================================
+   CREATIVE SKILLS SECTION
+   ============================================ */
+.creative-skills {
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+}
+
+.creative-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.creative-card {
+    background: var(--bg-light);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+    overflow: hidden;
+    transition: all var(--t);
+}
+
+.creative-card:hover {
+    border-color: transparent;
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-4px);
+}
+
+/* Animated gradient border on hover */
+.creative-card-accent {
+    position: absolute;
+    inset: 0;
+    border-radius: var(--radius-lg);
+    padding: 1.5px;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 50%, #7C3AED 100%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity var(--t);
+    pointer-events: none;
+}
+
+.creative-card:hover .creative-card-accent { opacity: 1; }
+
+/* Icon */
+.creative-card-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.creative-card:hover .creative-card-icon {
+    transform: scale(1.1) rotate(-4deg);
+}
+
+/* Icon colour themes */
+.creative-icon--design {
+    background: rgba(124, 58, 237, 0.1);
+    border: 1px solid rgba(124, 58, 237, 0.25);
+    color: #7C3AED;
+}
+
+.creative-icon--video {
+    background: rgba(220, 38, 38, 0.08);
+    border: 1px solid rgba(220, 38, 38, 0.2);
+    color: #DC2626;
+}
+
+.creative-icon--web {
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-border);
+    color: var(--accent);
+}
+
+/* Body */
+.creative-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+}
+
+.creative-card-tag {
+    font-size: 10.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--ink-subtle);
+}
+
+.creative-card h3 {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.25;
+    letter-spacing: -0.3px;
+}
+
+.creative-card p {
+    font-size: 13.5px;
+    color: var(--ink-muted);
+    line-height: 1.7;
+}
+
+/* Tool chips */
+.creative-tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 6px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+}
+
+.creative-tool {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--ink-light);
+    background: var(--bg);
+    border: 1px solid var(--border-dark);
+    border-radius: 6px;
+    padding: 3px 10px;
+    transition: all var(--t);
+}
+
+.creative-card:hover .creative-tool {
+    border-color: var(--accent-border);
+    color: var(--accent);
+    background: var(--accent-soft);
+}
+
+/* Icon-specific tool chip hover colours */
+.creative-card:has(.creative-icon--design):hover .creative-tool {
+    background: rgba(124, 58, 237, 0.06);
+    border-color: rgba(124, 58, 237, 0.25);
+    color: #7C3AED;
+}
+
+.creative-card:has(.creative-icon--video):hover .creative-tool {
+    background: rgba(220, 38, 38, 0.06);
+    border-color: rgba(220, 38, 38, 0.2);
+    color: #DC2626;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+    .creative-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+}
+
+@media (max-width: 768px) {
+    .creative-grid { grid-template-columns: 1fr; gap: 16px; }
+    .creative-card { padding: 24px 20px; }
+    .creative-card-icon { width: 52px; height: 52px; border-radius: 14px; }
+    .creative-card h3 { font-size: 18px; }
+}
+
+@media (max-width: 480px) {
+    .creative-card { padding: 20px 16px; }
+    .creative-card h3 { font-size: 17px; }
+    .creative-card p { font-size: 13px; }
+}
