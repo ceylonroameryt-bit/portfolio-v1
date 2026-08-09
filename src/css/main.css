@@ -244,10 +244,9 @@ section {
    HERO SECTION
    ============================================ */
 .hero {
-    min-height: 70vh;
     margin-top: var(--nav-h);
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     background: radial-gradient(circle at 50% 30%, #F0F5FF 0%, #F8FAFC 50%, #FFFFFF 100%);
     position: relative;
@@ -283,7 +282,7 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 48px 40px;
+    padding: 20px 40px 60px;
     position: relative;
     z-index: 1;
     width: 100%;
