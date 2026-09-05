@@ -57,10 +57,12 @@
     </script>
 
     <!-- Core Stylesheets -->
-    <link rel="stylesheet" href="src/css/main.css?v=3.7">
+    <link rel="stylesheet" href="src/css/main.css?v=4.0">
+
 
     <!-- Deferred JavaScript -->
-    <script src="src/js/main.js?v=3.7" defer></script>
+    <script src="src/js/main.js?v=4.0" defer></script>
+
 
 
 
@@ -428,291 +430,390 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
+    <!-- Projects Section — Concept D: Vertical Alternating Layout -->
     <section id="projects" class="projects">
         <div class="container">
-            <span class="section-label">Projects</span>
-            <h2 class="section-title">Notable projects<br>with real-world impact.</h2>
-            <div class="projects-grid">
+            <div class="projects-header">
+                <span class="section-label">Projects</span>
+                <h2 class="section-title">Notable projects<br>with real-world impact.</h2>
+                <p class="projects-subtitle">6 security engineering projects built from scratch — from live production platforms to research prototypes.</p>
+            </div>
 
-                <!-- Project 1 -->
-                <div class="project-card project-card--featured" onclick="openProjectModal('soc-platform')">
-                    <div class="project-spotlight-pill">
-                        <span class="pulse-dot"></span> 🚨 Project Spotlight · Production SOC Platform
-                    </div>
+            <div class="projects-list">
 
-                    <!-- Interactive Screenshot Showcase in Card -->
-                    <div class="project-card-spotlight-media" onclick="event.stopPropagation(); openProjectModal('soc-platform')">
-                        <span class="spotlight-live-tag">
-                            <span class="live-dot"></span> Live Ecosystem
-                        </span>
-                        <div class="spotlight-img-wrap">
-                            <img id="spotlightCardImage" src="assets/no-entry-mitre-heatmap.png" alt="NO ENTRY Platform Screenshot" class="spotlight-main-img" loading="lazy" />
-                            <div class="spotlight-img-overlay">
-                                <span class="spotlight-overlay-text" id="spotlightOverlayLabel">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
-                                    Click to Explore 5 Live Screenshots &amp; Architecture &rarr;
-                                </span>
+                <!-- ── Project 1: NO ENTRY — Left Visual, Right Content ── -->
+                <article class="proj-row proj-row--featured" onclick="openProjectModal('soc-platform')">
+                    <div class="proj-visual">
+                        <div class="proj-spotlight-badge">
+                            <span class="proj-live-dot"></span>
+                            🚨 Live Production Platform
+                        </div>
+                        <div class="proj-img-frame">
+                            <div class="proj-img-browser-bar">
+                                <span class="dot dot-red"></span>
+                                <span class="dot dot-yellow"></span>
+                                <span class="dot dot-green"></span>
+                                <span class="proj-img-url">soc-ai-six.vercel.app</span>
+                            </div>
+                            <div class="proj-img-viewport">
+                                <img id="spotlightCardImage" src="assets/no-entry-mitre-heatmap.png" alt="NO ENTRY Platform — MITRE Heatmap" class="proj-screenshot" loading="lazy" />
+                            </div>
+                            <div class="proj-img-chip-row" onclick="event.stopPropagation();">
+                                <button type="button" class="proj-chip active" onclick="window.switchCardScreenshot('assets/no-entry-mitre-heatmap.png',0,'MITRE Heatmap')">🛡️ MITRE</button>
+                                <button type="button" class="proj-chip" onclick="window.switchCardScreenshot('assets/no-entry-critical-threats.png',1,'Critical Triage')">⚡ Triage</button>
+                                <button type="button" class="proj-chip" onclick="window.switchCardScreenshot('assets/no-entry-mitre-matrix.png',2,'ATT&amp;CK Matrix')">📊 Matrix</button>
+                                <button type="button" class="proj-chip" onclick="window.switchCardScreenshot('assets/no-entry-dashboard.png',3,'Global Feed')">📰 Feed</button>
+                                <button type="button" class="proj-chip" onclick="window.switchCardScreenshot('assets/no-entry-severity-metrics.png',4,'Severity Metrics')">📈 Metrics</button>
                             </div>
                         </div>
-                        <div class="spotlight-chips-row" onclick="event.stopPropagation();">
-                            <button type="button" class="spotlight-chip-btn active" onclick="window.switchCardScreenshot('assets/no-entry-mitre-heatmap.png', 0, 'Dynamic MITRE ATT&CK Heatmap (52 Techniques)')">🛡️ MITRE Heatmap</button>
-                            <button type="button" class="spotlight-chip-btn" onclick="window.switchCardScreenshot('assets/no-entry-critical-threats.png', 1, 'Critical Threats Dashboard & Live Triage')">⚡ Critical Triage</button>
-                            <button type="button" class="spotlight-chip-btn" onclick="window.switchCardScreenshot('assets/no-entry-mitre-matrix.png', 2, 'MITRE ATT&CK News Matrix (100% Coverage)')">📊 ATT&CK Matrix</button>
-                            <button type="button" class="spotlight-chip-btn" onclick="window.switchCardScreenshot('assets/no-entry-dashboard.png', 3, 'Global Threat Intelligence Feed')">📰 Global Feed</button>
-                            <button type="button" class="spotlight-chip-btn" onclick="window.switchCardScreenshot('assets/no-entry-severity-metrics.png', 4, 'Monthly Threat Severity Metrics & EPSS')">📈 Severity Metrics</button>
+                    </div>
+                    <div class="proj-content">
+                        <div class="proj-meta-row">
+                            <span class="proj-number">01</span>
+                            <span class="proj-year-tag">2025 – Present</span>
+                            <span class="proj-category-tag">SOC Intelligence · Detection Engineering</span>
+                        </div>
+                        <h3 class="proj-title">NO ENTRY — Multi-Tier Threat Intelligence &amp; Detection Engineering Platform</h3>
+                        <p class="proj-impact-line">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                            70%+ analyst noise reduction · 52 MITRE techniques · Splunk SPL · Sentinel KQL · Sigma YAML
+                        </p>
+                        <p class="proj-desc">Designed and deployed a complete SOC intelligence and alert triage ecosystem. Ingests 100+ global cyber feeds (CISA, BleepingComputer, THN) into PostgreSQL with automated IOC extraction, enriches via VirusTotal, AbuseIPDB &amp; CISA KEV, dynamically maps threats to the MITRE ATT&amp;CK heat matrix, and auto-compiles detection rules — with a TF-IDF AI microservice cutting alert noise by 70%+.</p>
+                        <div class="proj-tech-row">
+                            <span class="proj-tech">React 19</span>
+                            <span class="proj-tech">TypeScript</span>
+                            <span class="proj-tech">Python FastAPI</span>
+                            <span class="proj-tech">Supabase (PostgreSQL)</span>
+                            <span class="proj-tech">Splunk SPL</span>
+                            <span class="proj-tech">Sentinel KQL</span>
+                            <span class="proj-tech">MITRE ATT&amp;CK</span>
+                            <span class="proj-tech">Sigma Rules</span>
+                        </div>
+                        <div class="proj-actions" onclick="event.stopPropagation();">
+                            <a href="https://soc-ai-six.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn btn-accent proj-btn">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+                                Live Demo
+                            </a>
+                            <button type="button" class="btn btn-primary proj-btn" onclick="openProjectModal('soc-platform')">
+                                Case Study + Gallery (5 Screenshots)
+                            </button>
+                            <a href="https://www.linkedin.com/in/sujampathi-rathnayaka-304a752a9/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary proj-btn" title="DM for source code">
+                                Request Source
+                            </a>
                         </div>
                     </div>
+                </article>
 
-                    <div class="project-preview-box">
-                        <div class="preview-header">
-                            <span class="dot dot-red"></span>
-                            <span class="dot dot-yellow"></span>
-                            <span class="dot dot-green"></span>
-                            <span class="preview-title">NO_ENTRY // THREAT_INTEL_DETECTION_ENGINEERING</span>
+                <!-- ── Project 2: BYOD — Right Visual, Left Content ── -->
+                <article class="proj-row proj-row--alt" onclick="openProjectModal('byod')">
+                    <div class="proj-content">
+                        <div class="proj-meta-row">
+                            <span class="proj-number">02</span>
+                            <span class="proj-year-tag">2024–25</span>
+                            <span class="proj-category-tag">Zero-Trust · Machine Learning</span>
                         </div>
-                        <div class="preview-body">
-                            <span class="p-cmd">DATA_INGESTION: <span class="p-tag p-green">100+ SCHEMAS MAPPED</span> (CISA, BleepingComputer, THN)</span>
-                            <span class="p-cmd">TRIAGE_ENGINE: <span class="p-tag p-blue">VIRUSTOTAL + ABUSEIPDB + CISA KEV + EPSS</span></span>
-                            <span class="p-cmd">MITRE_MATRIX: <span class="p-tag p-green">52 TECHNIQUES COVERED</span> (14 Enterprise Tactics)</span>
-                            <span class="p-cmd">DETECTION_RULES: <span class="p-tag p-blue">SPLUNK SPL | SENTINEL KQL | SIGMA YAML</span></span>
-                            <span class="p-cmd">AI_CLUSTERING: <span class="p-tag p-green">-70% NOISE REDUCTION</span> (TF-IDF &amp; Cosine Similarity)</span>
+                        <h3 class="proj-title">Advanced BYOD Security Framework</h3>
+                        <p class="proj-impact-line">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                            Zero-trust prototype · AES-128 encryption · 99.4% biometric accuracy
+                        </p>
+                        <p class="proj-desc">Unmanaged personal devices in corporate environments introduce severe access risks. Developed a zero-trust access control framework using AES-128 encryption with UUID-based device authorization. Trained Isolation Forest ML models and CNN-based facial recognition for biometric anomaly detection, preventing unauthorized network access from compromised endpoints.</p>
+                        <div class="proj-tech-row">
+                            <span class="proj-tech">Python</span>
+                            <span class="proj-tech">AES-128 Encryption</span>
+                            <span class="proj-tech">Isolation Forest ML</span>
+                            <span class="proj-tech">CNN (Facial Recognition)</span>
+                            <span class="proj-tech">Zero-Trust Architecture</span>
+                        </div>
+                        <div class="proj-actions" onclick="event.stopPropagation();">
+                            <button type="button" class="btn btn-primary proj-btn" onclick="openProjectModal('byod')">View Case Study</button>
+                            <a href="https://github.com/ceylonroameryt-bit/portfolio-v1" target="_blank" rel="noopener noreferrer" class="btn btn-secondary proj-btn">
+                                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                                GitHub
+                            </a>
                         </div>
                     </div>
-                    <div class="project-header">
-                        <h3>NO ENTRY — Threat Intelligence &amp; Detection Engineering Platform</h3>
-                        <span class="project-year">2025 – Present</span>
+                    <div class="proj-visual">
+                        <div class="proj-terminal-frame">
+                            <div class="proj-terminal-bar">
+                                <span class="dot dot-red"></span>
+                                <span class="dot dot-yellow"></span>
+                                <span class="dot dot-green"></span>
+                                <span class="proj-terminal-label">ZERO_TRUST_BYOD // ENFORCER.PY</span>
+                            </div>
+                            <div class="proj-terminal-body">
+                                <span class="p-cmd">AUTH_CIPHER: <span class="p-tag p-blue">AES-128 GCM</span> + UUID Validation</span>
+                                <span class="p-cmd">ANOMALY_MODEL: <span class="p-tag p-green">ISOLATION_FOREST</span> (0.02 Threshold)</span>
+                                <span class="p-cmd">BIOMETRIC_CNN: <span class="p-tag p-green">VERIFIED</span> (99.4% Confidence)</span>
+                                <span class="p-cmd">DEVICE_STATUS: <span class="p-tag p-red">UNTRUSTED_BLOCKED</span></span>
+                                <span class="p-cmd">ZERO_TRUST: <span class="p-tag p-blue">ENFORCED</span> → Network Isolation Active</span>
+                            </div>
+                        </div>
+                        <div class="proj-stat-pills">
+                            <div class="proj-stat-pill">
+                                <span class="proj-stat-val">AES-128</span>
+                                <span class="proj-stat-lab">Encryption</span>
+                            </div>
+                            <div class="proj-stat-pill">
+                                <span class="proj-stat-val">99.4%</span>
+                                <span class="proj-stat-lab">Biometric Accuracy</span>
+                            </div>
+                            <div class="proj-stat-pill">
+                                <span class="proj-stat-val">0-Trust</span>
+                                <span class="proj-stat-lab">Architecture</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="project-details">
-                        <p><strong>Scenario:</strong> As cyber threats accelerate, security teams need automated pipelines that ingest, categorize, and enrich indicators of compromise (IOCs) before attackers can establish persistence.</p>
-                        <p><strong>Goal:</strong> Deploy a complete SOC intelligence and alert triage ecosystem that centralizes global feeds, automates threat scoring, maps tactics to MITRE ATT&amp;CK, compiles detection rules, and clusters alerts using AI.</p>
-                        <p><strong>Actions:</strong> Built with React 19, TypeScript, Vite, Tailwind CSS, Python FastAPI, and PostgreSQL (Supabase with RLS). Engineered multi-API threat triage (VirusTotal, AbuseIPDB, CISA KEV, EPSS), 52-technique heat-intensity matrix, and instant Splunk SPL / Sentinel KQL / Sigma YAML rule compilers.</p>
-                        <p><strong>Outcome:</strong> Reduced analyst alert noise by 70%+, enabled instantaneous detection rule generation directly from IOCs, and automated daily CISO executive briefings.</p>
-                    </div>
-                    <div class="project-tech">
-                        <span class="tech-tag">React 19</span>
-                        <span class="tech-tag">TypeScript</span>
-                        <span class="tech-tag">Python FastAPI</span>
-                        <span class="tech-tag">Supabase (PostgreSQL RLS)</span>
-                        <span class="tech-tag">MITRE ATT&amp;CK (52 Tech)</span>
-                        <span class="tech-tag">Splunk SPL &amp; Sentinel KQL</span>
-                        <span class="tech-tag">Sigma YAML</span>
-                        <span class="tech-tag">VirusTotal &amp; AbuseIPDB</span>
-                        <span class="tech-tag">Tailwind CSS</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://soc-ai-six.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn btn-accent" onclick="event.stopPropagation();" style="padding: 9px 16px; font-size: 12.5px; display: inline-flex; align-items: center; gap: 6px;">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
-                            Live Application
-                        </a>
-                        <button type="button" class="btn btn-primary" onclick="event.stopPropagation(); openProjectModal('soc-platform')" style="padding: 9px 16px; font-size: 12.5px;">
-                            View Case Study &amp; Gallery (5 SS)
-                        </button>
-                        <a href="https://www.linkedin.com/in/sujampathi-rathnayaka-304a752a9/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" onclick="event.stopPropagation();" style="padding: 9px 15px; font-size: 12.5px;" title="Source Code: Inbox on LinkedIn">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: middle; margin-right: 4px;"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.6a1.64 1.64 0 1 0 0 3.28 1.64 1.64 0 0 0 0-3.28z"/></svg>
-                            Request Source (Inbox)
-                        </a>
-                    </div>
-                </div>
+                </article>
 
-                <!-- Project 2 -->
-                <div class="project-card" onclick="openProjectModal('byod')">
-                    <div class="project-preview-box">
-                        <div class="preview-header">
-                            <span class="dot dot-red"></span>
-                            <span class="dot dot-yellow"></span>
-                            <span class="dot dot-green"></span>
-                            <span class="preview-title">ZERO_TRUST_BYOD // ENFORCER.PY</span>
+                <!-- ── Project 3: Dark Web IP Scanner — Left Visual, Right Content ── -->
+                <article class="proj-row" onclick="openProjectModal('ip-scanner')">
+                    <div class="proj-visual">
+                        <div class="proj-terminal-frame">
+                            <div class="proj-terminal-bar">
+                                <span class="dot dot-red"></span>
+                                <span class="dot dot-yellow"></span>
+                                <span class="dot dot-green"></span>
+                                <span class="proj-terminal-label">DARKWEB_SCANNER // IP_ENRICHMENT.PY</span>
+                            </div>
+                            <div class="proj-terminal-body">
+                                <span class="p-cmd">TARGET_IP: <span class="p-tag p-blue">185.220.101.5</span></span>
+                                <span class="p-cmd">VIRUSTOTAL: <span class="p-tag p-red">MALICIOUS (42/70)</span></span>
+                                <span class="p-cmd">ABUSEIPDB: <span class="p-tag p-red">98% HIGH RISK</span></span>
+                                <span class="p-cmd">DARKWEB_OSINT: <span class="p-tag p-blue">C2 BOTNET HOST</span></span>
+                                <span class="p-cmd">VERDICT: <span class="p-tag p-red">BLOCK · IOC LOGGED</span></span>
+                            </div>
                         </div>
-                        <div class="preview-body">
-                            <span class="p-cmd">AUTH_CIPHER: <span class="p-tag p-blue">AES-128 GCM</span> + UUID Validation</span>
-                            <span class="p-cmd">ANOMALY_MODEL: <span class="p-tag p-green">ISOLATION_FOREST</span> (0.02 Risk Threshold)</span>
-                            <span class="p-cmd">BIOMETRIC_CNN: <span class="p-tag p-green">VERIFIED</span> (Facial Liveness Passed)</span>
+                        <div class="proj-stat-pills">
+                            <div class="proj-stat-pill">
+                                <span class="proj-stat-val">42/70</span>
+                                <span class="proj-stat-lab">VT Detections</span>
+                            </div>
+                            <div class="proj-stat-pill">
+                                <span class="proj-stat-val">98%</span>
+                                <span class="proj-stat-lab">AbuseIPDB Score</span>
+                            </div>
+                            <div class="proj-stat-pill">
+                                <span class="proj-stat-val">3 APIs</span>
+                                <span class="proj-stat-lab">Integrated</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="project-header">
-                        <h3>Advanced BYOD Security Framework</h3>
-                        <span class="project-year">2024–25</span>
+                    <div class="proj-content">
+                        <div class="proj-meta-row">
+                            <span class="proj-number">03</span>
+                            <span class="proj-year-tag">2023</span>
+                            <span class="proj-category-tag">OSINT · Threat Hunting</span>
+                        </div>
+                        <h3 class="proj-title">Dark Web IP Scanner &amp; Threat Enrichment Tool</h3>
+                        <p class="proj-impact-line">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                            IP lookup time: minutes → seconds · 3 integrated threat APIs
+                        </p>
+                        <p class="proj-desc">Threat hunting requires cross-referencing suspicious IP addresses across multiple reputation engines, causing investigation latency. Built a Python automation script integrating REST APIs from VirusTotal, AbuseIPDB, AlienVault OTX and dark-web OSINT feeds — generating threat hashes, geolocation, and severity scoring in one analyst-ready summary.</p>
+                        <div class="proj-tech-row">
+                            <span class="proj-tech">Python</span>
+                            <span class="proj-tech">VirusTotal API</span>
+                            <span class="proj-tech">AbuseIPDB API</span>
+                            <span class="proj-tech">AlienVault OTX</span>
+                            <span class="proj-tech">Dark Web OSINT</span>
+                        </div>
+                        <div class="proj-actions" onclick="event.stopPropagation();">
+                            <button type="button" class="btn btn-primary proj-btn" onclick="openProjectModal('ip-scanner')">View Case Study</button>
+                            <a href="https://github.com/ceylonroameryt-bit/portfolio-v1" target="_blank" rel="noopener noreferrer" class="btn btn-secondary proj-btn">
+                                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                                GitHub
+                            </a>
+                        </div>
                     </div>
-                    <div class="project-details">
-                        <p><strong>Scenario:</strong> Unmanaged personal devices in corporate environments introduce severe access risks.</p>
-                        <p><strong>Goal:</strong> Design an access control system to securely authenticate and isolate BYOD endpoints.</p>
-                        <p><strong>Actions:</strong> Developed a framework using AES-128 encryption and UUID-based authentication. Integrated ML and CNN-based facial recognition to detect anomalies.</p>
-                        <p><strong>Outcome:</strong> Created a zero-trust model prototype that prevents unauthorized network access from compromised personal devices.</p>
-                    </div>
-                    <div class="project-tech">
-                        <span class="tech-tag">BYOD Security</span>
-                        <span class="tech-tag">AES-128</span>
-                        <span class="tech-tag">Machine Learning</span>
-                        <span class="tech-tag">Zero-Trust</span>
-                    </div>
-                    <div class="project-links">
-                        <button type="button" class="btn btn-primary" onclick="event.stopPropagation(); openProjectModal('byod')" style="padding: 9px 15px; font-size: 12.5px;">View Case Study</button>
-                        <a href="https://github.com/ceylonroameryt-bit/portfolio-v1" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" onclick="event.stopPropagation();" style="padding: 9px 15px; font-size: 12.5px;">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: middle; margin-right: 4px;"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-                            GitHub Repo
-                        </a>
-                    </div>
-                </div>
+                </article>
 
-                <!-- Project 3 -->
-                <div class="project-card" onclick="openProjectModal('ip-scanner')">
-                    <div class="project-preview-box">
-                        <div class="preview-header">
-                            <span class="dot dot-red"></span>
-                            <span class="dot dot-yellow"></span>
-                            <span class="dot dot-green"></span>
-                            <span class="preview-title">DARKWEB_SCANNER // IP_ENRICHMENT.PY</span>
+                <!-- ── Project 4: SIEM Automation — Right Visual, Left Content ── -->
+                <article class="proj-row proj-row--alt" onclick="openProjectModal('siem-automation')">
+                    <div class="proj-content">
+                        <div class="proj-meta-row">
+                            <span class="proj-number">04</span>
+                            <span class="proj-year-tag">2023</span>
+                            <span class="proj-category-tag">SIEM Automation · Security Ops</span>
                         </div>
-                        <div class="preview-body">
-                            <span class="p-cmd">VIRUSTOTAL_API: <span class="p-tag p-red">MALICIOUS (42/70 Detections)</span></span>
-                            <span class="p-cmd">ABUSEIPDB_SCORE: <span class="p-tag p-red">98% CONFIDENCE HIGH RISK</span></span>
-                            <span class="p-cmd">DARKWEB_OSINT: <span class="p-tag p-blue">C2 BOTNET HOST IDENTIFIED</span></span>
+                        <h3 class="proj-title">SIEM Log Processing Automation Engine</h3>
+                        <p class="proj-impact-line">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                            30% MTTI reduction · 25,000 events/sec · 15+ correlation rules
+                        </p>
+                        <p class="proj-desc">High volumes of unparsed raw logs flood SIEM consoles, creating alert fatigue and increasing Mean Time to Investigate (MTTI). Wrote custom Python log parsers using regex pattern matching to extract IP, user, and payload fields from raw system logs — integrating structured output pipelines directly into SIEM workflows and detecting brute-force patterns automatically.</p>
+                        <div class="proj-tech-row">
+                            <span class="proj-tech">Python</span>
+                            <span class="proj-tech">Regex Parsing</span>
+                            <span class="proj-tech">SIEM Integration</span>
+                            <span class="proj-tech">Log Analysis</span>
+                            <span class="proj-tech">Security Operations</span>
+                        </div>
+                        <div class="proj-actions" onclick="event.stopPropagation();">
+                            <button type="button" class="btn btn-primary proj-btn" onclick="openProjectModal('siem-automation')">View Case Study</button>
+                            <a href="https://github.com/ceylonroameryt-bit/portfolio-v1" target="_blank" rel="noopener noreferrer" class="btn btn-secondary proj-btn">
+                                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                                GitHub
+                            </a>
                         </div>
                     </div>
-                    <div class="project-header">
-                        <h3>Dark Web IP Scanner</h3>
-                        <span class="project-year">2023</span>
+                    <div class="proj-visual">
+                        <div class="proj-terminal-frame">
+                            <div class="proj-terminal-bar">
+                                <span class="dot dot-red"></span>
+                                <span class="dot dot-yellow"></span>
+                                <span class="dot dot-green"></span>
+                                <span class="proj-terminal-label">SIEM_PARSER // REGEX_AUTOMATION.PY</span>
+                            </div>
+                            <div class="proj-terminal-body">
+                                <span class="p-cmd">LOG_INGEST: <span class="p-tag p-green">25,000 EVENTS / SEC</span></span>
+                                <span class="p-cmd">MTTI_REDUCTION: <span class="p-tag p-blue">30% FASTER TRIAGE</span></span>
+                                <span class="p-cmd">NOISE_FILTER: <span class="p-tag p-green">15+ CORRELATION RULES</span></span>
+                                <span class="p-cmd">BRUTE_FORCE: <span class="p-tag p-red">DETECTED → PORT 443 BLOCKED</span></span>
+                                <span class="p-cmd">PIPELINE: <span class="p-tag p-blue">SIEM INTEGRATED ✓</span></span>
+                            </div>
+                        </div>
+                        <div class="proj-stat-pills">
+                            <div class="proj-stat-pill">
+                                <span class="proj-stat-val">25K</span>
+                                <span class="proj-stat-lab">Events/sec</span>
+                            </div>
+                            <div class="proj-stat-pill">
+                                <span class="proj-stat-val">30%</span>
+                                <span class="proj-stat-lab">MTTI Reduction</span>
+                            </div>
+                            <div class="proj-stat-pill">
+                                <span class="proj-stat-val">15+</span>
+                                <span class="proj-stat-lab">Custom Rules</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="project-details">
-                        <p><strong>Scenario:</strong> Threat hunting requires checking numerous external IP reputation lists, consuming valuable triage time.</p>
-                        <p><strong>Goal:</strong> Automate IP enrichment to quickly determine the severity of a suspicious IP.</p>
-                        <p><strong>Actions:</strong> Developed a Python script integrating APIs (VirusTotal, AbuseIPDB, AlienVault OTX) and dark-web OSINT.</p>
-                        <p><strong>Outcome:</strong> Automatically generated hashes, geolocation, and severity scoring into an analyst-ready threat summary.</p>
-                    </div>
-                    <div class="project-tech">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">Dark Web OSINT</span>
-                        <span class="tech-tag">VirusTotal API</span>
-                        <span class="tech-tag">AbuseIPDB</span>
-                    </div>
-                    <div class="project-links">
-                        <button type="button" class="btn btn-primary" onclick="event.stopPropagation(); openProjectModal('ip-scanner')" style="padding: 9px 15px; font-size: 12.5px;">View Case Study</button>
-                        <a href="https://github.com/ceylonroameryt-bit/portfolio-v1" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" onclick="event.stopPropagation();" style="padding: 9px 15px; font-size: 12.5px;">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: middle; margin-right: 4px;"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-                            GitHub Repo
-                        </a>
-                    </div>
-                </div>
+                </article>
 
-                <!-- Project 4 -->
-                <div class="project-card" onclick="openProjectModal('siem-automation')">
-                    <div class="project-preview-box">
-                        <div class="preview-header">
-                            <span class="dot dot-red"></span>
-                            <span class="dot dot-yellow"></span>
-                            <span class="dot dot-green"></span>
-                            <span class="preview-title">SIEM_PARSER // REGEX_AUTOMATION.PY</span>
+                <!-- ── Project 5: Phishing AI — Left Visual, Right Content ── -->
+                <article class="proj-row" onclick="openProjectModal('phishing-ai')">
+                    <div class="proj-visual">
+                        <div class="proj-terminal-frame">
+                            <div class="proj-terminal-bar">
+                                <span class="dot dot-red"></span>
+                                <span class="dot dot-yellow"></span>
+                                <span class="dot dot-green"></span>
+                                <span class="proj-terminal-label">PHISHING_AI // IMAP_FORENSICS.PY</span>
+                            </div>
+                            <div class="proj-terminal-body">
+                                <span class="p-cmd">SPF: <span class="p-tag p-green">PASS</span> | DKIM: <span class="p-tag p-green">PASS</span> | DMARC: <span class="p-tag p-red">FAIL</span></span>
+                                <span class="p-cmd">GEMINI_AI: <span class="p-tag p-red">SPOOFED NAME DETECTED</span></span>
+                                <span class="p-cmd">AI_SCORE: <span class="p-tag p-red">0.94 MALICIOUS</span></span>
+                                <span class="p-cmd">CTI_FEEDS: <span class="p-tag p-blue">MALICIOUS URL MATCHED</span></span>
+                                <span class="p-cmd">ACTION: <span class="p-tag p-red">QUARANTINE TRIGGERED ✓</span></span>
+                            </div>
                         </div>
-                        <div class="preview-body">
-                            <span class="p-cmd">LOG_INGEST: <span class="p-tag p-green">25,000 EVENTS / SEC</span></span>
-                            <span class="p-cmd">MTTI_REDUCTION: <span class="p-tag p-blue">30% FASTER TRIAGE</span></span>
-                            <span class="p-cmd">NOISE_FILTER: <span class="p-tag p-green">15+ CUSTOM CORRELATION RULES</span></span>
+                        <div class="proj-stat-pills">
+                            <div class="proj-stat-pill">
+                                <span class="proj-stat-val">0.94</span>
+                                <span class="proj-stat-lab">AI Threat Score</span>
+                            </div>
+                            <div class="proj-stat-pill">
+                                <span class="proj-stat-val">Auto</span>
+                                <span class="proj-stat-lab">Quarantine</span>
+                            </div>
+                            <div class="proj-stat-pill">
+                                <span class="proj-stat-val">IMAP</span>
+                                <span class="proj-stat-lab">Real-time Scan</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="project-header">
-                        <h3>SIEM Log Processing Automation</h3>
-                        <span class="project-year">2023</span>
+                    <div class="proj-content">
+                        <div class="proj-meta-row">
+                            <span class="proj-number">05</span>
+                            <span class="proj-year-tag">2022</span>
+                            <span class="proj-category-tag">Email Security · AI Analysis</span>
+                        </div>
+                        <h3 class="proj-title">AI-Augmented Phishing Detection &amp; CTI Engine</h3>
+                        <p class="proj-impact-line">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                            AI score 0.94 malicious · automated quarantine · SPF/DKIM/DMARC validation
+                        </p>
+                        <p class="proj-desc">Standard email security gateways miss sophisticated phishing attacks and zero-day malicious URLs. Built a Python application using IMAP to scan incoming mail in real-time, implementing SPF/DKIM/DMARC header validation, CTI feed URL checks, and Gemini AI API contextual analysis — automatically quarantining spoofed and malicious messages with high accuracy.</p>
+                        <div class="proj-tech-row">
+                            <span class="proj-tech">Python</span>
+                            <span class="proj-tech">IMAP</span>
+                            <span class="proj-tech">Gemini AI API</span>
+                            <span class="proj-tech">SPF/DKIM/DMARC</span>
+                            <span class="proj-tech">CTI Feeds</span>
+                            <span class="proj-tech">Email Forensics</span>
+                        </div>
+                        <div class="proj-actions" onclick="event.stopPropagation();">
+                            <button type="button" class="btn btn-primary proj-btn" onclick="openProjectModal('phishing-ai')">View Case Study</button>
+                            <a href="https://github.com/ceylonroameryt-bit/portfolio-v1" target="_blank" rel="noopener noreferrer" class="btn btn-secondary proj-btn">
+                                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                                GitHub
+                            </a>
+                        </div>
                     </div>
-                    <div class="project-details">
-                        <p><strong>Scenario:</strong> Manual triage of noisy, unparsed SIEM alerts leads to alert fatigue and high MTTR.</p>
-                        <p><strong>Goal:</strong> Automate log parsing to extract actionable indicators from raw logs.</p>
-                        <p><strong>Actions:</strong> Wrote Python scripts to parse log formats and highlight critical fields.</p>
-                        <p><strong>Outcome:</strong> Integrated the pipeline with the SIEM, reducing manual triage time by 30% and improving SOC efficiency.</p>
-                    </div>
-                    <div class="project-tech">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">Log Analysis</span>
-                        <span class="tech-tag">SIEM Automation</span>
-                    </div>
-                    <div class="project-links">
-                        <button type="button" class="btn btn-primary" onclick="event.stopPropagation(); openProjectModal('siem-automation')" style="padding: 9px 15px; font-size: 12.5px;">View Case Study</button>
-                        <a href="https://github.com/ceylonroameryt-bit/portfolio-v1" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" onclick="event.stopPropagation();" style="padding: 9px 15px; font-size: 12.5px;">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: middle; margin-right: 4px;"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-                            GitHub Repo
-                        </a>
-                    </div>
-                </div>
+                </article>
 
-                <!-- Project 5 -->
-                <div class="project-card" onclick="openProjectModal('phishing-ai')">
-                    <div class="project-preview-box">
-                        <div class="preview-header">
-                            <span class="dot dot-red"></span>
-                            <span class="dot dot-yellow"></span>
-                            <span class="dot dot-green"></span>
-                            <span class="preview-title">PHISHING_AI // IMAP_FORENSICS.PY</span>
+                <!-- ── Project 6: Kali Scanner — Right Visual, Left Content ── -->
+                <article class="proj-row proj-row--alt proj-row--last" onclick="openProjectModal('kali-scanner')">
+                    <div class="proj-content">
+                        <div class="proj-meta-row">
+                            <span class="proj-number">06</span>
+                            <span class="proj-year-tag">2024</span>
+                            <span class="proj-category-tag">Pentesting · Automation</span>
                         </div>
-                        <div class="preview-body">
-                            <span class="p-cmd">HEADER_CHECKS: <span class="p-tag p-green">SPF: PASS</span> | <span class="p-tag p-green">DKIM: PASS</span> | <span class="p-tag p-red">DMARC: FAIL</span></span>
-                            <span class="p-cmd">GEMINI_AI_ANALYSIS: <span class="p-tag p-red">SPOOFED DISPLAY NAME DETECTED</span></span>
-                            <span class="p-cmd">QUARANTINE_ACTION: <span class="p-tag p-red">AUTOMATED ISOLATION SUCCESS</span></span>
+                        <h3 class="proj-title">Kali Linux CLI Pentesting Scanner</h3>
+                        <p class="proj-impact-line">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                            2× assessment speed · unified Nmap + Nikto + Metasploit · HTML reports
+                        </p>
+                        <p class="proj-desc">Routine vulnerability assessments require running fragmented tools individually, causing reporting delays. Built a Bash CLI tool on Kali Linux that orchestrates Nmap stealth port scans, Nikto web server probes, and Metasploit auxiliary modules in a single command — consolidating outputs into structured, analysis-ready HTML reports.</p>
+                        <div class="proj-tech-row">
+                            <span class="proj-tech">Kali Linux</span>
+                            <span class="proj-tech">Bash Scripting</span>
+                            <span class="proj-tech">Nmap</span>
+                            <span class="proj-tech">Nikto</span>
+                            <span class="proj-tech">Metasploit</span>
                         </div>
-                    </div>
-                    <div class="project-header">
-                        <h3>AI-Augmented Phishing &amp; CTI Engine</h3>
-                        <span class="project-year">2022</span>
-                    </div>
-                    <div class="project-details">
-                        <p><strong>Scenario:</strong> Standard email security filters often miss sophisticated, targeted phishing attacks and zero-day malicious URLs.</p>
-                        <p><strong>Goal:</strong> Develop an automated email analysis engine to proactively detect, score, and quarantine complex phishing attempts.</p>
-                        <p><strong>Actions:</strong> Built a Python application fetching real-time IMAP emails, validating SPF/DKIM/DMARC headers, and querying CTI feeds + Gemini AI API.</p>
-                        <p><strong>Outcome:</strong> Created a robust pipeline that automatically flags spoofing and quarantines malicious messages with high accuracy.</p>
-                    </div>
-                    <div class="project-tech">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">Email Forensics</span>
-                        <span class="tech-tag">Threat Intel</span>
-                        <span class="tech-tag">Gemini AI</span>
-                    </div>
-                    <div class="project-links">
-                        <button type="button" class="btn btn-primary" onclick="event.stopPropagation(); openProjectModal('phishing-ai')" style="padding: 9px 15px; font-size: 12.5px;">View Case Study</button>
-                        <a href="https://github.com/ceylonroameryt-bit/portfolio-v1" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" onclick="event.stopPropagation();" style="padding: 9px 15px; font-size: 12.5px;">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: middle; margin-right: 4px;"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-                            GitHub Repo
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Project 6 -->
-                <div class="project-card" onclick="openProjectModal('kali-scanner')">
-                    <div class="project-preview-box">
-                        <div class="preview-header">
-                            <span class="dot dot-red"></span>
-                            <span class="dot dot-yellow"></span>
-                            <span class="dot dot-green"></span>
-                            <span class="preview-title">KALI_CLI // PENTEST_RECON.SH</span>
-                        </div>
-                        <div class="preview-body">
-                            <span class="p-cmd">NMAP_STEALTH: <span class="p-tag p-blue">PORTS 22, 80, 443 OPEN</span></span>
-                            <span class="p-cmd">NIKTO_WEB_SCAN: <span class="p-tag p-red">CVE-2023-XXXX DETECTED</span></span>
-                            <span class="p-cmd">HTML_REPORT_GEN: <span class="p-tag p-green">SUCCESS (/tmp/recon_report.html)</span></span>
+                        <div class="proj-actions" onclick="event.stopPropagation();">
+                            <button type="button" class="btn btn-primary proj-btn" onclick="openProjectModal('kali-scanner')">View Case Study</button>
+                            <a href="https://github.com/ceylonroameryt-bit/portfolio-v1" target="_blank" rel="noopener noreferrer" class="btn btn-secondary proj-btn">
+                                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                                GitHub
+                            </a>
                         </div>
                     </div>
-                    <div class="project-header">
-                        <h3>Kali Linux CLI Pentesting Scanner</h3>
-                        <span class="project-year">2024</span>
+                    <div class="proj-visual">
+                        <div class="proj-terminal-frame">
+                            <div class="proj-terminal-bar">
+                                <span class="dot dot-red"></span>
+                                <span class="dot dot-yellow"></span>
+                                <span class="dot dot-green"></span>
+                                <span class="proj-terminal-label">KALI_CLI // PENTEST_RECON.SH</span>
+                            </div>
+                            <div class="proj-terminal-body">
+                                <span class="p-cmd">NMAP_STEALTH: <span class="p-tag p-blue">PORTS 22, 80, 443 OPEN</span></span>
+                                <span class="p-cmd">NIKTO_WEB: <span class="p-tag p-red">CVE-2023-XXXX DETECTED</span></span>
+                                <span class="p-cmd">METASPLOIT: <span class="p-tag p-blue">AUX MODULE EXECUTED</span></span>
+                                <span class="p-cmd">RISK_SCORE: <span class="p-tag p-red">HIGH — 3 Low, 1 High</span></span>
+                                <span class="p-cmd">REPORT: <span class="p-tag p-green">HTML GENERATED ✓</span></span>
+                            </div>
+                        </div>
+                        <div class="proj-stat-pills">
+                            <div class="proj-stat-pill">
+                                <span class="proj-stat-val">2×</span>
+                                <span class="proj-stat-lab">Faster Recon</span>
+                            </div>
+                            <div class="proj-stat-pill">
+                                <span class="proj-stat-val">3-in-1</span>
+                                <span class="proj-stat-lab">Tool Chain</span>
+                            </div>
+                            <div class="proj-stat-pill">
+                                <span class="proj-stat-val">HTML</span>
+                                <span class="proj-stat-lab">Auto Reports</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="project-details">
-                        <p><strong>Scenario:</strong> Routine vulnerability assessments involve running fragmented tools manually, causing reporting delays.</p>
-                        <p><strong>Goal:</strong> Create a lightweight, unified scanning tool to streamline basic reconnaissance.</p>
-                        <p><strong>Actions:</strong> Built a Bash CLI tool on Kali Linux orchestrating Nmap, Nikto, and Metasploit auxiliary modules.</p>
-                        <p><strong>Outcome:</strong> Consolidated scan outputs into structured HTML reports, doubling assessment speed and repeatability.</p>
-                    </div>
-                    <div class="project-tech">
-                        <span class="tech-tag">Kali Linux</span>
-                        <span class="tech-tag">Bash</span>
-                        <span class="tech-tag">Nmap</span>
-                        <span class="tech-tag">Metasploit</span>
-                    </div>
-                    <div class="project-links">
-                        <button type="button" class="btn btn-primary" onclick="event.stopPropagation(); openProjectModal('kali-scanner')" style="padding: 9px 15px; font-size: 12.5px;">View Case Study</button>
-                        <a href="https://github.com/ceylonroameryt-bit/portfolio-v1" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" onclick="event.stopPropagation();" style="padding: 9px 15px; font-size: 12.5px;">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: middle; margin-right: 4px;"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-                            GitHub Repo
-                        </a>
-                    </div>
-                </div>
+                </article>
 
             </div>
         </div>

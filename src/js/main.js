@@ -395,22 +395,20 @@ window.switchModalScreenshot = function(idx, src, title, caption) {
 
 window.switchCardScreenshot = function(src, chipIdx, label) {
     const cardImg = document.getElementById('spotlightCardImage');
-    const overlayLabel = document.getElementById('spotlightOverlayLabel');
     if (cardImg) {
-        cardImg.style.opacity = '0.6';
+        cardImg.style.opacity = '0.5';
         setTimeout(() => {
             cardImg.src = src;
+            cardImg.alt = label || 'NO ENTRY Platform Screenshot';
             cardImg.style.opacity = '1';
-        }, 100);
+        }, 120);
     }
-    if (overlayLabel && label) {
-        overlayLabel.textContent = label;
-    }
-    const chips = document.querySelectorAll('.spotlight-chip-btn');
+    const chips = document.querySelectorAll('.proj-chip');
     chips.forEach((c, i) => {
         c.classList.toggle('active', i === chipIdx);
     });
 };
+
 
 window.openProjectModal = function(id) {
     const data = CASE_STUDIES[id];
