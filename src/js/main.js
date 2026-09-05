@@ -248,17 +248,58 @@ window.runConsoleCommand = function(cmd) {
 // ── 11. BEHANCE CASE STUDY MODAL LIGHTBOX ───
 const CASE_STUDIES = {
     'soc-platform': {
-        title: 'Advanced SOC Dashboard & Threat Intelligence Platform',
-        year: '2025',
-        category: 'Threat Intelligence / React & Python',
-        badge: 'Featured Project',
-        githubUrl: 'https://github.com/ceylonroameryt-bit/portfolio-v1',
-        scenario: 'Security operations analysts spend excessive manual hours aggregating, parsing, and triaging threat intelligence feeds across disparate OSINT and CTI platforms.',
-        goal: 'Centralize 100+ live threat intelligence feeds into a single unified dashboard, automating threat severity classification and reducing manual aggregation effort by 50%.',
-        actions: 'Engineered a real-time web platform using React and TypeScript backed by SQLite. Built an automated threat severity scoring engine using keyword analysis, mapped indicators to the MITRE ATT&CK lifecycle, and implemented an automated critical-alert email reporting system.',
-        outcome: 'Delivered an interactive, centralized CTI operations center that reduced manual data gathering time by 50% and enabled rapid prioritization of high-risk threats.',
-        proof: '[SYSTEM VERIFIED] 104 CTI RSS feeds ingested. SQLite database query time < 12ms. Automated SMTP email alert dispatched for CVE-2024-38077.',
-        tech: ['React', 'TypeScript', 'Python', 'SQLite', 'Threat Intelligence', 'MITRE ATT&CK']
+        title: 'NO ENTRY — Multi-Tier Threat Intelligence & Detection Engineering Platform',
+        year: '2025 – Present',
+        category: 'SOC Intelligence & Alert Triage / React 19 & Python FastAPI',
+        badge: '🚨 Featured Spotlight · Live Ecosystem',
+        liveUrl: 'https://soc-ai-six.vercel.app/',
+        githubUrl: 'https://www.linkedin.com/in/sujampathi-rathnayaka-304a752a9/',
+        githubLabel: 'Request Source (Inbox)',
+        screenshots: [
+            {
+                src: 'assets/no-entry-mitre-heatmap.png',
+                title: 'Dynamic MITRE ATT&CK Heatmap (52 Techniques)',
+                caption: 'Dynamically maps daily security advisories across 14 enterprise tactics and 52+ techniques with an interactive heat-intensity matrix.'
+            },
+            {
+                src: 'assets/no-entry-critical-threats.png',
+                title: 'Critical Threats Dashboard & Live Triage',
+                caption: 'Live threat severity distribution, real-time alert prioritization, and instant triage for critical vulnerability exploits.'
+            },
+            {
+                src: 'assets/no-entry-mitre-matrix.png',
+                title: 'MITRE ATT&CK News Matrix (100% Coverage)',
+                caption: 'Categorizes 800+ ingested articles across MITRE tactics with full coverage, custom filters, and telemetry metrics.'
+            },
+            {
+                src: 'assets/no-entry-dashboard.png',
+                title: 'Global Threat Intelligence Feed',
+                caption: 'Continuous automated ingestion of global cyber feeds (CISA, BleepingComputer, THN) with deduplication & IOC extraction.'
+            },
+            {
+                src: 'assets/no-entry-severity-metrics.png',
+                title: 'Monthly Threat Severity Metrics & Ingestion Analysis',
+                caption: 'Exploit likelihood prediction via EPSS percentiles and CVSS severity distribution integrated with VirusTotal & AbuseIPDB.'
+            }
+        ],
+        scenario: 'As cyber threats accelerate, security operations teams need automated pipelines that ingest, categorize, and enrich indicators of compromise (IOCs) before attackers can establish persistence. Manual threat intelligence parsing across disparate sources leads to alert fatigue, high MTTR, and missed zero-day signals.',
+        goal: 'Design, build, and deploy NO ENTRY — an enterprise-grade SOC intelligence and alert triage ecosystem that unifies global threat feeds, automates IOC enrichment, dynamically maps threats to MITRE ATT&CK, auto-generates SIEM detection rules, and uses AI clustering to suppress noise.',
+        architecture: [
+            '<strong>1. Data Ingestion &amp; Deduplication:</strong> Continuous aggregation of global cyber feeds (CISA, BleepingComputer, The Hacker\'s News) mapped over to 100+ unique PostgreSQL schemas with automated IOC extraction.',
+            '<strong>2. Threat Triage &amp; Enrichment Engine:</strong> Integrated with VirusTotal, AbuseIPDB, and CISA KEV APIs to score maliciousness and predict exploit likelihood via EPSS percentiles.',
+            '<strong>3. MITRE ATT&amp;CK Matrix:</strong> Dynamically maps hundreds of daily security advisories against 52 ATT&CK techniques with an interactive heat-intensity matrix across 14 enterprise tactics.',
+            '<strong>4. Detection Engineering Automation:</strong> Generates ready-to-deploy Splunk SPL, Microsoft Sentinel KQL, and Sigma YAML rules instantly from detected threats.',
+            '<strong>5. AI Microservice:</strong> Employs TF-IDF clustering and cosine similarity to reduce redundant news by 70%+ and generate daily CISO executive briefings.'
+        ],
+        actions: 'Engineered a high-performance frontend using React 19, TypeScript, Vite, and Tailwind CSS. Built a Python FastAPI microservice implementing TF-IDF vectorization and cosine similarity clustering for news deduplication. Architected Supabase PostgreSQL storage with Row-Level Security (RLS) and Node.js/Express serverless pipelines. Wired real-time REST API queries to VirusTotal, AbuseIPDB, CISA KEV, and EPSS.',
+        outcome: 'Successfully deployed and operational at https://soc-ai-six.vercel.app/. Reduced analyst noise by 70%+, automated SIEM/Sentinel/Sigma detection rule compilation, and established sub-second threat correlation across 52 MITRE ATT&CK techniques.',
+        proof: '[SYSTEM LIVE] 100+ Feeds Ingested · 52 MITRE Techniques Covered · Splunk SPL / Sentinel KQL / Sigma Ready · VirusTotal/AbuseIPDB Enriched · Live: https://soc-ai-six.vercel.app/',
+        tech: [
+            'React 19', 'TypeScript', 'Vite', 'Tailwind CSS',
+            'Python FastAPI', 'Supabase (PostgreSQL RLS)', 'Node.js Express',
+            'VirusTotal API', 'AbuseIPDB API', 'CISA KEV', 'EPSS Percentiles',
+            'Splunk SPL', 'Microsoft Sentinel KQL', 'Sigma Rules', 'MITRE ATT&CK'
+        ]
     },
     'byod': {
         title: 'Advanced BYOD Security Framework',
@@ -327,6 +368,50 @@ const CASE_STUDIES = {
     }
 };
 
+window.switchModalScreenshot = function(idx, src, title, caption) {
+    const mainImg = document.getElementById('modalMainImage');
+    const titleEl = document.getElementById('modalActiveTitle');
+    const descEl = document.getElementById('modalActiveDesc');
+    const counterEl = document.getElementById('modalActiveCounter');
+    const openLink = document.getElementById('modalOpenImageLink');
+
+    if (mainImg) {
+        mainImg.style.opacity = '0.4';
+        setTimeout(() => {
+            mainImg.src = src;
+            mainImg.style.opacity = '1';
+        }, 120);
+    }
+    if (titleEl) titleEl.textContent = title;
+    if (descEl) descEl.textContent = caption;
+    if (counterEl) counterEl.textContent = `${idx + 1} / 5`;
+    if (openLink) openLink.href = src;
+
+    const allThumbs = document.querySelectorAll('.modal-thumb-btn');
+    allThumbs.forEach((btn, i) => {
+        btn.classList.toggle('active', i === idx);
+    });
+};
+
+window.switchCardScreenshot = function(src, chipIdx, label) {
+    const cardImg = document.getElementById('spotlightCardImage');
+    const overlayLabel = document.getElementById('spotlightOverlayLabel');
+    if (cardImg) {
+        cardImg.style.opacity = '0.6';
+        setTimeout(() => {
+            cardImg.src = src;
+            cardImg.style.opacity = '1';
+        }, 100);
+    }
+    if (overlayLabel && label) {
+        overlayLabel.textContent = label;
+    }
+    const chips = document.querySelectorAll('.spotlight-chip-btn');
+    chips.forEach((c, i) => {
+        c.classList.toggle('active', i === chipIdx);
+    });
+};
+
 window.openProjectModal = function(id) {
     const data = CASE_STUDIES[id];
     if (!data) return;
@@ -337,18 +422,91 @@ window.openProjectModal = function(id) {
 
     const techHtml = data.tech.map(t => `<span class="modal-tech-tag">${t}</span>`).join('');
 
+    // Optional Live URL button
+    let liveUrlHtml = '';
+    if (data.liveUrl) {
+        liveUrlHtml = `
+            <a href="${data.liveUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-accent" style="padding: 6px 14px; font-size: 12px; font-weight: 700; display: inline-flex; align-items: center; gap: 6px;">
+                <span class="live-dot" style="width: 7px; height: 7px; border-radius: 50%; background: #10B981; display: inline-block; box-shadow: 0 0 8px #10B981;"></span>
+                Open Live Platform
+            </a>
+        `;
+    }
+
+    const githubLabel = data.githubLabel || 'GitHub Source Repo';
+    const githubBtnHtml = `
+        <a href="${data.githubUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding: 6px 14px; font-size: 12px; font-weight: 600; display: inline-flex; align-items: center; gap: 6px;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            ${githubLabel}
+        </a>
+    `;
+
+    // Interactive Screenshot Gallery HTML (if screenshots exist)
+    let galleryHtml = '';
+    if (data.screenshots && data.screenshots.length > 0) {
+        const first = data.screenshots[0];
+        const thumbsHtml = data.screenshots.map((s, idx) => `
+            <button type="button" class="modal-thumb-btn ${idx === 0 ? 'active' : ''}" onclick="window.switchModalScreenshot(${idx}, '${s.src}', '${s.title.replace(/'/g, "\\'")}', '${s.caption.replace(/'/g, "\\'")}')" aria-label="View screenshot ${idx + 1}">
+                <img src="${s.src}" alt="${s.title}" loading="lazy" />
+                <span>${s.title.split(' ')[0]} ${s.title.split(' ')[1] || ''}</span>
+            </button>
+        `).join('');
+
+        galleryHtml = `
+            <div class="modal-gallery-container">
+                <div class="modal-gallery-topbar">
+                    <div class="modal-gallery-title-box">
+                        <span class="modal-gallery-title">Interactive Platform Gallery</span>
+                        <span class="modal-gallery-counter" id="modalActiveCounter">1 / ${data.screenshots.length}</span>
+                    </div>
+                    <a href="${first.src}" target="_blank" rel="noopener noreferrer" class="modal-gallery-action-link" id="modalOpenImageLink">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                        View High-Res
+                    </a>
+                </div>
+                <div class="modal-gallery-viewport">
+                    <img id="modalMainImage" class="modal-gallery-main-img" src="${first.src}" alt="${first.title}" />
+                </div>
+                <div class="modal-gallery-info">
+                    <div class="modal-gallery-active-title" id="modalActiveTitle">${first.title}</div>
+                    <div class="modal-gallery-active-desc" id="modalActiveDesc">${first.caption}</div>
+                </div>
+                <div class="modal-gallery-thumbnails">
+                    ${thumbsHtml}
+                </div>
+            </div>
+        `;
+    }
+
+    // Architecture section HTML (if present)
+    let archHtml = '';
+    if (data.architecture && data.architecture.length > 0) {
+        const items = data.architecture.map(a => `<div class="modal-arch-item">${a}</div>`).join('');
+        archHtml = `
+            <div class="modal-block full" style="margin-top: 6px;">
+                <h4 style="display:flex; align-items:center; gap:6px;">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                    Architectural Overview &amp; Subsystems
+                </h4>
+                <div class="modal-arch-list">${items}</div>
+            </div>
+        `;
+    }
+
     modalBody.innerHTML = `
         <div class="modal-header-banner">
             <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
                 <span class="modal-badge">${data.badge} &middot; ${data.year}</span>
-                <a href="${data.githubUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding: 6px 14px; font-size: 12px; font-weight: 600;">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: middle; margin-right: 4px;"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-                    GitHub Source Repo
-                </a>
+                <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                    ${liveUrlHtml}
+                    ${githubBtnHtml}
+                </div>
             </div>
             <h2 class="modal-title" style="margin-top: 10px;">${data.title}</h2>
             <p class="modal-category">${data.category}</p>
         </div>
+
+        ${galleryHtml}
 
         <div class="project-preview-box" style="margin-bottom: 24px;">
             <div class="preview-header">
@@ -364,24 +522,25 @@ window.openProjectModal = function(id) {
 
         <div class="modal-grid">
             <div class="modal-block">
-                <h4>Scenario &amp; Problem Statement</h4>
+                <h4>Scenario &amp; Operational Challenge</h4>
                 <p>${data.scenario}</p>
             </div>
             <div class="modal-block">
-                <h4>Project Goal</h4>
+                <h4>System Objective &amp; Goal</h4>
                 <p>${data.goal}</p>
             </div>
+            ${archHtml}
             <div class="modal-block full">
-                <h4>Technical Solution &amp; Actions</h4>
+                <h4>Full-Stack Implementation &amp; Security Engineering</h4>
                 <p>${data.actions}</p>
             </div>
             <div class="modal-block full">
-                <h4>Measured Impact &amp; Outcome</h4>
+                <h4>Measured Impact &amp; Operational Outcomes</h4>
                 <p>${data.outcome}</p>
             </div>
         </div>
         <div class="modal-tech-footer">
-            <span class="modal-tech-label">Technologies Used:</span>
+            <span class="modal-tech-label">Built With &amp; Technologies:</span>
             <div class="modal-tech-list">${techHtml}</div>
         </div>
     `;

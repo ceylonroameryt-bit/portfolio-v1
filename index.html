@@ -437,40 +437,80 @@
 
                 <!-- Project 1 -->
                 <div class="project-card project-card--featured" onclick="openProjectModal('soc-platform')">
+                    <div class="project-spotlight-pill">
+                        <span class="pulse-dot"></span> 🚨 Project Spotlight · Production SOC Platform
+                    </div>
+
+                    <!-- Interactive Screenshot Showcase in Card -->
+                    <div class="project-card-spotlight-media" onclick="event.stopPropagation(); openProjectModal('soc-platform')">
+                        <span class="spotlight-live-tag">
+                            <span class="live-dot"></span> Live Ecosystem
+                        </span>
+                        <div class="spotlight-img-wrap">
+                            <img id="spotlightCardImage" src="assets/no-entry-mitre-heatmap.png" alt="NO ENTRY Platform Screenshot" class="spotlight-main-img" loading="lazy" />
+                            <div class="spotlight-img-overlay">
+                                <span class="spotlight-overlay-text" id="spotlightOverlayLabel">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+                                    Click to Explore 5 Live Screenshots &amp; Architecture &rarr;
+                                </span>
+                            </div>
+                        </div>
+                        <div class="spotlight-chips-row" onclick="event.stopPropagation();">
+                            <button type="button" class="spotlight-chip-btn active" onclick="window.switchCardScreenshot('assets/no-entry-mitre-heatmap.png', 0, 'Dynamic MITRE ATT&CK Heatmap (52 Techniques)')">🛡️ MITRE Heatmap</button>
+                            <button type="button" class="spotlight-chip-btn" onclick="window.switchCardScreenshot('assets/no-entry-critical-threats.png', 1, 'Critical Threats Dashboard & Live Triage')">⚡ Critical Triage</button>
+                            <button type="button" class="spotlight-chip-btn" onclick="window.switchCardScreenshot('assets/no-entry-mitre-matrix.png', 2, 'MITRE ATT&CK News Matrix (100% Coverage)')">📊 ATT&CK Matrix</button>
+                            <button type="button" class="spotlight-chip-btn" onclick="window.switchCardScreenshot('assets/no-entry-dashboard.png', 3, 'Global Threat Intelligence Feed')">📰 Global Feed</button>
+                            <button type="button" class="spotlight-chip-btn" onclick="window.switchCardScreenshot('assets/no-entry-severity-metrics.png', 4, 'Monthly Threat Severity Metrics & EPSS')">📈 Severity Metrics</button>
+                        </div>
+                    </div>
+
                     <div class="project-preview-box">
                         <div class="preview-header">
                             <span class="dot dot-red"></span>
                             <span class="dot dot-yellow"></span>
                             <span class="dot dot-green"></span>
-                            <span class="preview-title">SOC_INTEL_HUB // REALTIME_DASHBOARD.TSX</span>
+                            <span class="preview-title">NO_ENTRY // THREAT_INTEL_DETECTION_ENGINEERING</span>
                         </div>
                         <div class="preview-body">
-                            <span class="p-cmd">CTI_FEED_STATUS: <span class="p-tag p-green">ONLINE</span> (104 RSS Sources Mapped)</span>
-                            <span class="p-cmd">CRITICAL_ALERTS: <span class="p-tag p-red">3 UNRESOLVED</span> (Automated Email Dispatched)</span>
-                            <span class="p-cmd">MITRE_MAPPING: <span class="p-tag p-blue">T1078, T1110, T1499 Active Coverage</span></span>
+                            <span class="p-cmd">DATA_INGESTION: <span class="p-tag p-green">100+ SCHEMAS MAPPED</span> (CISA, BleepingComputer, THN)</span>
+                            <span class="p-cmd">TRIAGE_ENGINE: <span class="p-tag p-blue">VIRUSTOTAL + ABUSEIPDB + CISA KEV + EPSS</span></span>
+                            <span class="p-cmd">MITRE_MATRIX: <span class="p-tag p-green">52 TECHNIQUES COVERED</span> (14 Enterprise Tactics)</span>
+                            <span class="p-cmd">DETECTION_RULES: <span class="p-tag p-blue">SPLUNK SPL | SENTINEL KQL | SIGMA YAML</span></span>
+                            <span class="p-cmd">AI_CLUSTERING: <span class="p-tag p-green">-70% NOISE REDUCTION</span> (TF-IDF &amp; Cosine Similarity)</span>
                         </div>
                     </div>
                     <div class="project-header">
-                        <h3>SOC Intelligence Platform</h3>
-                        <span class="project-year">2024</span>
+                        <h3>NO ENTRY — Threat Intelligence &amp; Detection Engineering Platform</h3>
+                        <span class="project-year">2025 – Present</span>
                     </div>
                     <div class="project-details">
-                        <p><strong>Scenario:</strong> Security analysts spend excessive time manually parsing threat intelligence from varied sources.</p>
-                        <p><strong>Goal:</strong> Centralize 100+ RSS feeds to provide real-time, triaged threat intelligence.</p>
-                        <p><strong>Actions:</strong> Engineered a React/TypeScript dashboard with a SQLite backend. Built automated threat severity classification using keyword-based analysis and automated critical-alert email reporting.</p>
-                        <p><strong>Outcome:</strong> Delivered a centralized intelligence platform with interactive visualizations, reducing manual monitoring efforts by 50%.</p>
+                        <p><strong>Scenario:</strong> As cyber threats accelerate, security teams need automated pipelines that ingest, categorize, and enrich indicators of compromise (IOCs) before attackers can establish persistence.</p>
+                        <p><strong>Goal:</strong> Deploy a complete SOC intelligence and alert triage ecosystem that centralizes global feeds, automates threat scoring, maps tactics to MITRE ATT&amp;CK, compiles detection rules, and clusters alerts using AI.</p>
+                        <p><strong>Actions:</strong> Built with React 19, TypeScript, Vite, Tailwind CSS, Python FastAPI, and PostgreSQL (Supabase with RLS). Engineered multi-API threat triage (VirusTotal, AbuseIPDB, CISA KEV, EPSS), 52-technique heat-intensity matrix, and instant Splunk SPL / Sentinel KQL / Sigma YAML rule compilers.</p>
+                        <p><strong>Outcome:</strong> Reduced analyst alert noise by 70%+, enabled instantaneous detection rule generation directly from IOCs, and automated daily CISO executive briefings.</p>
                     </div>
                     <div class="project-tech">
-                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">React 19</span>
                         <span class="tech-tag">TypeScript</span>
-                        <span class="tech-tag">SQLite</span>
-                        <span class="tech-tag">Threat Intel</span>
+                        <span class="tech-tag">Python FastAPI</span>
+                        <span class="tech-tag">Supabase (PostgreSQL RLS)</span>
+                        <span class="tech-tag">MITRE ATT&amp;CK (52 Tech)</span>
+                        <span class="tech-tag">Splunk SPL &amp; Sentinel KQL</span>
+                        <span class="tech-tag">Sigma YAML</span>
+                        <span class="tech-tag">VirusTotal &amp; AbuseIPDB</span>
+                        <span class="tech-tag">Tailwind CSS</span>
                     </div>
                     <div class="project-links">
-                        <button type="button" class="btn btn-primary" onclick="event.stopPropagation(); openProjectModal('soc-platform')" style="padding: 9px 15px; font-size: 12.5px;">View Case Study</button>
-                        <a href="https://github.com/ceylonroameryt-bit/portfolio-v1" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" onclick="event.stopPropagation();" style="padding: 9px 15px; font-size: 12.5px;">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: middle; margin-right: 4px;"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-                            GitHub Repo
+                        <a href="https://soc-ai-six.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn btn-accent" onclick="event.stopPropagation();" style="padding: 9px 16px; font-size: 12.5px; display: inline-flex; align-items: center; gap: 6px;">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+                            Live Application
+                        </a>
+                        <button type="button" class="btn btn-primary" onclick="event.stopPropagation(); openProjectModal('soc-platform')" style="padding: 9px 16px; font-size: 12.5px;">
+                            View Case Study &amp; Gallery (5 SS)
+                        </button>
+                        <a href="https://www.linkedin.com/in/sujampathi-rathnayaka-304a752a9/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" onclick="event.stopPropagation();" style="padding: 9px 15px; font-size: 12.5px;" title="Source Code: Inbox on LinkedIn">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: middle; margin-right: 4px;"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.6a1.64 1.64 0 1 0 0 3.28 1.64 1.64 0 0 0 0-3.28z"/></svg>
+                            Request Source (Inbox)
                         </a>
                     </div>
                 </div>
@@ -775,14 +815,12 @@
             <div class="pending-grid">
                 <div class="pending-card">
                     <div class="pending-status pending-inprogress">
-                        <span class="status-badge">In Progress</span>
+                        <span class="status-badge">Scheduled</span>
                     </div>
-                    <h3>SOC 200 Certification</h3>
-                    <p class="pending-description">Preparing for SOC 200 certification with a focus on advanced SOC
-                        operations, security monitoring, incident handling, threat detection, and real-world SIEM
-                        workflows.</p>
+                    <h3>Microsoft SC-200: Security Operations Analyst</h3>
+                    <p class="pending-description">Scheduled certification focused on Microsoft Sentinel, Microsoft Defender XDR, KQL threat hunting, incident detection &amp; response, and SOC correlation rule tuning.</p>
                     <div class="pending-meta">
-                        <span class="meta-item">Timeline: Q2 2026</span>
+                        <span class="meta-item">Timeline: Scheduled Nov 2026</span>
                         <span class="meta-item">Priority: High</span>
                     </div>
                 </div>
