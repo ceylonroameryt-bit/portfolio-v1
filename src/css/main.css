@@ -1483,26 +1483,34 @@ section {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 10px;
     margin-bottom: 16px;
+    padding-left: 0;
 }
 
 .tl-bullets li {
     font-size: 13.5px;
     color: var(--ink-light);
     line-height: 1.65;
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
+    position: relative;
+    padding-left: 18px;
+    display: block;
+}
+
+.tl-bullets li strong {
+    color: var(--ink);
+    font-weight: 600;
 }
 
 .tl-bullets li::before {
     content: '→';
+    position: absolute;
+    left: 0;
+    top: 0;
     color: var(--accent);
     font-size: 12px;
-    flex-shrink: 0;
-    margin-top: 2px;
     font-weight: 700;
+    line-height: 1.65;
 }
 
 .tl-tags {
