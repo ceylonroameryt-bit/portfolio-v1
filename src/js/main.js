@@ -796,8 +796,8 @@ const YOUTUBE_VIDEOS = [
         badge: '4K Ultra HD',
         duration: '2:37',
         thumb: 'assets/videos/london-4k.jpg',
-        desc: 'Vibrant 4K cinematic city tour capturing iconic London architecture, River Thames landmarks, moody street lighting, and dynamic color grading.',
-        tools: ['Adobe Premiere Pro', 'DaVinci Resolve', '4K Cinema', 'Color Grading'],
+        desc: 'Vibrant 4K cinematic city tour capturing iconic London architecture, River Thames landmarks, moody street lighting, and dynamic color grading — edited and colour graded in DaVinci Resolve Studio.',
+        tools: ['DaVinci Resolve Studio', '4K Cinema', 'Color Grading', 'Blackmagic Color'],
         ytUrl: 'https://www.youtube.com/watch?v=OpfagciUNx8'
     },
     {
@@ -807,8 +807,8 @@ const YOUTUBE_VIDEOS = [
         badge: '4K Aerial',
         duration: '1:46',
         thumb: 'assets/videos/seven-sisters.jpg',
-        desc: 'Breathtaking aerial perspectives and panoramic visuals showcasing the dramatic chalk cliffs and rolling coastal hills of East Sussex, UK.',
-        tools: ['Adobe Premiere Pro', 'Aerial Cinematography', 'Sound Design', 'Film LUTs'],
+        desc: 'Breathtaking aerial perspectives and panoramic visuals showcasing the dramatic chalk cliffs and rolling coastal hills of East Sussex, UK — edited and colour graded in DaVinci Resolve Studio.',
+        tools: ['DaVinci Resolve Studio', 'Aerial Cinematography', 'Fairlight Audio', 'Color Grading'],
         ytUrl: 'https://www.youtube.com/watch?v=LCG0tVht2ek'
     },
     {
@@ -818,8 +818,8 @@ const YOUTUBE_VIDEOS = [
         badge: 'Drone HD',
         duration: '1:13',
         thumb: 'assets/videos/wiltshire-white-horse.jpg',
-        desc: 'Cinematic aerial exploration and documentary framing of the ancient Cherhill White Horse hill figure and Lansdowne Monument in Wiltshire.',
-        tools: ['Adobe Premiere Pro', 'Drone Cinematography', 'Documentary', 'Heritage'],
+        desc: 'Cinematic aerial exploration and documentary framing of the ancient Cherhill White Horse hill figure and Lansdowne Monument in Wiltshire — edited and colour graded in DaVinci Resolve Studio.',
+        tools: ['DaVinci Resolve Studio', 'Drone Cinematography', 'Documentary', 'Heritage'],
         ytUrl: 'https://www.youtube.com/watch?v=ZoDApKGzmiQ'
     },
     {
@@ -829,8 +829,8 @@ const YOUTUBE_VIDEOS = [
         badge: '4K Cinema',
         duration: '0:34',
         thumb: 'assets/videos/finding-peace.jpg',
-        desc: 'A poetic, reflective cinematic short meditating on personal journey, tranquility, exploration, and perspective through subtle atmospheric pacing.',
-        tools: ['After Effects', 'Visual Storytelling', 'Cinematic Pacing', 'Soundscape'],
+        desc: 'A poetic, reflective cinematic short meditating on personal journey, tranquility, exploration, and perspective through subtle atmospheric pacing — edited and colour graded in DaVinci Resolve Studio.',
+        tools: ['DaVinci Resolve Studio', 'Visual Storytelling', 'Cinematic Pacing', 'Fairlight Audio'],
         ytUrl: 'https://www.youtube.com/watch?v=rNf3ykPi6LY'
     }
 ];
