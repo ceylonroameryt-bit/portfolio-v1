@@ -786,3 +786,124 @@ document.addEventListener('keydown', (e) => {
         }
     }
 });
+
+// ── 12. YOUTUBE CHANNEL & VIDEO SHOWCASE CONTROLLER ────
+const YOUTUBE_VIDEOS = [
+    {
+        id: 'OpfagciUNx8',
+        title: 'London Cinematic Vlog 4K | ලන්ඩන් සුන්දරත්වය 🇬🇧',
+        category: 'Cinematic City Tour',
+        badge: '4K Ultra HD',
+        duration: '2:37',
+        thumb: 'assets/videos/london-4k.jpg',
+        desc: 'Vibrant 4K cinematic city tour capturing iconic London architecture, River Thames landmarks, moody street lighting, and dynamic color grading.',
+        tools: ['Adobe Premiere Pro', 'DaVinci Resolve', '4K Cinema', 'Color Grading'],
+        ytUrl: 'https://www.youtube.com/watch?v=OpfagciUNx8'
+    },
+    {
+        id: 'LCG0tVht2ek',
+        title: 'Nothing Stays | Seven Sisters Cinematic Video',
+        category: 'Landscape & Coastline',
+        badge: '4K Aerial',
+        duration: '1:46',
+        thumb: 'assets/videos/seven-sisters.jpg',
+        desc: 'Breathtaking aerial perspectives and panoramic visuals showcasing the dramatic chalk cliffs and rolling coastal hills of East Sussex, UK.',
+        tools: ['Adobe Premiere Pro', 'Aerial Cinematography', 'Sound Design', 'Film LUTs'],
+        ytUrl: 'https://www.youtube.com/watch?v=LCG0tVht2ek'
+    },
+    {
+        id: 'ZoDApKGzmiQ',
+        title: 'The Secret White Horses of Wiltshire! | Cherhill',
+        category: 'Heritage & History',
+        badge: 'Drone HD',
+        duration: '1:13',
+        thumb: 'assets/videos/wiltshire-white-horse.jpg',
+        desc: 'Cinematic aerial exploration and documentary framing of the ancient Cherhill White Horse hill figure and Lansdowne Monument in Wiltshire.',
+        tools: ['Adobe Premiere Pro', 'Drone Cinematography', 'Documentary', 'Heritage'],
+        ytUrl: 'https://www.youtube.com/watch?v=ZoDApKGzmiQ'
+    },
+    {
+        id: 'rNf3ykPi6LY',
+        title: 'Finding Peace in the Journey | පොත් සහ සිතියම් වලින් එහා ලෝකය',
+        category: 'Visual Poetry & Short Film',
+        badge: '4K Cinema',
+        duration: '0:34',
+        thumb: 'assets/videos/finding-peace.jpg',
+        desc: 'A poetic, reflective cinematic short meditating on personal journey, tranquility, exploration, and perspective through subtle atmospheric pacing.',
+        tools: ['After Effects', 'Visual Storytelling', 'Cinematic Pacing', 'Soundscape'],
+        ytUrl: 'https://www.youtube.com/watch?v=rNf3ykPi6LY'
+    }
+];
+
+let currentVideoIndex = 0;
+
+window.playVideoInTheater = function(index, autoplay = true) {
+    const video = YOUTUBE_VIDEOS[index];
+    if (!video) return;
+
+    currentVideoIndex = index;
+
+    // Update Topbar metadata
+    const categoryEl = document.getElementById('videoActiveCategory');
+    const badgeEl = document.getElementById('videoActiveBadge');
+    const durationEl = document.getElementById('videoActiveDuration');
+    const headlineEl = document.getElementById('videoActiveHeadline');
+    const ytLinkEl = document.getElementById('videoActiveYtLink');
+
+    if (categoryEl) categoryEl.textContent = video.category;
+    if (badgeEl) badgeEl.textContent = video.badge;
+    if (durationEl) durationEl.textContent = video.duration;
+    if (headlineEl) headlineEl.textContent = video.title;
+    if (ytLinkEl) {
+        ytLinkEl.href = video.ytUrl;
+        ytLinkEl.setAttribute('aria-label', `Open ${video.title} on YouTube in new tab`);
+    }
+
+    // Update Bottombar metadata
+    const descEl = document.getElementById('videoActiveDesc');
+    const toolsEl = document.getElementById('videoActiveTools');
+
+    if (descEl) descEl.textContent = video.desc;
+    if (toolsEl) {
+        toolsEl.innerHTML = video.tools.map(t => `<span class="video-tool-tag">${t}</span>`).join('');
+    }
+
+    // Update Screen Viewport
+    const viewport = document.getElementById('videoTheaterViewport');
+    if (viewport) {
+        if (autoplay) {
+            viewport.innerHTML = `
+                <iframe class="video-theater-iframe"
+                        src="https://www.youtube-nocookie.com/embed/${video.id}?autoplay=1&rel=0&modestbranding=1"
+                        title="YouTube video player: ${video.title.replace(/"/g, '&quot;')}"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen>
+                </iframe>
+            `;
+        } else {
+            viewport.innerHTML = `
+                <div class="video-theater-cover" id="videoTheaterCover" onclick="window.startTheaterPlayback()">
+                    <img id="videoTheaterCoverImg" src="${video.thumb}" alt="Video preview thumbnail for ${video.title.replace(/"/g, '&quot;')}" class="video-theater-cover-img" />
+                    <div class="video-theater-cover-overlay">
+                        <button type="button" class="video-theater-play-btn" aria-label="Play ${video.title.replace(/"/g, '&quot;')} video inside this player">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg>
+                        </button>
+                        <span class="video-theater-play-label">Click to Play Video (Embedded Player)</span>
+                    </div>
+                </div>
+            `;
+        }
+    }
+
+    // Update playlist cards active class
+    const cards = document.querySelectorAll('.video-playlist-card');
+    cards.forEach((card, i) => {
+        card.classList.toggle('active', i === index);
+        card.setAttribute('aria-selected', i === index ? 'true' : 'false');
+    });
+};
+
+window.startTheaterPlayback = function() {
+    window.playVideoInTheater(currentVideoIndex, true);
+};
+
