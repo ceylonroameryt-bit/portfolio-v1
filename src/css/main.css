@@ -1511,6 +1511,14 @@ section {
     gap: 6px;
 }
 
+.tl-tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 14px;
+    margin-top: 10px;
+}
+
 .tl-tag {
     font-size: 11px;
     font-weight: 600;
@@ -1519,6 +1527,7 @@ section {
     color: var(--accent);
     padding: 3px 9px;
     border-radius: 6px;
+    letter-spacing: 0.2px;
 }
 
 /* ============================================
