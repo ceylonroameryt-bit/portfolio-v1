@@ -254,7 +254,7 @@ const CASE_STUDIES = {
         badge: '🚨 Featured Spotlight · Live Ecosystem',
         liveUrl: 'https://soc-ai-six.vercel.app/',
         githubUrl: 'https://www.linkedin.com/in/sujampathi-rathnayaka-304a752a9/',
-        githubLabel: 'Request Source (Inbox)',
+        githubLabel: 'Request Source Code',
         screenshots: [
             {
                 src: 'assets/no-entry-mitre-heatmap.png',
@@ -305,8 +305,8 @@ const CASE_STUDIES = {
         title: 'Advanced BYOD Security Framework',
         year: '2024-2025',
         category: 'Zero-Trust Security / Machine Learning',
-        badge: 'Research Project',
-        githubUrl: 'https://github.com/ceylonroameryt-bit/portfolio-v1',
+        githubUrl: 'https://www.linkedin.com/in/sujampathi-rathnayaka-304a752a9/',
+        githubLabel: 'Request Source Code',
         scenario: 'Unmanaged personal devices accessing enterprise corporate networks introduce critical malware lateral movement and unauthorized data access risks.',
         goal: 'Design a zero-trust access control framework that securely authenticates personal devices and isolates anomalous connection attempts in real-time.',
         actions: 'Implemented AES-128 encryption with UUID-based device authorization. Trained Isolation Forest machine learning models and CNN-based facial recognition for biometric anomaly detection and suspicious login prevention.',
@@ -318,8 +318,8 @@ const CASE_STUDIES = {
         title: 'Advanced Threat Intelligence & Dark Web IP Scanner',
         year: '2023',
         category: 'OSINT / Threat Hunting',
-        badge: 'Security Tool',
-        githubUrl: 'https://github.com/ceylonroameryt-bit/portfolio-v1',
+        githubUrl: 'https://www.linkedin.com/in/sujampathi-rathnayaka-304a752a9/',
+        githubLabel: 'Request Source Code',
         scenario: 'Threat hunting requires cross-referencing hundreds of suspicious IP addresses across multiple reputation engines, causing significant investigation latency.',
         goal: 'Automate IP enrichment and dark-web OSINT checks to produce immediate, analyst-ready threat intelligence summaries.',
         actions: 'Developed a Python automation script integrating REST APIs from VirusTotal, AbuseIPDB, AlienVault OTX, and dark-web OSINT feeds. Formatted threat hashes, geolocation, and risk scoring into structured reports.',
@@ -331,8 +331,8 @@ const CASE_STUDIES = {
         title: 'SIEM Log Processing Automation Engine',
         year: '2023',
         category: 'SIEM Automation / Security Ops',
-        badge: 'Automation Script',
-        githubUrl: 'https://github.com/ceylonroameryt-bit/portfolio-v1',
+        githubUrl: 'https://www.linkedin.com/in/sujampathi-rathnayaka-304a752a9/',
+        githubLabel: 'Request Source Code',
         scenario: 'High volumes of unparsed raw logs flood SIEM consoles, creating alert fatigue and increasing Mean Time to Investigate (MTTI).',
         goal: 'Automate raw log parsing to extract actionable indicators and identify credential stuffing and brute-force patterns.',
         actions: 'Wrote custom Python log parsers using regex pattern matching to extract IP, user, and payload fields from raw system logs. Integrated structured output pipelines into SIEM workflows.',
@@ -344,8 +344,8 @@ const CASE_STUDIES = {
         title: 'AI-Augmented Phishing Detection & CTI Engine',
         year: '2022',
         category: 'Email Security / AI Analysis',
-        badge: 'AI Security Tool',
-        githubUrl: 'https://github.com/ceylonroameryt-bit/portfolio-v1',
+        githubUrl: 'https://www.linkedin.com/in/sujampathi-rathnayaka-304a752a9/',
+        githubLabel: 'Request Source Code',
         scenario: 'Standard email security gateways frequently fail to detect zero-day malicious URLs, display name spoofing, and lookalike domains.',
         goal: 'Build an automated email security analyzer that evaluates incoming emails against CTI feeds and AI models to quarantine phishing threats.',
         actions: 'Built a Python application using IMAP to scan incoming mail. Implemented SPF/DKIM/DMARC header validation, URL threat feeds checking, and Gemini AI API contextual analysis for borderline suspicious messages.',
@@ -357,8 +357,8 @@ const CASE_STUDIES = {
         title: 'Kali Linux CLI Pentesting Scanner',
         year: '2024',
         category: 'Pentesting / Automation',
-        badge: 'CLI Tool',
-        githubUrl: 'https://github.com/ceylonroameryt-bit/portfolio-v1',
+        githubUrl: 'https://www.linkedin.com/in/sujampathi-rathnayaka-304a752a9/',
+        githubLabel: 'Request Source Code',
         scenario: 'Manual vulnerability assessments require executing fragmented scanning tools individually, delaying report delivery.',
         goal: 'Develop a unified Bash CLI scanner to automate network reconnaissance and vulnerability probing.',
         actions: 'Wrote a Bash script on Kali Linux orchestrating Nmap port scans, Nikto web server probes, and Metasploit auxiliary modules into a single execution command.',
@@ -431,10 +431,14 @@ window.openProjectModal = function(id) {
         `;
     }
 
-    const githubLabel = data.githubLabel || 'GitHub Source Repo';
+    const isLinkedIn = (data.githubUrl || '').includes('linkedin.com');
+    const githubLabel = data.githubLabel || (isLinkedIn ? 'Request Source Code' : 'GitHub Source Repo');
+    const iconSvg = isLinkedIn
+        ? `<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.64 1.64 0 1 0 0 3.28 1.64 1.64 0 0 0 0-3.28z"/></svg>`
+        : `<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>`;
     const githubBtnHtml = `
-        <a href="${data.githubUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding: 6px 14px; font-size: 12px; font-weight: 600; display: inline-flex; align-items: center; gap: 6px;">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        <a href="${data.githubUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding: 6px 14px; font-size: 12px; font-weight: 600; display: inline-flex; align-items: center; gap: 6px;" title="Request source code via LinkedIn">
+            ${iconSvg}
             ${githubLabel}
         </a>
     `;
@@ -554,6 +558,231 @@ window.closeProjectModal = function(e) {
     document.body.style.overflow = '';
 };
 
+// ── 11. GRAPHIC DESIGN SHOWCASE & LIGHTBOX ─────────────
+const DESIGN_SAMPLES = [
+    {
+        src: 'assets/Skiils/Artboard%201@4x-100.jpg',
+        title: 'TC PDR — Royal Crest & Lion Emblem',
+        category: 'Brand Identity',
+        filter: 'branding',
+        desc: 'Luxury gold lion and crown crest emblem with precision vector geometry on royal navy gradient.',
+        tools: ['Adobe Illustrator', 'Vector Branding', 'Luxury Emblem']
+    },
+    {
+        src: 'assets/Skiils/real_estate_flyer_26.jpg',
+        title: 'Moorland Services — End of Tenancy Flyer',
+        category: 'Flyers & Print',
+        filter: 'flyers',
+        desc: 'Comprehensive real estate property management and maintenance marketing flyer with photo grid layout.',
+        tools: ['Photoshop', 'InDesign', 'Print Layout']
+    },
+    {
+        src: 'assets/Skiils/Screenshot%20(124).png',
+        title: 'SLTMOBITEL — Cyber Security Quiz Campaign',
+        category: 'Corporate & Event',
+        filter: 'campaigns',
+        desc: 'Enterprise awareness week competition poster designed for Sri Lanka Telecom (SLT-Mobitel).',
+        tools: ['Adobe Illustrator', 'Campaign Art', 'Enterprise Awareness']
+    },
+    {
+        src: 'assets/Skiils/Screenshot%20(142).png',
+        title: 'Fantasy Dragon Twilight — Digital Matte Painting',
+        category: 'Digital Illustration',
+        filter: 'illustration',
+        desc: 'Atmospheric digital landscape illustration featuring a majestic winged creature overlooking moonlit cliffs.',
+        tools: ['Photoshop', 'Concept Art', 'Atmospheric Lighting']
+    },
+    {
+        src: 'assets/Skiils/IMG_7103.PNG',
+        title: 'NASA Creations — Minimalist Monogram Emblem',
+        category: 'Brand Identity',
+        filter: 'branding',
+        desc: 'Geometric minimalist logo design crafted for creative media and graphic production identity.',
+        tools: ['Adobe Illustrator', 'Geometric Vector', 'Brand Identity']
+    },
+    {
+        src: 'assets/Skiils/WhatsApp%20Image%202026-09-08%20at%2021bcvf.47.47.jpeg',
+        title: 'Hemel Stays — Luxury Serviced Apartments Flyer',
+        category: 'Flyers & Print',
+        filter: 'flyers',
+        desc: 'Elegantly branded UK real estate and hospitality promotional flyer with QR booking callouts.',
+        tools: ['Photoshop', 'Typography', 'Print Collateral']
+    },
+    {
+        src: 'assets/Skiils/WhatsApp%20Image%202026-09-08%20at%2021.47.47g.jpeg',
+        title: 'SLIIT Heritage Panorama — Vector Campus Mural',
+        category: 'Digital Illustration',
+        filter: 'illustration',
+        desc: 'Stylized panoramic isometric illustration depicting the university campus landmarks and student life.',
+        tools: ['Adobe Illustrator', 'Isometric Vector', 'Campus Mural']
+    },
+    {
+        src: 'assets/Skiils/Artboard%201-new.jpg',
+        title: 'Univ of Hertfordshire — Sri Lankan Society Crest',
+        category: 'Brand Identity',
+        filter: 'branding',
+        desc: 'Official student society emblem combining British academia crest elements with traditional Sri Lankan motifs.',
+        tools: ['Illustrator', 'Emblem Design', 'University Society']
+    },
+    {
+        src: 'assets/Skiils/Screenshot%20(143).png',
+        title: 'Rocket Highway & Cyber Grid — suja.ai',
+        category: 'Digital Illustration',
+        filter: 'illustration',
+        desc: 'Futuristic vector scene showing a rocket launchpad across a cyber freeway, exploring sci-fi themes.',
+        tools: ['Illustrator', 'Photoshop', 'Cyber Scifi']
+    },
+    {
+        src: 'assets/Skiils/Screenshot%20(136).png',
+        title: 'SLTMOBITEL — Cyber Week Event Schedule',
+        category: 'Corporate & Event',
+        filter: 'campaigns',
+        desc: 'Corporate infographic schedule detailing daily threat defense tracks for SLT-Mobitel Cyber Security Week.',
+        tools: ['Illustrator', 'Infographic Design', 'Corporate Event']
+    },
+    {
+        src: 'assets/Skiils/WhatsApp%20Image%202026-09-08%20at%2021.47.4nhngh8.jpeg',
+        title: 'The A Team — Architecture & Developers Mark',
+        category: 'Brand Identity',
+        filter: 'branding',
+        desc: 'Architectural skyline vector identity concept crafted in Adobe Illustrator for a property development firm.',
+        tools: ['Adobe Illustrator', 'Minimalist Vector', 'Architectural Mark']
+    },
+    {
+        src: 'assets/Skiils/Main.jpeg',
+        title: 'NASA Creations — Creative Services Flyer',
+        category: 'Flyers & Print',
+        filter: 'flyers',
+        desc: 'High-energy marketing promotional flyer highlighting branding capabilities and character artwork.',
+        tools: ['Photoshop', 'Illustrator', 'Marketing Collateral']
+    },
+    {
+        src: 'assets/Skiils/Screenshot%20(24).png',
+        title: 'Faculty of Computing Media Unit — Official Polo',
+        category: 'Corporate & Event',
+        filter: 'campaigns',
+        desc: 'Corporate apparel & uniform mockup design with custom sleeve badge and chest insignia for the university media team.',
+        tools: ['Photoshop Mockup', 'Vector Art', 'Merchandise']
+    },
+    {
+        src: 'assets/Skiils/WhatsApp%20Image%202026-09-08%20at%2021.47.47.jpeg',
+        title: 'Media Unit — Creators in Action Line Art',
+        category: 'Digital Illustration',
+        filter: 'illustration',
+        desc: 'Continuous-line vector mural celebrating photographers, videographers, editors, and digital designers.',
+        tools: ['Illustrator', 'Continuous Line Art', 'Vector Mural']
+    },
+    {
+        src: 'assets/Skiils/WhatsApp%20Imfgdfgage%202026-09-08%20at%2021.47.47.jpeg',
+        title: 'SLIIT Computing — Winter Holiday Greeting',
+        category: 'Corporate & Event',
+        filter: 'campaigns',
+        desc: 'Seasonal digital community greetings card combining vector campus illustration and typography.',
+        tools: ['Photoshop', 'Illustrator', 'Seasonal Campaign']
+    },
+    {
+        src: 'assets/Skiils/Screenshot%202023-10-11%20124212.png',
+        title: 'SLTMOBITEL — Cyber Glitch Typographic Concept',
+        category: 'Corporate & Event',
+        filter: 'campaigns',
+        desc: 'Cyber typographic exploration combining circuit board traces, distressed brushes, and digital glitch effects.',
+        tools: ['Illustrator', 'Glitch Typography', 'Cyber Aesthetic']
+    }
+];
+
+let currentDesignIndex = 0;
+
+function updateDesignLightboxContent(item) {
+    const img = document.getElementById('designLightboxImg');
+    const cat = document.getElementById('designLightboxCategory');
+    const counter = document.getElementById('designLightboxCounter');
+    const title = document.getElementById('designLightboxTitle');
+    const desc = document.getElementById('designLightboxDesc');
+    const tools = document.getElementById('designLightboxTools');
+    const fullRes = document.getElementById('designLightboxFullRes');
+
+    if (img) {
+        img.src = item.src;
+        img.alt = item.title;
+    }
+    if (cat) cat.textContent = item.category;
+    if (counter) counter.textContent = `${currentDesignIndex + 1} / ${DESIGN_SAMPLES.length}`;
+    if (title) title.textContent = item.title;
+    if (desc) desc.textContent = item.desc;
+    if (tools) {
+        tools.innerHTML = item.tools.map(t => `<span class="design-lightbox-tool-tag">${t}</span>`).join('');
+    }
+    if (fullRes) fullRes.href = item.src;
+}
+
+window.openDesignLightbox = function(index) {
+    const modal = document.getElementById('designLightbox');
+    if (!modal) return;
+    const item = DESIGN_SAMPLES[index];
+    if (!item) return;
+
+    currentDesignIndex = index;
+    updateDesignLightboxContent(item);
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+};
+
+window.closeDesignLightbox = function() {
+    const modal = document.getElementById('designLightbox');
+    if (!modal) return;
+    modal.classList.remove('active');
+    const projectModal = document.getElementById('projectModal');
+    if (!projectModal || !projectModal.classList.contains('active')) {
+        document.body.style.overflow = '';
+    }
+};
+
+window.nextDesignLightbox = function() {
+    const nextIdx = (currentDesignIndex + 1) % DESIGN_SAMPLES.length;
+    window.openDesignLightbox(nextIdx);
+};
+
+window.prevDesignLightbox = function() {
+    const prevIdx = (currentDesignIndex - 1 + DESIGN_SAMPLES.length) % DESIGN_SAMPLES.length;
+    window.openDesignLightbox(prevIdx);
+};
+
+// Setup filter tabs
+(function setupDesignShowcase() {
+    const filterButtons = document.querySelectorAll('.design-filter-btn');
+    const cards = document.querySelectorAll('.design-card');
+
+    filterButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterButtons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const filter = btn.getAttribute('data-filter');
+            cards.forEach(card => {
+                const cardCat = card.getAttribute('data-category');
+                if (filter === 'all' || cardCat === filter) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        });
+    });
+})();
+
+// Global keyboard listeners for modals
 document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') window.closeProjectModal();
+    const designLightbox = document.getElementById('designLightbox');
+    const isDesignActive = designLightbox && designLightbox.classList.contains('active');
+
+    if (e.key === 'Escape') {
+        window.closeProjectModal();
+        window.closeDesignLightbox();
+    } else if (isDesignActive) {
+        if (e.key === 'ArrowRight') {
+            window.nextDesignLightbox();
+        } else if (e.key === 'ArrowLeft') {
+            window.prevDesignLightbox();
+        }
+    }
 });
