@@ -543,6 +543,236 @@
             opacity: 1;
         }
 
+        /* ── VISITOR DASHBOARD STYLES ── */
+        .visitor-metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .metric-tile {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+            transition: border-color 0.2s;
+        }
+
+        .metric-tile:hover {
+            border-color: rgba(0, 201, 110, 0.4);
+        }
+
+        .metric-tile::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--green);
+            opacity: 0.8;
+        }
+
+        .metric-tile-label {
+            font-family: var(--mono);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--muted);
+            margin-bottom: 8px;
+        }
+
+        .metric-tile-val {
+            font-family: var(--mono);
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text);
+            line-height: 1;
+        }
+
+        .metric-tile-val.accent {
+            color: var(--green);
+        }
+
+        .metric-tile-sub {
+            font-size: 11px;
+            color: var(--muted);
+            margin-top: 6px;
+        }
+
+        .visitor-actions-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .visitor-search-box {
+            flex: 1;
+            min-width: 240px;
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 9px 14px;
+            color: var(--text);
+            font-family: var(--mono);
+            font-size: 12px;
+            outline: none;
+        }
+
+        .visitor-search-box:focus {
+            border-color: var(--green);
+        }
+
+        .visitor-btn-group {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .btn-action-sm {
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            color: var(--text);
+            border-radius: 6px;
+            padding: 8px 14px;
+            font-family: var(--mono);
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-action-sm:hover {
+            border-color: var(--green);
+            color: var(--green);
+        }
+
+        .btn-action-sm.danger:hover {
+            border-color: var(--red);
+            color: var(--red);
+        }
+
+        .visitor-table-wrap {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+
+        .visitor-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12.5px;
+            font-family: var(--sans);
+        }
+
+        .visitor-table th {
+            background: #090909;
+            color: var(--muted);
+            font-family: var(--mono);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            text-align: left;
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border);
+            white-space: nowrap;
+        }
+
+        .visitor-table td {
+            padding: 14px 16px;
+            border-bottom: 1px solid #1a1a1a;
+            color: var(--text);
+            vertical-align: middle;
+        }
+
+        .visitor-table tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .visitor-badge {
+            display: inline-block;
+            font-family: var(--mono);
+            font-size: 10.5px;
+            padding: 3px 8px;
+            border-radius: 4px;
+            border: 1px solid transparent;
+            white-space: nowrap;
+        }
+
+        .badge-linkedin {
+            background: rgba(10, 102, 194, 0.15);
+            border-color: rgba(10, 102, 194, 0.4);
+            color: #60A5FA;
+        }
+
+        .badge-github {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.25);
+            color: #F3F4F6;
+        }
+
+        .badge-search {
+            background: rgba(16, 185, 129, 0.15);
+            border-color: rgba(16, 185, 129, 0.35);
+            color: #34D399;
+        }
+
+        .badge-direct {
+            background: rgba(148, 163, 184, 0.12);
+            border-color: rgba(148, 163, 184, 0.25);
+            color: #94A3B8;
+        }
+
+        .badge-action-cv {
+            background: rgba(0, 201, 110, 0.18);
+            border-color: rgba(0, 201, 110, 0.4);
+            color: var(--green);
+            font-weight: 600;
+        }
+
+        .badge-action-pill {
+            background: var(--surface2);
+            border: 1px solid #2a2a2a;
+            color: var(--muted);
+            margin: 2px 3px 2px 0;
+        }
+
+        .webhook-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 24px;
+        }
+
+        .webhook-input-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 12px;
+        }
+
+        .webhook-input {
+            flex: 1;
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 10px 14px;
+            font-family: var(--mono);
+            font-size: 12px;
+            color: var(--text);
+            outline: none;
+        }
+
+        .webhook-input:focus {
+            border-color: var(--green);
+        }
+
         /* ── RESPONSIVE ── */
         @media (max-width: 600px) {
             .form-grid {
@@ -595,6 +825,7 @@
             <button class="tab-btn" onclick="showTab('projects')">$projects</button>
             <button class="tab-btn" onclick="showTab('skills')">$skills</button>
             <button class="tab-btn" onclick="showTab('contact')">$contact</button>
+            <button class="tab-btn" onclick="showTab('visitors')">📊 $visitors</button>
         </nav>
 
         <main class="admin-content">
@@ -783,6 +1014,101 @@
                 </div>
             </div>
 
+            <!-- VISITORS TAB -->
+            <div class="tab-panel" id="tab-visitors">
+                <div class="card" style="margin-bottom: 20px;">
+                    <div class="card-title">
+                        <span>👁️ Visitor Intelligence &amp; Recruiter Telemetry</span>
+                        <span style="font-size: 11px; color: var(--green); font-family: var(--mono);">LIVE CLIENT TELEMETRY</span>
+                    </div>
+                    <p style="color: var(--muted); font-size: 12.5px; line-height: 1.6; margin-bottom: 20px;">
+                        Captures visiting recruiters, hiring managers, geographic locations, referral sources (LinkedIn, GitHub, Direct), and key interactions such as CV downloads and section views.
+                    </p>
+
+                    <!-- KPI Tiles -->
+                    <div class="visitor-metrics-grid">
+                        <div class="metric-tile">
+                            <div class="metric-tile-label">Total Visits</div>
+                            <div class="metric-tile-val" id="metric-total-visits">0</div>
+                            <div class="metric-tile-sub">All recorded sessions</div>
+                        </div>
+                        <div class="metric-tile">
+                            <div class="metric-tile-label">Unique People</div>
+                            <div class="metric-tile-val accent" id="metric-unique-visitors">0</div>
+                            <div class="metric-tile-sub">Distinct client devices</div>
+                        </div>
+                        <div class="metric-tile">
+                            <div class="metric-tile-label">CV Downloads</div>
+                            <div class="metric-tile-val" style="color: #60A5FA;" id="metric-cv-downloads">0</div>
+                            <div class="metric-tile-sub">Poorna_CV.pdf saved</div>
+                        </div>
+                        <div class="metric-tile">
+                            <div class="metric-tile-label">Top Referrer</div>
+                            <div class="metric-tile-val" style="font-size: 18px;" id="metric-top-referrer">None</div>
+                            <div class="metric-tile-sub">Primary traffic source</div>
+                        </div>
+                        <div class="metric-tile">
+                            <div class="metric-tile-label">Top Location</div>
+                            <div class="metric-tile-val" style="font-size: 18px;" id="metric-top-location">None</div>
+                            <div class="metric-tile-sub">Leading country/city</div>
+                        </div>
+                    </div>
+
+                    <!-- Search & Action Toolbar -->
+                    <div class="visitor-actions-bar">
+                        <input type="text" id="visitor-filter-input" class="visitor-search-box"
+                            placeholder="🔍 Filter by city, country, LinkedIn, IP, or actions..."
+                            oninput="filterVisitorLogs()" />
+                        <div class="visitor-btn-group">
+                            <button class="btn-action-sm" onclick="exportVisitorCSV()">⬇ Export CSV</button>
+                            <button class="btn-action-sm" onclick="exportVisitorJSON()">⬇ Export JSON</button>
+                            <button class="btn-action-sm" onclick="simulateVisitorLog()">🧪 Test Simulate</button>
+                            <button class="btn-action-sm danger" onclick="clearVisitorLogs()">🗑️ Clear Logs</button>
+                        </div>
+                    </div>
+
+                    <!-- Visitor Table -->
+                    <div class="visitor-table-wrap">
+                        <table class="visitor-table">
+                            <thead>
+                                <tr>
+                                    <th>Date / Time</th>
+                                    <th>Location &amp; ISP</th>
+                                    <th>Source / Referrer</th>
+                                    <th>Device / OS</th>
+                                    <th>Duration</th>
+                                    <th>Engagement Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="visitor-table-body">
+                                <tr>
+                                    <td colspan="6" style="text-align: center; color: var(--muted); padding: 32px;">
+                                        Loading visitor logs...
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Instant Webhook Notification Box -->
+                <div class="webhook-card">
+                    <div class="card-title">
+                        <span>🔔 Instant Real-Time Alert Webhook (Optional)</span>
+                    </div>
+                    <p style="color: var(--muted); font-size: 12.5px; line-height: 1.6;">
+                        Paste a Discord or Slack incoming webhook URL below. When a recruiter lands on your site or downloads your CV, an instant notification is sent directly to your phone or Discord channel!
+                    </p>
+                    <div class="webhook-input-group">
+                        <input type="url" id="admin-webhook-input" class="webhook-input"
+                            placeholder="https://discord.com/api/webhooks/..." />
+                        <button class="btn-action-sm" onclick="saveWebhookUrl()">💾 Save Webhook</button>
+                        <button class="btn-action-sm" onclick="testWebhookAlert()">🔔 Test Ping</button>
+                    </div>
+                    <div id="webhook-status" style="font-size: 11px; font-family: var(--mono); color: var(--green); margin-top: 8px;"></div>
+                </div>
+            </div>
+
         </main>
     </div>
 
@@ -929,8 +1255,20 @@
         function showTab(name) {
             document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
             document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-            document.getElementById('tab-' + name).classList.add('active');
-            event.currentTarget.classList.add('active');
+            const targetPanel = document.getElementById('tab-' + name);
+            if (targetPanel) targetPanel.classList.add('active');
+
+            // Set active button
+            if (window.event && window.event.currentTarget && window.event.currentTarget.classList.contains('tab-btn')) {
+                window.event.currentTarget.classList.add('active');
+            } else {
+                const btn = Array.from(document.querySelectorAll('.tab-btn')).find(b => b.getAttribute('onclick')?.includes(`'${name}'`));
+                if (btn) btn.classList.add('active');
+            }
+
+            if (name === 'visitors') {
+                renderVisitorsTab();
+            }
         }
 
         // ═══════════════════════════════════════════════
@@ -1318,6 +1656,280 @@
             t.textContent = '⬇ index.html downloaded — deploy it!';
             t.classList.add('show');
             setTimeout(() => { t.classList.remove('show'); t.textContent = '✓ Changes saved to portfolio'; }, 4000);
+        }
+
+        // ═══════════════════════════════════════════════
+        //  VISITOR INTELLIGENCE & TELEMETRY FUNCTIONS
+        // ═══════════════════════════════════════════════
+        const VISITOR_STORAGE_KEY = 'cyber_visitor_logs';
+        const WEBHOOK_STORAGE_KEY = 'cyber_webhook_url';
+
+        function getVisitorLogs() {
+            try {
+                return JSON.parse(localStorage.getItem(VISITOR_STORAGE_KEY)) || [];
+            } catch (e) {
+                return [];
+            }
+        }
+
+        function renderVisitorsTab() {
+            const logs = getVisitorLogs();
+
+            // Load saved webhook
+            const savedWebhook = localStorage.getItem(WEBHOOK_STORAGE_KEY) || '';
+            const webhookInput = document.getElementById('admin-webhook-input');
+            if (webhookInput) webhookInput.value = savedWebhook;
+
+            // Compute KPIs
+            const totalVisits = logs.length;
+            const uniqueVisitors = new Set(logs.map(l => l.visitorId)).size;
+            const cvDownloads = logs.filter(l => (l.actions || []).some(a => a.toLowerCase().includes('downloaded cv'))).length;
+
+            // Top Referrer
+            const refCounts = {};
+            logs.forEach(l => {
+                const cat = (l.referrer && l.referrer.category) || 'Direct';
+                refCounts[cat] = (refCounts[cat] || 0) + 1;
+            });
+            let topRef = 'None';
+            let topRefCount = 0;
+            for (const [k, v] of Object.entries(refCounts)) {
+                if (v > topRefCount) { topRef = k; topRefCount = v; }
+            }
+
+            // Top Location
+            const locCounts = {};
+            logs.forEach(l => {
+                if (l.location && l.location.country && l.location.country !== 'Detecting...') {
+                    const place = (l.location.city && l.location.city !== 'Unknown City' ? l.location.city + ', ' : '') + l.location.country;
+                    locCounts[place] = (locCounts[place] || 0) + 1;
+                }
+            });
+            let topLoc = 'None';
+            let topLocCount = 0;
+            for (const [k, v] of Object.entries(locCounts)) {
+                if (v > topLocCount) { topLoc = k; topLocCount = v; }
+            }
+
+            // Update KPI DOM
+            document.getElementById('metric-total-visits').textContent = totalVisits;
+            document.getElementById('metric-unique-visitors').textContent = uniqueVisitors;
+            document.getElementById('metric-cv-downloads').textContent = cvDownloads;
+            document.getElementById('metric-top-referrer').textContent = topRef;
+            document.getElementById('metric-top-location').textContent = topLoc;
+
+            // Populate Table
+            renderVisitorRows(logs);
+        }
+
+        function renderVisitorRows(logs) {
+            const tbody = document.getElementById('visitor-table-body');
+            if (!tbody) return;
+
+            if (!logs || logs.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="6" style="text-align: center; color: var(--muted); padding: 40px; font-family: var(--mono); font-size: 13px;">
+                            🛡️ No visitor logs recorded yet.<br>
+                            <span style="font-size: 11px; opacity: 0.7;">Click "🧪 Test Simulate" to preview sample recruiter telemetry.</span>
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+
+            tbody.innerHTML = logs.map(l => {
+                // Referrer badge
+                let refBadgeClass = 'badge-direct';
+                const refCat = (l.referrer && l.referrer.category) || 'Direct';
+                if (refCat.includes('LinkedIn')) refBadgeClass = 'badge-linkedin';
+                else if (refCat.includes('GitHub')) refBadgeClass = 'badge-github';
+                else if (refCat.includes('Search') || refCat.includes('Google')) refBadgeClass = 'badge-search';
+
+                // Duration format
+                const dur = l.durationSeconds ? `${Math.floor(l.durationSeconds / 60)}m ${l.durationSeconds % 60}s` : '< 5s';
+
+                // Location format
+                const city = (l.location && l.location.city) || 'Unknown City';
+                const country = (l.location && l.location.country) || 'Global';
+                const org = (l.location && l.location.org) ? `<div style="font-size: 11px; color: var(--muted); font-family: var(--mono);">${esc(l.location.org)}</div>` : '';
+
+                // Actions badges
+                const actionsHtml = (l.actions || ['Landed on Portfolio']).map(a => {
+                    const isCv = a.toLowerCase().includes('downloaded cv');
+                    return `<span class="visitor-badge ${isCv ? 'badge-action-cv' : 'badge-action-pill'}">${esc(a)}</span>`;
+                }).join(' ');
+
+                // Device summary
+                const dev = l.device || { os: 'Desktop', browser: 'Browser' };
+                const devText = `${dev.os || 'OS'} · ${dev.browser || 'Browser'}`;
+
+                // Timestamp
+                const dateText = l.dateFormatted || (l.timestamp ? new Date(l.timestamp).toLocaleString() : 'Recent');
+
+                return `
+                    <tr>
+                        <td style="font-family: var(--mono); font-size: 11.5px; white-space: nowrap; color: var(--muted);">
+                            ${esc(dateText)}
+                        </td>
+                        <td>
+                            <strong style="color: var(--text);">${esc(city)}, ${esc(country)}</strong>
+                            ${org}
+                        </td>
+                        <td>
+                            <span class="visitor-badge ${refBadgeClass}">${esc(refCat)}</span>
+                            ${l.referrer && l.referrer.detail && l.referrer.detail !== refCat ? `<div style="font-size: 10.5px; color: var(--muted); margin-top: 3px; font-family: var(--mono);">${esc(l.referrer.detail)}</div>` : ''}
+                        </td>
+                        <td style="font-family: var(--mono); font-size: 11px; color: var(--text); white-space: nowrap;">
+                            ${esc(devText)}
+                        </td>
+                        <td style="font-family: var(--mono); font-size: 11px; color: var(--muted);">
+                            ${esc(dur)}
+                            ${l.maxScrollDepth ? `<div style="font-size: 10px; opacity: 0.7;">${l.maxScrollDepth}% scroll</div>` : ''}
+                        </td>
+                        <td>
+                            ${actionsHtml}
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        function filterVisitorLogs() {
+            const query = (document.getElementById('visitor-filter-input')?.value || '').toLowerCase().trim();
+            const logs = getVisitorLogs();
+            if (!query) {
+                renderVisitorRows(logs);
+                return;
+            }
+
+            const filtered = logs.filter(l => {
+                const matchCity = l.location?.city?.toLowerCase().includes(query);
+                const matchCountry = l.location?.country?.toLowerCase().includes(query);
+                const matchOrg = l.location?.org?.toLowerCase().includes(query);
+                const matchRef = l.referrer?.category?.toLowerCase().includes(query) || l.referrer?.detail?.toLowerCase().includes(query);
+                const matchAction = (l.actions || []).some(a => a.toLowerCase().includes(query));
+                const matchDev = l.device?.os?.toLowerCase().includes(query) || l.device?.browser?.toLowerCase().includes(query);
+                return matchCity || matchCountry || matchOrg || matchRef || matchAction || matchDev;
+            });
+            renderVisitorRows(filtered);
+        }
+
+        function exportVisitorCSV() {
+            const logs = getVisitorLogs();
+            if (logs.length === 0) { alert('No visitor logs to export.'); return; }
+
+            const headers = ['Timestamp', 'City', 'Country', 'Organization/ISP', 'Referrer Category', 'Referrer Detail', 'Device OS', 'Browser', 'Duration (s)', 'Max Scroll Depth', 'Actions'];
+            const rows = logs.map(l => [
+                `"${l.timestamp || ''}"`,
+                `"${(l.location?.city || '').replace(/"/g, '""')}"`,
+                `"${(l.location?.country || '').replace(/"/g, '""')}"`,
+                `"${(l.location?.org || '').replace(/"/g, '""')}"`,
+                `"${(l.referrer?.category || '').replace(/"/g, '""')}"`,
+                `"${(l.referrer?.detail || '').replace(/"/g, '""')}"`,
+                `"${(l.device?.os || '').replace(/"/g, '""')}"`,
+                `"${(l.device?.browser || '').replace(/"/g, '""')}"`,
+                l.durationSeconds || 0,
+                l.maxScrollDepth || 0,
+                `"${(l.actions || []).join('; ').replace(/"/g, '""')}"`
+            ]);
+
+            const csvContent = [headers.join(','), ...rows.map(r => r.join(','))].join('\n');
+            const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `visitor-intelligence-${new Date().toISOString().slice(0, 10)}.csv`;
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        function exportVisitorJSON() {
+            const logs = getVisitorLogs();
+            if (logs.length === 0) { alert('No visitor logs to export.'); return; }
+
+            const blob = new Blob([JSON.stringify(logs, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `visitor-intelligence-${new Date().toISOString().slice(0, 10)}.json`;
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        function clearVisitorLogs() {
+            if (!confirm('Are you sure you want to clear all visitor logs?')) return;
+            localStorage.removeItem(VISITOR_STORAGE_KEY);
+            renderVisitorsTab();
+            const t = document.getElementById('toast');
+            t.textContent = '🗑️ Visitor logs cleared';
+            t.classList.add('show');
+            setTimeout(() => t.classList.remove('show'), 3000);
+        }
+
+        function simulateVisitorLog() {
+            if (window.CyberTracker && window.CyberTracker.simulateVisit) {
+                window.CyberTracker.simulateVisit('London', 'LinkedIn Recruiter');
+            } else {
+                const mock = {
+                    id: 'mock_' + Date.now(),
+                    sessionId: 'msid_' + Math.random().toString(36).substring(2, 7),
+                    visitorId: 'mvid_' + Math.random().toString(36).substring(2, 7),
+                    timestamp: new Date().toISOString(),
+                    dateFormatted: new Date().toLocaleString(),
+                    referrer: { category: 'LinkedIn Recruiter / Network', detail: 'Recruiter Search (UK)', raw: 'https://linkedin.com' },
+                    device: { type: 'Desktop', os: 'macOS', browser: 'Chrome', screen: '1920x1080', language: 'en-GB' },
+                    location: { city: 'London', country: 'United Kingdom', countryCode: 'GB', org: 'Cyber Defense Talent Partners Ltd', ip: '185.12.x.x' },
+                    durationSeconds: 185,
+                    maxScrollDepth: 95,
+                    actions: ['Landed on Portfolio', '🛡️ Viewed SOC Experience', '📥 Downloaded CV (Poorna_CV.pdf)', '💼 Clicked LinkedIn Profile']
+                };
+                const l = getVisitorLogs();
+                l.unshift(mock);
+                localStorage.setItem(VISITOR_STORAGE_KEY, JSON.stringify(l));
+            }
+            renderVisitorsTab();
+            const t = document.getElementById('toast');
+            t.textContent = '🧪 Simulated recruiter visit generated!';
+            t.classList.add('show');
+            setTimeout(() => t.classList.remove('show'), 3000);
+        }
+
+        function saveWebhookUrl() {
+            const input = document.getElementById('admin-webhook-input');
+            const val = (input?.value || '').trim();
+            localStorage.setItem(WEBHOOK_STORAGE_KEY, val);
+            const statusEl = document.getElementById('webhook-status');
+            if (statusEl) {
+                statusEl.textContent = val ? '✓ Webhook URL saved successfully!' : 'Webhook URL cleared.';
+                setTimeout(() => { statusEl.textContent = ''; }, 3500);
+            }
+        }
+
+        function testWebhookAlert() {
+            const url = localStorage.getItem(WEBHOOK_STORAGE_KEY);
+            if (!url) {
+                alert('Please enter and save a Webhook URL first.');
+                return;
+            }
+            fetch(url, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    content: '🧪 **Test Alert from Poorna Portfolio Admin**\nVisitor tracking webhook is configured and ready!',
+                    username: 'Portfolio Telemetry',
+                    embeds: [{
+                        title: 'Telemetry Connection Verified',
+                        description: 'Your real-time visitor alert webhook is active.',
+                        color: 0x00c96e,
+                        timestamp: new Date().toISOString()
+                    }]
+                })
+            }).then(() => {
+                alert('✓ Test alert sent! Check your Discord/Slack channel.');
+            }).catch(err => {
+                alert('Could not send webhook: ' + err.message);
+            });
         }
     </script>
 </body>
