@@ -307,9 +307,9 @@
             trackAction('🐙 Visited GitHub');
         } else if (href.includes('#projects')) {
             trackAction('🛠️ Explored Projects Section');
-        } else if (href.includes('#experience')) {
+        } else if (href.includes('#experience') || href.includes('#work')) {
             trackAction('🛡️ Viewed SOC Experience');
-        } else if (href.includes('#certifications')) {
+        } else if (href.includes('#certifications') || href.includes('#credentials')) {
             trackAction('📜 Viewed Certifications');
         }
     });
